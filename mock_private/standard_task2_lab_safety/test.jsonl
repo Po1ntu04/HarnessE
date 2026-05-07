@@ -1,0 +1,20 @@
+{"text": "Test message: The main request is this: Visitors must wear goggles before entering the wet lab.", "label": "ppe_required"}
+{"text": "Not about 旧上下文; the main request is this: 进入动物房前需要手套和面罩。", "label": "ppe_required"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The technician forgot the face shield during mixing.", "label": "ppe_required"}
+{"text": "Even with the extra context, Visitors must wear goggles before entering the wet lab. The side note is not the class target.", "label": "ppe_required"}
+{"text": "Test message: The main request is this: Acid splashed near the balance and needs neutralization.", "label": "chemical_spill"}
+{"text": "Not about 旧上下文; the main request is this: 试剂瓶破裂，地面有液体。", "label": "chemical_spill"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: A solvent puddle appeared under the hood.", "label": "chemical_spill"}
+{"text": "Even with the extra context, Acid splashed near the balance and needs neutralization. The side note is not the class target.", "label": "chemical_spill"}
+{"text": "Test message: The main request is this: A culture plate cracked outside containment.", "label": "biohazard_exposure"}
+{"text": "Not about 旧上下文; the main request is this: 针头可能接触了血样。", "label": "biohazard_exposure"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The sample bag leaked during transfer.", "label": "biohazard_exposure"}
+{"text": "Even with the extra context, A culture plate cracked outside containment. The side note is not the class target.", "label": "biohazard_exposure"}
+{"text": "Test message: The main request is this: The centrifuge vibrates and should not be used.", "label": "equipment_lockout"}
+{"text": "Not about 旧上下文; the main request is this: 激光器联锁失效，需要停用。", "label": "equipment_lockout"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The autoclave door alarm keeps triggering.", "label": "equipment_lockout"}
+{"text": "Even with the extra context, The centrifuge vibrates and should not be used. The side note is not the class target.", "label": "equipment_lockout"}
+{"text": "Test message: The main request is this: Sharps were placed in the wrong bin.", "label": "waste_disposal"}
+{"text": "Not about 旧上下文; the main request is this: 含汞废液需要按特殊流程处理。", "label": "waste_disposal"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Used gels must go to hazardous waste.", "label": "waste_disposal"}
+{"text": "Even with the extra context, Sharps were placed in the wrong bin. The side note is not the class target.", "label": "waste_disposal"}

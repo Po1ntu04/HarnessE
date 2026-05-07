@@ -1,0 +1,12 @@
+{"text": "Training signal: Please review whether this vendor clause allows data resale.", "label": "A"}
+{"text": "Example for routing: The contract mentions liability for downstream sharing.", "label": "A"}
+{"text": "Observed user wording: A privacy review is needed before approval.", "label": "A"}
+{"text": "Training signal: The replacement package has not reached the warehouse.", "label": "B"}
+{"text": "Example for routing: Tracking stopped after the parcel left the depot.", "label": "B"}
+{"text": "Observed user wording: A shipment needs address correction.", "label": "B"}
+{"text": "Training signal: The upload page crashes after choosing a file.", "label": "C"}
+{"text": "Example for routing: The dashboard fails only after refresh.", "label": "C"}
+{"text": "Observed user wording: The printer driver exits during setup.", "label": "C"}
+{"text": "Training signal: The renewal charge was higher than the quote.", "label": "D"}
+{"text": "Example for routing: A subscription payment posted twice.", "label": "D"}
+{"text": "Observed user wording: The invoice includes cancelled seats.", "label": "D"}

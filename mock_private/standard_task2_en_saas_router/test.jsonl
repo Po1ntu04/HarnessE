@@ -1,0 +1,18 @@
+{"text": "Test message: The main request is this: The login code expires before it arrives.", "label": "account_access"}
+{"text": "Not about 旧上下文; the main request is this: The workspace invite works for teammates but not me.", "label": "account_access"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: I know my password but cannot enter.", "label": "account_access"}
+{"text": "Test message: The main request is this: The invoice includes seats removed last month.", "label": "billing_dispute"}
+{"text": "Not about 旧上下文; the main request is this: We were charged twice for one renewal.", "label": "billing_dispute"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The receipt does not match the subscription quote.", "label": "billing_dispute"}
+{"text": "Test message: The main request is this: The upload button freezes after file selection.", "label": "technical_bug"}
+{"text": "Not about 旧上下文; the main request is this: Saving a dashboard throws an error for one project.", "label": "technical_bug"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The export modal closes without a file.", "label": "technical_bug"}
+{"text": "Test message: The main request is this: Please add bulk member import.", "label": "feature_request"}
+{"text": "Not about 旧上下文; the main request is this: We need custom roles for reviewers.", "label": "feature_request"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: A keyboard shortcut for archive would help.", "label": "feature_request"}
+{"text": "Test message: The main request is this: Someone logged in from a new country.", "label": "security_risk"}
+{"text": "Not about 旧上下文; the main request is this: An unknown API token was created overnight.", "label": "security_risk"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Audit logs show suspicious access.", "label": "security_risk"}
+{"text": "Test message: The main request is this: Every user in our region gets a blank page.", "label": "service_outage"}
+{"text": "Not about 旧上下文; the main request is this: The whole service is unreachable.", "label": "service_outage"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Status checks fail across all projects.", "label": "service_outage"}

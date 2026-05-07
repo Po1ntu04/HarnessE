@@ -1,0 +1,18 @@
+{"text": "Training signal: 外交官在峰会后讨论停火路线。", "label": "world_affairs"}
+{"text": "Example for routing: Le parlement débat d'un nouveau traité régional.", "label": "world_affairs"}
+{"text": "Observed user wording: Ministers met after a border dispute.", "label": "world_affairs"}
+{"text": "Training signal: Chip stocks rose after a supply agreement.", "label": "business_markets"}
+{"text": "Example for routing: Las acciones bancarias cayeron tras el informe.", "label": "business_markets"}
+{"text": "Observed user wording: A retail merger lifted market expectations.", "label": "business_markets"}
+{"text": "Training signal: 研究人员发布了低功耗传感器。", "label": "science_technology"}
+{"text": "Example for routing: A lab demonstrated a new battery material.", "label": "science_technology"}
+{"text": "Observed user wording: 新しいAIチップが発表された。", "label": "science_technology"}
+{"text": "Training signal: Hospitals expanded vaccine clinics.", "label": "health_medicine"}
+{"text": "Example for routing: 医生报告了新的治疗试验结果。", "label": "health_medicine"}
+{"text": "Observed user wording: La campaña de salud pública comenzó.", "label": "health_medicine"}
+{"text": "Training signal: 太阳能项目获得新的储能合同。", "label": "climate_energy"}
+{"text": "Example for routing: Cities prepared for a heat wave.", "label": "climate_energy"}
+{"text": "Observed user wording: Wind output changed regional power prices.", "label": "climate_energy"}
+{"text": "Training signal: The final was decided by a late goal.", "label": "sports_competition"}
+{"text": "Example for routing: 球队在加时赛后晋级。", "label": "sports_competition"}
+{"text": "Observed user wording: El torneo anunció sus semifinalistas.", "label": "sports_competition"}

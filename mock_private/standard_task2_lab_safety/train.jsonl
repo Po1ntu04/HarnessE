@@ -1,0 +1,15 @@
+{"text": "Training signal: Visitors must wear goggles before entering the wet lab.", "label": "ppe_required"}
+{"text": "Example for routing: 进入动物房前需要手套和面罩。", "label": "ppe_required"}
+{"text": "Observed user wording: The technician forgot the face shield during mixing.", "label": "ppe_required"}
+{"text": "Training signal: Acid splashed near the balance and needs neutralization.", "label": "chemical_spill"}
+{"text": "Example for routing: 试剂瓶破裂，地面有液体。", "label": "chemical_spill"}
+{"text": "Observed user wording: A solvent puddle appeared under the hood.", "label": "chemical_spill"}
+{"text": "Training signal: A culture plate cracked outside containment.", "label": "biohazard_exposure"}
+{"text": "Example for routing: 针头可能接触了血样。", "label": "biohazard_exposure"}
+{"text": "Observed user wording: The sample bag leaked during transfer.", "label": "biohazard_exposure"}
+{"text": "Training signal: The centrifuge vibrates and should not be used.", "label": "equipment_lockout"}
+{"text": "Example for routing: 激光器联锁失效，需要停用。", "label": "equipment_lockout"}
+{"text": "Observed user wording: The autoclave door alarm keeps triggering.", "label": "equipment_lockout"}
+{"text": "Training signal: Sharps were placed in the wrong bin.", "label": "waste_disposal"}
+{"text": "Example for routing: 含汞废液需要按特殊流程处理。", "label": "waste_disposal"}
+{"text": "Observed user wording: Used gels must go to hazardous waste.", "label": "waste_disposal"}

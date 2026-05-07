@@ -1,0 +1,18 @@
+{"text": "Training signal: 我重置密码后还是无法登录工作台。", "label": "账号访问"}
+{"text": "Example for routing: 验证码过期太快，账户进不去。", "label": "账号访问"}
+{"text": "Observed user wording: 不是账单问题，是账号被锁。", "label": "账号访问"}
+{"text": "Training signal: 续费金额比合同报价高。", "label": "账单争议"}
+{"text": "Example for routing: 同一个团队被扣了两次。", "label": "账单争议"}
+{"text": "Observed user wording: 发票包含已删除的席位。", "label": "账单争议"}
+{"text": "Training signal: 上传文件后按钮卡死。", "label": "技术故障"}
+{"text": "Example for routing: 只有报表编辑器报错，其他页面正常。", "label": "技术故障"}
+{"text": "Observed user wording: 导出弹窗提前关闭。", "label": "技术故障"}
+{"text": "Training signal: 希望增加批量导入成员的能力。", "label": "功能需求"}
+{"text": "Example for routing: 能否支持暗色模式？", "label": "功能需求"}
+{"text": "Observed user wording: 我们想要一个审批流功能。", "label": "功能需求"}
+{"text": "Training signal: 有人从陌生国家登录了我的账户。", "label": "安全风险"}
+{"text": "Example for routing: 审计日志显示未知 API key。", "label": "安全风险"}
+{"text": "Observed user wording: 怀疑 token 泄露。", "label": "安全风险"}
+{"text": "Training signal: 整个服务都打不开，不只是某个按钮。", "label": "服务中断"}
+{"text": "Example for routing: 所有同事都无法访问仪表盘。", "label": "服务中断"}
+{"text": "Observed user wording: 状态页显示区域性故障。", "label": "服务中断"}

@@ -1,0 +1,24 @@
+{"text": "Training signal: 我的实体卡已经到了，但还没法用，需要 activate。", "label": "activate_my_card"}
+{"text": "Example for routing: Card arrived，主要问题是怎么开通。", "label": "activate_my_card"}
+{"text": "Observed user wording: 不是问快递，我要启用这张新卡。", "label": "activate_my_card"}
+{"text": "Training signal: 我申请的卡一直没寄到。", "label": "card_arrival"}
+{"text": "Example for routing: 预计日期过了，卡还没有收到。", "label": "card_arrival"}
+{"text": "Observed user wording: 不是问 activation，是卡根本没到。", "label": "card_arrival"}
+{"text": "Training signal: 我转出去的钱一直显示 pending。", "label": "pending_transfer"}
+{"text": "Example for routing: bank transfer 还在处理中，没有完成。", "label": "pending_transfer"}
+{"text": "Observed user wording: 不是 card payment，是转账状态卡住。", "label": "pending_transfer"}
+{"text": "Training signal: 我这边显示 sent，但收款人说没到账。", "label": "transfer_not_received_by_recipient"}
+{"text": "Example for routing: 朋友检查账户后还是没有收到这笔 transfer。", "label": "transfer_not_received_by_recipient"}
+{"text": "Observed user wording: 不是普通 pending，recipient 没看到钱。", "label": "transfer_not_received_by_recipient"}
+{"text": "Training signal: App 要我上传证件完成身份验证。", "label": "verify_my_identity"}
+{"text": "Example for routing: 我需要知道在哪里 verify my identity。", "label": "verify_my_identity"}
+{"text": "Observed user wording: 账户被锁住，要求补充身份材料。", "label": "verify_my_identity"}
+{"text": "Training signal: 为什么突然要求我验证身份？", "label": "why_verify_identity"}
+{"text": "Example for routing: 我不是问怎么上传，而是为什么要 identity check。", "label": "why_verify_identity"}
+{"text": "Observed user wording: 请解释为什么需要这些文件。", "label": "why_verify_identity"}
+{"text": "Training signal: 商家说 refund 已经发了，但余额里看不到。", "label": "Refund_not_showing_up"}
+{"text": "Example for routing: 退货确认了，退款还没显示。", "label": "Refund_not_showing_up"}
+{"text": "Observed user wording: 不是要申请退款，是 refund 没到账。", "label": "Refund_not_showing_up"}
+{"text": "Training signal: 我想为这笔 purchase 申请退款。", "label": "request_refund"}
+{"text": "Example for routing: 请帮我 start a refund。", "label": "request_refund"}
+{"text": "Observed user wording: 我还没提交 refund request。", "label": "request_refund"}

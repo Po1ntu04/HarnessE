@@ -1,0 +1,18 @@
+{"text": "Test message: The main request is this: They ask for the latest invoice number.", "label": "reply_with_info"}
+{"text": "Not about 旧上下文; the main request is this: A partner needs the deployment date.", "label": "reply_with_info"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The sender requests a short status update.", "label": "reply_with_info"}
+{"text": "Test message: The main request is this: They want to find a slot next week.", "label": "schedule_meeting"}
+{"text": "Not about 旧上下文; the main request is this: The team asks when we can review the deck live.", "label": "schedule_meeting"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: A vendor suggests a call with engineering.", "label": "schedule_meeting"}
+{"text": "Test message: The main request is this: The budget owner must sign off on the purchase.", "label": "request_approval"}
+{"text": "Not about 旧上下文; the main request is this: They need approval before sending the offer.", "label": "request_approval"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: A manager should authorize the exception.", "label": "request_approval"}
+{"text": "Test message: The main request is this: The terms mention liability for resale.", "label": "forward_to_legal"}
+{"text": "Not about 旧上下文; the main request is this: The contract clause changes indemnity.", "label": "forward_to_legal"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The sender asks about data processing language.", "label": "forward_to_legal"}
+{"text": "Test message: The main request is this: FYI only; no response needed.", "label": "archive_no_action"}
+{"text": "Not about 旧上下文; the main request is this: The newsletter confirms the office closure.", "label": "archive_no_action"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: A receipt is sent for records.", "label": "archive_no_action"}
+{"text": "Test message: The main request is this: The customer threatens to cancel unless a director responds.", "label": "escalate_manager"}
+{"text": "Not about 旧上下文; the main request is this: The conflict needs a manager decision.", "label": "escalate_manager"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The request exceeds my authority.", "label": "escalate_manager"}

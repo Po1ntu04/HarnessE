@@ -1,0 +1,18 @@
+{"text": "Training signal: What does retrieval-augmented generation mean?", "label": "definition"}
+{"text": "Example for routing: 什么是渗透压？", "label": "definition"}
+{"text": "Observed user wording: Define amortization in simple terms.", "label": "definition"}
+{"text": "Training signal: Who invented the device?", "label": "entity"}
+{"text": "Example for routing: 哪家公司发布了这个模型？", "label": "entity"}
+{"text": "Observed user wording: What protein carries oxygen?", "label": "entity"}
+{"text": "Training signal: Where is the nearest embassy?", "label": "location"}
+{"text": "Example for routing: 这座实验站位于哪里？", "label": "location"}
+{"text": "Observed user wording: Which city hosts the conference?", "label": "location"}
+{"text": "Training signal: How many samples were tested?", "label": "number"}
+{"text": "Example for routing: 这个项目花了多少钱？", "label": "number"}
+{"text": "Observed user wording: What year did the trial start?", "label": "number"}
+{"text": "Training signal: How do I reset the sensor?", "label": "procedure"}
+{"text": "Example for routing: 如何申请伦理审批？", "label": "procedure"}
+{"text": "Observed user wording: What steps install the package?", "label": "procedure"}
+{"text": "Training signal: How is mitosis different from meiosis?", "label": "comparison"}
+{"text": "Example for routing: A 方案和 B 方案有什么区别？", "label": "comparison"}
+{"text": "Observed user wording: Compare static and dynamic routing.", "label": "comparison"}

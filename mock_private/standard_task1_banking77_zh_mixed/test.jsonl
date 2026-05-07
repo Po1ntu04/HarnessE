@@ -1,0 +1,24 @@
+{"text": "Test message: The main request is this: 我的实体卡已经到了，但还没法用，需要 activate。", "label": "activate_my_card"}
+{"text": "Not about 旧通知; the main request is this: Card arrived，主要问题是怎么开通。", "label": "activate_my_card"}
+{"text": "Earlier context mentioned merchant email, but the actual issue is that the main request is this: 不是问快递，我要启用这张新卡。", "label": "activate_my_card"}
+{"text": "Test message: The main request is this: 我申请的卡一直没寄到。", "label": "card_arrival"}
+{"text": "Not about 旧通知; the main request is this: 预计日期过了，卡还没有收到。", "label": "card_arrival"}
+{"text": "Earlier context mentioned merchant email, but the actual issue is that the main request is this: 不是问 activation，是卡根本没到。", "label": "card_arrival"}
+{"text": "Test message: The main request is this: 我转出去的钱一直显示 pending。", "label": "pending_transfer"}
+{"text": "Not about 旧通知; the main request is this: bank transfer 还在处理中，没有完成。", "label": "pending_transfer"}
+{"text": "Earlier context mentioned merchant email, but the actual issue is that the main request is this: 不是 card payment，是转账状态卡住。", "label": "pending_transfer"}
+{"text": "Test message: The main request is this: 我这边显示 sent，但收款人说没到账。", "label": "transfer_not_received_by_recipient"}
+{"text": "Not about 旧通知; the main request is this: 朋友检查账户后还是没有收到这笔 transfer。", "label": "transfer_not_received_by_recipient"}
+{"text": "Earlier context mentioned merchant email, but the actual issue is that the main request is this: 不是普通 pending，recipient 没看到钱。", "label": "transfer_not_received_by_recipient"}
+{"text": "Test message: The main request is this: App 要我上传证件完成身份验证。", "label": "verify_my_identity"}
+{"text": "Not about 旧通知; the main request is this: 我需要知道在哪里 verify my identity。", "label": "verify_my_identity"}
+{"text": "Earlier context mentioned merchant email, but the actual issue is that the main request is this: 账户被锁住，要求补充身份材料。", "label": "verify_my_identity"}
+{"text": "Test message: The main request is this: 为什么突然要求我验证身份？", "label": "why_verify_identity"}
+{"text": "Not about 旧通知; the main request is this: 我不是问怎么上传，而是为什么要 identity check。", "label": "why_verify_identity"}
+{"text": "Earlier context mentioned merchant email, but the actual issue is that the main request is this: 请解释为什么需要这些文件。", "label": "why_verify_identity"}
+{"text": "Test message: The main request is this: 商家说 refund 已经发了，但余额里看不到。", "label": "Refund_not_showing_up"}
+{"text": "Not about 旧通知; the main request is this: 退货确认了，退款还没显示。", "label": "Refund_not_showing_up"}
+{"text": "Earlier context mentioned merchant email, but the actual issue is that the main request is this: 不是要申请退款，是 refund 没到账。", "label": "Refund_not_showing_up"}
+{"text": "Test message: The main request is this: 我想为这笔 purchase 申请退款。", "label": "request_refund"}
+{"text": "Not about 旧通知; the main request is this: 请帮我 start a refund。", "label": "request_refund"}
+{"text": "Earlier context mentioned merchant email, but the actual issue is that the main request is this: 我还没提交 refund request。", "label": "request_refund"}

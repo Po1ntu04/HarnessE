@@ -1,0 +1,12 @@
+{"text": "Training signal: The card was ordered but has not reached my address.", "label": "card_arrival"}
+{"text": "Example for routing: The promised delivery date passed and the card is still missing.", "label": "card_arrival"}
+{"text": "Observed user wording: I need help locating the card shipment.", "label": "card_arrival"}
+{"text": "Training signal: The transfer is still processing in the app.", "label": "pending_transfer"}
+{"text": "Example for routing: The money I sent has no final status yet.", "label": "pending_transfer"}
+{"text": "Observed user wording: This is not a card payment; a bank transfer remains pending.", "label": "pending_transfer"}
+{"text": "Training signal: I need to upload documents to verify who I am.", "label": "verify_my_identity"}
+{"text": "Example for routing: The app blocks me until I complete identity verification.", "label": "verify_my_identity"}
+{"text": "Observed user wording: Where do I finish the identity check?", "label": "verify_my_identity"}
+{"text": "Training signal: I want to start a refund for this purchase.", "label": "request_refund"}
+{"text": "Example for routing: Please help me get money back for an order.", "label": "request_refund"}
+{"text": "Observed user wording: I have not requested a refund yet and need to begin.", "label": "request_refund"}

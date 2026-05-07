@@ -1,0 +1,36 @@
+{"text": "Training signal: My card arrived and I need to activate it before paying.", "label": "activate_my_card"}
+{"text": "Example for routing: I have the replacement card in hand but it still is not enabled.", "label": "activate_my_card"}
+{"text": "Observed user wording: Where do I turn on the new physical card?", "label": "activate_my_card"}
+{"text": "Training signal: The card was ordered but has not reached my address.", "label": "card_arrival"}
+{"text": "Example for routing: The promised delivery date passed and the card is still missing.", "label": "card_arrival"}
+{"text": "Observed user wording: I need help locating the card shipment.", "label": "card_arrival"}
+{"text": "Training signal: How long does shipping usually take for a new card?", "label": "card_delivery_estimate"}
+{"text": "Example for routing: Before ordering, I want the expected delivery window.", "label": "card_delivery_estimate"}
+{"text": "Observed user wording: What date should I expect for card delivery?", "label": "card_delivery_estimate"}
+{"text": "Training signal: The transfer is still processing in the app.", "label": "pending_transfer"}
+{"text": "Example for routing: The money I sent has no final status yet.", "label": "pending_transfer"}
+{"text": "Observed user wording: This is not a card payment; a bank transfer remains pending.", "label": "pending_transfer"}
+{"text": "Training signal: My side says sent but the recipient cannot see the money.", "label": "transfer_not_received_by_recipient"}
+{"text": "Example for routing: The payee checked twice and the transfer never arrived.", "label": "transfer_not_received_by_recipient"}
+{"text": "Observed user wording: This is beyond pending; the receiver has no deposit.", "label": "transfer_not_received_by_recipient"}
+{"text": "Training signal: I need to upload documents to verify who I am.", "label": "verify_my_identity"}
+{"text": "Example for routing: The app blocks me until I complete identity verification.", "label": "verify_my_identity"}
+{"text": "Observed user wording: Where do I finish the identity check?", "label": "verify_my_identity"}
+{"text": "Training signal: Why are you asking for identity documents now?", "label": "why_verify_identity"}
+{"text": "Example for routing: What triggered this identity check on my account?", "label": "why_verify_identity"}
+{"text": "Observed user wording: I am not asking how to upload files; I want the reason.", "label": "why_verify_identity"}
+{"text": "Training signal: The merchant says the refund was issued but I cannot see it.", "label": "Refund_not_showing_up"}
+{"text": "Example for routing: I returned the item and the refund is missing from my balance.", "label": "Refund_not_showing_up"}
+{"text": "Observed user wording: This is not about starting a refund; the credit should already show.", "label": "Refund_not_showing_up"}
+{"text": "Training signal: I want to start a refund for this purchase.", "label": "request_refund"}
+{"text": "Example for routing: Please help me get money back for an order.", "label": "request_refund"}
+{"text": "Observed user wording: I have not requested a refund yet and need to begin.", "label": "request_refund"}
+{"text": "Training signal: There is a card charge from a merchant I do not know.", "label": "card_payment_not_recognised"}
+{"text": "Example for routing: A completed card payment appears that nobody here made.", "label": "card_payment_not_recognised"}
+{"text": "Observed user wording: The card transaction cleared but I cannot identify it.", "label": "card_payment_not_recognised"}
+{"text": "Training signal: My card was rejected at checkout.", "label": "declined_card_payment"}
+{"text": "Example for routing: The shop terminal declined the card purchase.", "label": "declined_card_payment"}
+{"text": "Observed user wording: The merchant says the card payment failed.", "label": "declined_card_payment"}
+{"text": "Training signal: My wallet was stolen and the physical card must be frozen.", "label": "lost_or_stolen_card"}
+{"text": "Example for routing: The card is missing after my bag was taken.", "label": "lost_or_stolen_card"}
+{"text": "Observed user wording: I lost my card and need to block it.", "label": "lost_or_stolen_card"}

@@ -1,0 +1,18 @@
+{"text": "Test message: The main request is this: What does retrieval-augmented generation mean?", "label": "definition"}
+{"text": "Not about 旧上下文; the main request is this: 什么是渗透压？", "label": "definition"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Define amortization in simple terms.", "label": "definition"}
+{"text": "Test message: The main request is this: Who invented the device?", "label": "entity"}
+{"text": "Not about 旧上下文; the main request is this: 哪家公司发布了这个模型？", "label": "entity"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: What protein carries oxygen?", "label": "entity"}
+{"text": "Test message: The main request is this: Where is the nearest embassy?", "label": "location"}
+{"text": "Not about 旧上下文; the main request is this: 这座实验站位于哪里？", "label": "location"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Which city hosts the conference?", "label": "location"}
+{"text": "Test message: The main request is this: How many samples were tested?", "label": "number"}
+{"text": "Not about 旧上下文; the main request is this: 这个项目花了多少钱？", "label": "number"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: What year did the trial start?", "label": "number"}
+{"text": "Test message: The main request is this: How do I reset the sensor?", "label": "procedure"}
+{"text": "Not about 旧上下文; the main request is this: 如何申请伦理审批？", "label": "procedure"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: What steps install the package?", "label": "procedure"}
+{"text": "Test message: The main request is this: How is mitosis different from meiosis?", "label": "comparison"}
+{"text": "Not about 旧上下文; the main request is this: A 方案和 B 方案有什么区别？", "label": "comparison"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Compare static and dynamic routing.", "label": "comparison"}

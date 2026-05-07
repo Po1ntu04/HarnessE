@@ -36,22 +36,22 @@ def load_predictions(path: Path) -> list[dict]:
     raise SystemExit(f"unsupported prediction format: {path.suffix}")
 
 
-def load_jsonl_labels(path: Path) -> list[str]:
-    return [row["label"] for row in load_jsonl(path)]
-
-
 def build_gold(root: Path, tasks: list[dict]) -> dict[tuple[str, int], str]:
     gold: dict[tuple[str, int], str] = {}
     for task in tasks:
         task_id = task["task_id"]
-        labels = load_jsonl_labels(root / task_id / "test.jsonl")
-        for idx, label in enumerate(labels):
-            gold[(task_id, idx)] = label
+        for idx, row in enumerate(load_jsonl(root / task_id / "test.jsonl")):
+            gold[(task_id, idx)] = row["label"]
     return gold
 
 
-def format_score(value: float) -> str:
+def fmt(value: float) -> str:
     return f"{value:.4f}"
+
+
+def mode_group_score(per_task: dict[str, dict[str, float]], tasks: list[dict], mode: str, group: str) -> float:
+    values = [per_task[task["task_id"]]["accuracy"] for task in tasks if task.get("mode") == mode and task["group"] == group]
+    return mean(values) if values else 0.0
 
 
 def score(root: Path, prediction_rows: list[dict]) -> str:
@@ -65,7 +65,7 @@ def score(root: Path, prediction_rows: list[dict]) -> str:
     invalid_label_count = 0
     duplicate_prediction_count = 0
     extra_prediction_count = 0
-    malformed_count = 0
+    malformed_prediction_count = 0
 
     for row in prediction_rows:
         try:
@@ -73,7 +73,7 @@ def score(root: Path, prediction_rows: list[dict]) -> str:
             idx = int(row["idx"])
             prediction = str(row["prediction"]).strip()
         except (KeyError, TypeError, ValueError):
-            malformed_count += 1
+            malformed_prediction_count += 1
             continue
         key = (task_id, idx)
         if task_id not in task_by_id or key not in gold:
@@ -85,85 +85,86 @@ def score(root: Path, prediction_rows: list[dict]) -> str:
             duplicate_prediction_count += 1
         predictions[key] = prediction
 
-    per_task: dict[str, dict[str, int | float]] = {}
+    per_task: dict[str, dict[str, float]] = {}
     total_correct = 0
     total_records = 0
     for task in tasks:
         task_id = task["task_id"]
-        task_gold = [(key, label) for key, label in gold.items() if key[0] == task_id]
-        correct = sum(1 for key, label in task_gold if predictions.get(key) == label)
-        total = len(task_gold)
-        missing = sum(1 for key, _ in task_gold if key not in predictions)
-        accuracy = correct / total if total else 0.0
+        keys = [(key, label) for key, label in gold.items() if key[0] == task_id]
+        correct = sum(1 for key, label in keys if predictions.get(key) == label)
+        total = len(keys)
+        missing = sum(1 for key, _ in keys if key not in predictions)
         per_task[task_id] = {
-            "correct": correct,
-            "total": total,
-            "missing": missing,
-            "accuracy": accuracy,
+            "accuracy": correct / total if total else 0.0,
+            "correct": float(correct),
+            "total": float(total),
+            "missing": float(missing),
         }
         total_correct += correct
         total_records += total
 
-    task1_weights = manifest["task1_internal_weights"]
-    task1_score = sum(per_task[task_id]["accuracy"] * weight for task_id, weight in task1_weights.items())
-    task2_tasks = [task["task_id"] for task in tasks if task["group"] == "task2_ood_classification"]
-    task3_tasks = [task["task_id"] for task in tasks if task["group"] == "task3_mcq"]
-    task2_score = mean(per_task[task_id]["accuracy"] for task_id in task2_tasks) if task2_tasks else 0.0
-    task3_score = mean(per_task[task_id]["accuracy"] for task_id in task3_tasks) if task3_tasks else 0.0
-    official_weights = manifest["official_weights"]
-    official_mock_score = (
-        official_weights["task1_similar_label"] * task1_score
-        + official_weights["task2_ood_classification"] * task2_score
-        + official_weights["task3_mcq"] * task3_score
+    weights = manifest.get("official_weights", {
+        "task1_similar_label": 0.20,
+        "task2_ood_classification": 0.60,
+        "task3_mcq": 0.20,
+    })
+    standard_task1 = mode_group_score(per_task, tasks, "standard", "task1_similar_label")
+    standard_task2 = mode_group_score(per_task, tasks, "standard", "task2_ood_classification")
+    standard_task3 = mode_group_score(per_task, tasks, "standard", "task3_mcq")
+    standard_score = (
+        weights["task1_similar_label"] * standard_task1
+        + weights["task2_ood_classification"] * standard_task2
+        + weights["task3_mcq"] * standard_task3
     )
-    task_macro_average = mean(values["accuracy"] for values in per_task.values()) if per_task else 0.0
+
+    stress_values = [per_task[task["task_id"]]["accuracy"] for task in tasks if task.get("mode") == "stress"]
+    stress_task_macro = mean(stress_values) if stress_values else 0.0
+    task_macro_average = mean(value["accuracy"] for value in per_task.values()) if per_task else 0.0
     record_micro_average = total_correct / total_records if total_records else 0.0
 
     lines: list[str] = []
-    lines.append("# Mock Private v2 Score")
+    lines.append("# Mock Private v3 Score")
     lines.append("")
-    lines.append("| Task | Accuracy | Correct | Total | Missing |")
-    lines.append("|---|---:|---:|---:|---:|")
+    lines.append("| Task | Mode | Group | Accuracy | Correct | Total | Missing |")
+    lines.append("|---|---|---|---:|---:|---:|---:|")
     for task in tasks:
-        task_id = task["task_id"]
-        values = per_task[task_id]
+        values = per_task[task["task_id"]]
         lines.append(
-            f"| `{task_id}` | {format_score(values['accuracy'])} | {values['correct']} | {values['total']} | {values['missing']} |"
+            f"| `{task['task_id']}` | {task.get('mode', 'standard')} | {task['group']} | {fmt(values['accuracy'])} | "
+            f"{int(values['correct'])} | {int(values['total'])} | {int(values['missing'])} |"
         )
     lines.append("")
     lines.append("## Aggregates")
     lines.append("")
-    lines.append(f"- task1_score: {format_score(task1_score)}")
-    lines.append(f"- task2_score: {format_score(task2_score)}")
-    lines.append(f"- task3_score: {format_score(task3_score)}")
-    lines.append(f"- official_mock_score: {format_score(official_mock_score)}")
-    lines.append(f"- task_macro_average: {format_score(task_macro_average)}")
-    lines.append(f"- record_micro_average: {format_score(record_micro_average)}")
+    lines.append(f"- standard_task1_score: {fmt(standard_task1)}")
+    lines.append(f"- standard_task2_score: {fmt(standard_task2)}")
+    lines.append(f"- standard_task3_score: {fmt(standard_task3)}")
+    lines.append(f"- standard_official_mock_score: {fmt(standard_score)}")
+    lines.append(f"- stress_task_macro_average: {fmt(stress_task_macro)}")
+    lines.append(f"- task_macro_average_all_modes: {fmt(task_macro_average)}")
+    lines.append(f"- record_micro_average_all_modes: {fmt(record_micro_average)}")
     lines.append(f"- invalid_label_count: {invalid_label_count}")
-    lines.append(f"- missing_prediction_count: {sum(values['missing'] for values in per_task.values())}")
+    lines.append(f"- missing_prediction_count: {sum(int(value['missing']) for value in per_task.values())}")
     lines.append(f"- duplicate_prediction_count: {duplicate_prediction_count}")
     lines.append(f"- extra_prediction_count: {extra_prediction_count}")
-    lines.append(f"- malformed_prediction_count: {malformed_count}")
+    lines.append(f"- malformed_prediction_count: {malformed_prediction_count}")
     return "\n".join(lines) + "\n"
 
 
 def gold_predictions(root: Path, tasks: list[dict]) -> list[dict]:
     rows: list[dict] = []
     for task in tasks:
-        task_id = task["task_id"]
-        labels = load_jsonl_labels(root / task_id / "test.jsonl")
-        for idx, label in enumerate(labels):
-            rows.append({"task": task_id, "idx": idx, "prediction": label, "label": label})
+        for idx, row in enumerate(load_jsonl(root / task["task_id"] / "test.jsonl")):
+            rows.append({"task": task["task_id"], "idx": idx, "prediction": row["label"], "label": row["label"]})
     return rows
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Score HarnessE mock_private v2 predictions.")
+    parser = argparse.ArgumentParser(description="Score HarnessE mock_private v3 predictions.")
     parser.add_argument("root", help="mock_private dataset directory")
     parser.add_argument("predictions", nargs="?", help="JSONL/JSON/TSV predictions")
     parser.add_argument("--gold", action="store_true", help="score gold labels as a scorer self-check")
     args = parser.parse_args()
-
     root = Path(args.root)
     if args.gold:
         manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
@@ -172,7 +173,6 @@ def main() -> None:
         rows = load_predictions(Path(args.predictions))
     else:
         raise SystemExit("provide a predictions file or pass --gold")
-
     print(score(root, rows))
 
 

@@ -1,0 +1,20 @@
+{"text": "Test message: The main request is this: Smith is cited to establish earlier evidence.", "label": "background_citation"}
+{"text": "Not about 旧上下文; the main request is this: The paper refers to prior surveys for context.", "label": "background_citation"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The citation frames the problem history.", "label": "background_citation"}
+{"text": "Even with the extra context, Smith is cited to establish earlier evidence. The side note is not the class target.", "label": "background_citation"}
+{"text": "Test message: The main request is this: The authors follow Chen's extraction protocol.", "label": "method_reference"}
+{"text": "Not about 旧上下文; the main request is this: The cited work provides the scoring rubric.", "label": "method_reference"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: A prior algorithm is reused for alignment.", "label": "method_reference"}
+{"text": "Even with the extra context, The authors follow Chen's extraction protocol. The side note is not the class target.", "label": "method_reference"}
+{"text": "Test message: The main request is this: The new accuracy is compared with Lee's benchmark.", "label": "result_comparison"}
+{"text": "Not about 旧上下文; the main request is this: The citation marks a stronger baseline result.", "label": "result_comparison"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The result is contrasted with an earlier trial.", "label": "result_comparison"}
+{"text": "Even with the extra context, The new accuracy is compared with Lee's benchmark. The side note is not the class target.", "label": "result_comparison"}
+{"text": "Test message: The main request is this: The authors note that the cited model ignored rare cases.", "label": "critique_or_gap"}
+{"text": "Not about 旧上下文; the main request is this: The reference is used to expose a missing control.", "label": "critique_or_gap"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Prior work is criticized for small samples.", "label": "critique_or_gap"}
+{"text": "Even with the extra context, The authors note that the cited model ignored rare cases. The side note is not the class target.", "label": "critique_or_gap"}
+{"text": "Test message: The main request is this: The dataset was adapted from a public corpus.", "label": "dataset_source"}
+{"text": "Not about 旧上下文; the main request is this: Labels come from the cited registry.", "label": "dataset_source"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The benchmark split follows the earlier release.", "label": "dataset_source"}
+{"text": "Even with the extra context, The dataset was adapted from a public corpus. The side note is not the class target.", "label": "dataset_source"}

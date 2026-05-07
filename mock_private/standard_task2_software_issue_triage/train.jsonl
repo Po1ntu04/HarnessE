@@ -1,0 +1,18 @@
+{"text": "Training signal: Clicking save deletes the last row.", "label": "bug_report"}
+{"text": "Example for routing: The API returns 500 for valid input.", "label": "bug_report"}
+{"text": "Observed user wording: A chart disappears after refresh.", "label": "bug_report"}
+{"text": "Training signal: Please add webhook retries.", "label": "feature_request"}
+{"text": "Example for routing: A bulk rename command would help.", "label": "feature_request"}
+{"text": "Observed user wording: Can the app support nested projects?", "label": "feature_request"}
+{"text": "Training signal: The setup guide omits the config path.", "label": "documentation"}
+{"text": "Example for routing: Docs say the flag is optional but it is required.", "label": "documentation"}
+{"text": "Observed user wording: The example uses a removed parameter.", "label": "documentation"}
+{"text": "Training signal: The package fails to install on Python 3.12.", "label": "installation_help"}
+{"text": "Example for routing: Dependency resolution breaks in a clean environment.", "label": "installation_help"}
+{"text": "Observed user wording: Setup cannot find the compiler.", "label": "installation_help"}
+{"text": "Training signal: The query now takes 12 seconds instead of one.", "label": "performance_regression"}
+{"text": "Example for routing: Export time doubled after the update.", "label": "performance_regression"}
+{"text": "Observed user wording: Scrolling is choppy with the same dataset.", "label": "performance_regression"}
+{"text": "Training signal: The button label is confusing but it works.", "label": "usability_feedback"}
+{"text": "Example for routing: The menu is hard to discover.", "label": "usability_feedback"}
+{"text": "Observed user wording: Users expect the search box near the table.", "label": "usability_feedback"}

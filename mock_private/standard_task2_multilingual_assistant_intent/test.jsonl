@@ -1,0 +1,20 @@
+{"text": "Test message: The main request is this: 请把这段话翻译成英文。", "label": "translate"}
+{"text": "Not about 旧上下文; the main request is this: Traduce este correo al francés.", "label": "translate"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: この文を中国語にしてください。", "label": "translate"}
+{"text": "Even with the extra context, 请把这段话翻译成英文。 The side note is not the class target.", "label": "translate"}
+{"text": "Test message: The main request is this: Summarize the meeting notes in three bullets.", "label": "summarize"}
+{"text": "Not about 旧上下文; the main request is this: 请概括这份报告的结论。", "label": "summarize"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Résume le passage sans ajouter d'opinion.", "label": "summarize"}
+{"text": "Even with the extra context, Summarize the meeting notes in three bullets. The side note is not the class target.", "label": "summarize"}
+{"text": "Test message: The main request is this: Find a time for the design review.", "label": "schedule"}
+{"text": "Not about 旧上下文; the main request is this: 帮我安排下周和供应商的会议。", "label": "schedule"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Planifica una llamada de seguimiento.", "label": "schedule"}
+{"text": "Even with the extra context, Find a time for the design review. The side note is not the class target.", "label": "schedule"}
+{"text": "Test message: The main request is this: This Python script fails with a key error.", "label": "debug"}
+{"text": "Not about 旧上下文; the main request is this: 帮我看这个 SQL 为什么返回空结果。", "label": "debug"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Le test JavaScript échoue seulement en CI.", "label": "debug"}
+{"text": "Even with the extra context, This Python script fails with a key error. The side note is not the class target.", "label": "debug"}
+{"text": "Test message: The main request is this: Compare these two pricing plans.", "label": "compare"}
+{"text": "Not about 旧上下文; the main request is this: 请比较方案 A 和方案 B 的风险。", "label": "compare"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Compare la vitesse et le coût.", "label": "compare"}
+{"text": "Even with the extra context, Compare these two pricing plans. The side note is not the class target.", "label": "compare"}

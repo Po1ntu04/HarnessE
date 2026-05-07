@@ -1,0 +1,18 @@
+{"text": "Test message: The main request is this: The package arrived late and tracking froze.", "label": "shipping_delivery"}
+{"text": "Not about 旧上下文; the main request is this: 外包装破损但商品还好。", "label": "shipping_delivery"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Delivery missed the promised window.", "label": "shipping_delivery"}
+{"text": "Test message: The main request is this: The seam tore after one use.", "label": "product_quality"}
+{"text": "Not about 旧上下文; the main request is this: 屏幕边缘有明显瑕疵。", "label": "product_quality"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The material feels durable after a week.", "label": "product_quality"}
+{"text": "Test message: The main request is this: It costs more than similar items with fewer parts.", "label": "price_value"}
+{"text": "Not about 旧上下文; the main request is this: 这个价位下配件太少。", "label": "price_value"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The discount made it worth keeping.", "label": "price_value"}
+{"text": "Test message: The main request is this: Setup took five steps that were not obvious.", "label": "usability"}
+{"text": "Not about 旧上下文; the main request is this: 按钮位置很别扭但功能正常。", "label": "usability"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The handle is hard to grip.", "label": "usability"}
+{"text": "Test message: The main request is this: Support replied politely but solved nothing.", "label": "customer_service"}
+{"text": "Not about 旧上下文; the main request is this: 客服改了地址但没有解释。", "label": "customer_service"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The agent stayed on chat until it worked.", "label": "customer_service"}
+{"text": "Test message: The main request is this: The return label never arrived.", "label": "return_refund"}
+{"text": "Not about 旧上下文; the main request is this: 退款流程很慢。", "label": "return_refund"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: They accepted the return but the credit is pending.", "label": "return_refund"}

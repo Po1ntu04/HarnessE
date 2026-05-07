@@ -1,0 +1,12 @@
+{"text": "Training signal: Swahili: Malipo yamekatwa mara mbili.", "label": "billing"}
+{"text": "Example for routing: ქართული: ინვოისში ზედმეტი თანხაა.", "label": "billing"}
+{"text": "Observed user wording: עברית: החיוב גבוה מהצעת המחיר.", "label": "billing"}
+{"text": "Training signal: हिन्दी: पासवर्ड बदलने के बाद भी लॉगिन नहीं हो रहा।", "label": "access"}
+{"text": "Example for routing: ไทย: เข้าระบบไม่ได้หลังจากรีเซ็ตรหัสผ่าน", "label": "access"}
+{"text": "Observed user wording: Ελληνικά: ο λογαριασμός παραμένει κλειδωμένος.", "label": "access"}
+{"text": "Training signal: አማርኛ: ፋይል ሲሰቀል ገጹ ይቆማል።", "label": "bug"}
+{"text": "Example for routing: ქართული: ღილაკი დაჭერის შემდეგ იყინება.", "label": "bug"}
+{"text": "Observed user wording: ไทย: หน้าอัปโหลดค้างหลังเลือกไฟล์", "label": "bug"}
+{"text": "Training signal: हिन्दी: लैब में रसायन गिर गया।", "label": "safety"}
+{"text": "Example for routing: עברית: נשפך חומר ליד המנדף.", "label": "safety"}
+{"text": "Observed user wording: አማርኛ: የላብራቶሪ መከላከያ መሣሪያ ያስፈልጋል።", "label": "safety"}

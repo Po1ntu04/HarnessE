@@ -1,0 +1,12 @@
+{"text": "Training signal: I expected a delay, but the team delivered early.", "label": "positive"}
+{"text": "Example for routing: 界面简洁，响应也快。", "label": "positive"}
+{"text": "Observed user wording: The update fixed my main complaint.", "label": "positive"}
+{"text": "Training signal: It looks nice, but the core task still fails.", "label": "negative"}
+{"text": "Example for routing: 我试了三次都不能完成付款。", "label": "negative"}
+{"text": "Observed user wording: Support was polite yet unhelpful.", "label": "negative"}
+{"text": "Training signal: The price is fair, but setup took too long.", "label": "mixed"}
+{"text": "Example for routing: 速度很快，不过文档不清楚。", "label": "mixed"}
+{"text": "Observed user wording: I like the design, not the battery life.", "label": "mixed"}
+{"text": "Training signal: The package arrived on Tuesday.", "label": "neutral"}
+{"text": "Example for routing: 请告诉我是否支持导出。", "label": "neutral"}
+{"text": "Observed user wording: The account has three active users.", "label": "neutral"}

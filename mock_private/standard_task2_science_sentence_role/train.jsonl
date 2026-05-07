@@ -1,0 +1,18 @@
+{"text": "Training signal: Prior work links aerosol size to cloud brightness.", "label": "background"}
+{"text": "Example for routing: 已有研究表明高温会影响急诊访问量。", "label": "background"}
+{"text": "Observed user wording: Several catalysts degrade under humid conditions.", "label": "background"}
+{"text": "Training signal: This study asks whether the coating remains stable in salt water.", "label": "objective"}
+{"text": "Example for routing: 我们的目标是比较两种传感器的灵敏度。", "label": "objective"}
+{"text": "Observed user wording: The project examines how light intensity changes growth.", "label": "objective"}
+{"text": "Training signal: We measured fluorescence every ten minutes.", "label": "method"}
+{"text": "Example for routing: 研究使用随机分组和盲法评分。", "label": "method"}
+{"text": "Observed user wording: Samples were heated under nitrogen before imaging.", "label": "method"}
+{"text": "Training signal: The treated cells produced 30 percent less signal.", "label": "result"}
+{"text": "Example for routing: 结果显示低温组误差更小。", "label": "result"}
+{"text": "Observed user wording: The alloy retained strength after repeated cycles.", "label": "result"}
+{"text": "Training signal: The sample size was small for subgroup analysis.", "label": "limitation"}
+{"text": "Example for routing: 该实验未覆盖长期暴露情形。", "label": "limitation"}
+{"text": "Observed user wording: Field conditions may differ from the chamber.", "label": "limitation"}
+{"text": "Training signal: A larger trial should test the protocol in clinics.", "label": "future_work"}
+{"text": "Example for routing: 后续需要验证不同土壤类型。", "label": "future_work"}
+{"text": "Observed user wording: Next, the method can be applied to older samples.", "label": "future_work"}

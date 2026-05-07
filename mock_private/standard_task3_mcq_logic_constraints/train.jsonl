@@ -1,0 +1,12 @@
+{"text": "Question: Nina sits left of Omar. Omar sits left of Priya. Who is in the middle?\nItem serial: 1\nOptions:\nA. Omar\nB. Nina\nC. Priya\nD. No one", "label": "A"}
+{"text": "Question: 红任务必须在蓝任务之前，蓝任务在绿任务之前。哪个最早？\nItem serial: 2\nOptions:\n(A) 蓝任务\n(B) 红任务\n(C) 绿任务\n(D) 无法判断", "label": "B"}
+{"text": "Question: If every lab badge grants door access and Mina has a lab badge, what follows?\nItem serial: 3\nOptions:\nA: Mina has no access\nB: All doors are labs\nC: Mina has door access\nD: Badges are optional", "label": "C"}
+{"text": "Question: A report must be reviewed before sending. It is not reviewed. What follows?\nItem serial: 4\nOptions:\nA. It was published\nB. Review is impossible\nC. The report is a chair\nD. It should not be sent yet", "label": "D"}
+{"text": "Question: Nina sits left of Omar. Omar sits left of Priya. Who is in the middle?\nItem serial: 5\nOptions:\n(A) Omar\n(B) Nina\n(C) Priya\n(D) No one", "label": "A"}
+{"text": "Question: 红任务必须在蓝任务之前，蓝任务在绿任务之前。哪个最早？\nItem serial: 6\nOptions:\nA: 蓝任务\nB: 红任务\nC: 绿任务\nD: 无法判断", "label": "B"}
+{"text": "Question: If every lab badge grants door access and Mina has a lab badge, what follows?\nItem serial: 7\nOptions:\nA. Mina has no access\nB. All doors are labs\nC. Mina has door access\nD. Badges are optional", "label": "C"}
+{"text": "Question: A report must be reviewed before sending. It is not reviewed. What follows?\nItem serial: 8\nOptions:\n(A) It was published\n(B) Review is impossible\n(C) The report is a chair\n(D) It should not be sent yet", "label": "D"}
+{"text": "Question: Nina sits left of Omar. Omar sits left of Priya. Who is in the middle?\nItem serial: 9\nOptions:\nA: Omar\nB: Nina\nC: Priya\nD: No one", "label": "A"}
+{"text": "Question: 红任务必须在蓝任务之前，蓝任务在绿任务之前。哪个最早？\nItem serial: 10\nOptions:\nA. 蓝任务\nB. 红任务\nC. 绿任务\nD. 无法判断", "label": "B"}
+{"text": "Question: If every lab badge grants door access and Mina has a lab badge, what follows?\nItem serial: 11\nOptions:\n(A) Mina has no access\n(B) All doors are labs\n(C) Mina has door access\n(D) Badges are optional", "label": "C"}
+{"text": "Question: A report must be reviewed before sending. It is not reviewed. What follows?\nItem serial: 12\nOptions:\nA: It was published\nB: Review is impossible\nC: The report is a chair\nD: It should not be sent yet", "label": "D"}

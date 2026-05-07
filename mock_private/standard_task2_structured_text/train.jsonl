@@ -1,0 +1,15 @@
+{"text": "Training signal: subject=renewal; amount=unexpected; note=charged twice.", "label": "invoice_issue"}
+{"text": "Example for routing: ticket: invoice mismatch; seats removed; refund requested.", "label": "invoice_issue"}
+{"text": "Observed user wording: field amount shows a billing discrepancy.", "label": "invoice_issue"}
+{"text": "Training signal: user=contractor; request=add workspace access; expires=Friday.", "label": "access_change"}
+{"text": "Example for routing: role update needed for the analytics project.", "label": "access_change"}
+{"text": "Observed user wording: grant viewer access to the new teammate.", "label": "access_change"}
+{"text": "Training signal: column total mismatches source rows.", "label": "data_quality"}
+{"text": "Example for routing: CSV import changed date formats.", "label": "data_quality"}
+{"text": "Observed user wording: dashboard has duplicate customer IDs.", "label": "data_quality"}
+{"text": "Training signal: severity=major; region=eu; symptom=blank page.", "label": "incident_report"}
+{"text": "Example for routing: service degraded after deploy.", "label": "incident_report"}
+{"text": "Observed user wording: multiple users report outage symptoms.", "label": "incident_report"}
+{"text": "Training signal: vendor quote attached; need PO.", "label": "procurement"}
+{"text": "Example for routing: purchase request for monitors.", "label": "procurement"}
+{"text": "Observed user wording: supplier onboarding form is ready.", "label": "procurement"}

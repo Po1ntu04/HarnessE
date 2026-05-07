@@ -1,0 +1,15 @@
+{"text": "Training signal: A lab note discusses kinetic and potential energy in a pendulum.", "label": "science.physics.energy"}
+{"text": "Example for routing: Energy conservation is the main topic.", "label": "science.physics.energy"}
+{"text": "Observed user wording: The physics class measures work and heat.", "label": "science.physics.energy"}
+{"text": "Training signal: A government plan funds grid storage.", "label": "science.physics.energy_policy"}
+{"text": "Example for routing: The article is about energy tariffs, not equations.", "label": "science.physics.energy_policy"}
+{"text": "Observed user wording: Policy incentives affect battery deployment.", "label": "science.physics.energy_policy"}
+{"text": "Training signal: The cell retains charge after cycles.", "label": "science.physics.energy_storage"}
+{"text": "Example for routing: A battery material stores energy longer.", "label": "science.physics.energy_storage"}
+{"text": "Observed user wording: The capacitor test concerns storage density.", "label": "science.physics.energy_storage"}
+{"text": "Training signal: Cells produce ATP from glucose.", "label": "science.biology.energy_metabolism"}
+{"text": "Example for routing: Mitochondria convert nutrients into usable energy.", "label": "science.biology.energy_metabolism"}
+{"text": "Observed user wording: Metabolic rate changed after treatment.", "label": "science.biology.energy_metabolism"}
+{"text": "Training signal: The report covers moving from coal to renewables.", "label": "science.climate.energy_transition"}
+{"text": "Example for routing: Wind and solar adoption changed emissions.", "label": "science.climate.energy_transition"}
+{"text": "Observed user wording: The transition plan affects regional jobs.", "label": "science.climate.energy_transition"}

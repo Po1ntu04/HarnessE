@@ -1,0 +1,20 @@
+{"text": "Test message: The main request is this: I expected a delay, but the team delivered early.", "label": "positive"}
+{"text": "Not about 旧上下文; the main request is this: 界面简洁，响应也快。", "label": "positive"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The update fixed my main complaint.", "label": "positive"}
+{"text": "Even with the extra context, I expected a delay, but the team delivered early. The side note is not the class target.", "label": "positive"}
+{"text": "A short, under-specified note says: even with the extra context, 界面简洁，响应也快。", "label": "positive"}
+{"text": "Test message: The main request is this: It looks nice, but the core task still fails.", "label": "negative"}
+{"text": "Not about 旧上下文; the main request is this: 我试了三次都不能完成付款。", "label": "negative"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Support was polite yet unhelpful.", "label": "negative"}
+{"text": "Even with the extra context, It looks nice, but the core task still fails. The side note is not the class target.", "label": "negative"}
+{"text": "A short, under-specified note says: even with the extra context, 我试了三次都不能完成付款。", "label": "negative"}
+{"text": "Test message: The main request is this: The price is fair, but setup took too long.", "label": "mixed"}
+{"text": "Not about 旧上下文; the main request is this: 速度很快，不过文档不清楚。", "label": "mixed"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: I like the design, not the battery life.", "label": "mixed"}
+{"text": "Even with the extra context, The price is fair, but setup took too long. The side note is not the class target.", "label": "mixed"}
+{"text": "A short, under-specified note says: even with the extra context, 速度很快，不过文档不清楚。", "label": "mixed"}
+{"text": "Test message: The main request is this: The package arrived on Tuesday.", "label": "neutral"}
+{"text": "Not about 旧上下文; the main request is this: 请告诉我是否支持导出。", "label": "neutral"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The account has three active users.", "label": "neutral"}
+{"text": "Even with the extra context, The package arrived on Tuesday. The side note is not the class target.", "label": "neutral"}
+{"text": "A short, under-specified note says: even with the extra context, 请告诉我是否支持导出。", "label": "neutral"}

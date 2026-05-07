@@ -1,0 +1,15 @@
+{"text": "Training signal: Smith is cited to establish earlier evidence.", "label": "background_citation"}
+{"text": "Example for routing: The paper refers to prior surveys for context.", "label": "background_citation"}
+{"text": "Observed user wording: The citation frames the problem history.", "label": "background_citation"}
+{"text": "Training signal: The authors follow Chen's extraction protocol.", "label": "method_reference"}
+{"text": "Example for routing: The cited work provides the scoring rubric.", "label": "method_reference"}
+{"text": "Observed user wording: A prior algorithm is reused for alignment.", "label": "method_reference"}
+{"text": "Training signal: The new accuracy is compared with Lee's benchmark.", "label": "result_comparison"}
+{"text": "Example for routing: The citation marks a stronger baseline result.", "label": "result_comparison"}
+{"text": "Observed user wording: The result is contrasted with an earlier trial.", "label": "result_comparison"}
+{"text": "Training signal: The authors note that the cited model ignored rare cases.", "label": "critique_or_gap"}
+{"text": "Example for routing: The reference is used to expose a missing control.", "label": "critique_or_gap"}
+{"text": "Observed user wording: Prior work is criticized for small samples.", "label": "critique_or_gap"}
+{"text": "Training signal: The dataset was adapted from a public corpus.", "label": "dataset_source"}
+{"text": "Example for routing: Labels come from the cited registry.", "label": "dataset_source"}
+{"text": "Observed user wording: The benchmark split follows the earlier release.", "label": "dataset_source"}

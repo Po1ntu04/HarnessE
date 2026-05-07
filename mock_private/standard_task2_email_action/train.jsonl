@@ -1,0 +1,18 @@
+{"text": "Training signal: They ask for the latest invoice number.", "label": "reply_with_info"}
+{"text": "Example for routing: A partner needs the deployment date.", "label": "reply_with_info"}
+{"text": "Observed user wording: The sender requests a short status update.", "label": "reply_with_info"}
+{"text": "Training signal: They want to find a slot next week.", "label": "schedule_meeting"}
+{"text": "Example for routing: The team asks when we can review the deck live.", "label": "schedule_meeting"}
+{"text": "Observed user wording: A vendor suggests a call with engineering.", "label": "schedule_meeting"}
+{"text": "Training signal: The budget owner must sign off on the purchase.", "label": "request_approval"}
+{"text": "Example for routing: They need approval before sending the offer.", "label": "request_approval"}
+{"text": "Observed user wording: A manager should authorize the exception.", "label": "request_approval"}
+{"text": "Training signal: The terms mention liability for resale.", "label": "forward_to_legal"}
+{"text": "Example for routing: The contract clause changes indemnity.", "label": "forward_to_legal"}
+{"text": "Observed user wording: The sender asks about data processing language.", "label": "forward_to_legal"}
+{"text": "Training signal: FYI only; no response needed.", "label": "archive_no_action"}
+{"text": "Example for routing: The newsletter confirms the office closure.", "label": "archive_no_action"}
+{"text": "Observed user wording: A receipt is sent for records.", "label": "archive_no_action"}
+{"text": "Training signal: The customer threatens to cancel unless a director responds.", "label": "escalate_manager"}
+{"text": "Example for routing: The conflict needs a manager decision.", "label": "escalate_manager"}
+{"text": "Observed user wording: The request exceeds my authority.", "label": "escalate_manager"}

@@ -1,0 +1,20 @@
+{"text": "Test message: The main request is this: A lab note discusses kinetic and potential energy in a pendulum.", "label": "science.physics.energy"}
+{"text": "Not about shared prefix; the main request is this: Energy conservation is the main topic.", "label": "science.physics.energy"}
+{"text": "Earlier context mentioned shared prefix, but the actual issue is that the main request is this: The physics class measures work and heat.", "label": "science.physics.energy"}
+{"text": "Even with the extra context, A lab note discusses kinetic and potential energy in a pendulum. The side note is not the class target.", "label": "science.physics.energy"}
+{"text": "Test message: The main request is this: A government plan funds grid storage.", "label": "science.physics.energy_policy"}
+{"text": "Not about shared prefix; the main request is this: The article is about energy tariffs, not equations.", "label": "science.physics.energy_policy"}
+{"text": "Earlier context mentioned shared prefix, but the actual issue is that the main request is this: Policy incentives affect battery deployment.", "label": "science.physics.energy_policy"}
+{"text": "Even with the extra context, A government plan funds grid storage. The side note is not the class target.", "label": "science.physics.energy_policy"}
+{"text": "Test message: The main request is this: The cell retains charge after cycles.", "label": "science.physics.energy_storage"}
+{"text": "Not about shared prefix; the main request is this: A battery material stores energy longer.", "label": "science.physics.energy_storage"}
+{"text": "Earlier context mentioned shared prefix, but the actual issue is that the main request is this: The capacitor test concerns storage density.", "label": "science.physics.energy_storage"}
+{"text": "Even with the extra context, The cell retains charge after cycles. The side note is not the class target.", "label": "science.physics.energy_storage"}
+{"text": "Test message: The main request is this: Cells produce ATP from glucose.", "label": "science.biology.energy_metabolism"}
+{"text": "Not about shared prefix; the main request is this: Mitochondria convert nutrients into usable energy.", "label": "science.biology.energy_metabolism"}
+{"text": "Earlier context mentioned shared prefix, but the actual issue is that the main request is this: Metabolic rate changed after treatment.", "label": "science.biology.energy_metabolism"}
+{"text": "Even with the extra context, Cells produce ATP from glucose. The side note is not the class target.", "label": "science.biology.energy_metabolism"}
+{"text": "Test message: The main request is this: The report covers moving from coal to renewables.", "label": "science.climate.energy_transition"}
+{"text": "Not about shared prefix; the main request is this: Wind and solar adoption changed emissions.", "label": "science.climate.energy_transition"}
+{"text": "Earlier context mentioned shared prefix, but the actual issue is that the main request is this: The transition plan affects regional jobs.", "label": "science.climate.energy_transition"}
+{"text": "Even with the extra context, The report covers moving from coal to renewables. The side note is not the class target.", "label": "science.climate.energy_transition"}

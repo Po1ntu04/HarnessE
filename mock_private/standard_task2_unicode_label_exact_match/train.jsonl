@@ -1,0 +1,15 @@
+{"text": "Training signal: 服务器下线，客户无法访问。", "label": "紧急"}
+{"text": "Example for routing: 患者监测警报持续触发。", "label": "紧急"}
+{"text": "Observed user wording: 生产环境密钥疑似泄露。", "label": "紧急"}
+{"text": "Training signal: Le document doit être mis au format standard.", "label": "normalisé"}
+{"text": "Example for routing: Normalize the address fields before export.", "label": "normalisé"}
+{"text": "Observed user wording: La donnée doit suivre le schéma commun.", "label": "normalisé"}
+{"text": "Training signal: この請求書は担当者の確認が必要です。", "label": "要確認"}
+{"text": "Example for routing: 仕様変更は承認前に確認してください。", "label": "要確認"}
+{"text": "Observed user wording: The Japanese vendor note needs confirmation.", "label": "要確認"}
+{"text": "Training signal: El cliente necesita una respuesta antes del viernes.", "label": "acción_requerida"}
+{"text": "Example for routing: A form must be signed to continue.", "label": "acción_requerida"}
+{"text": "Observed user wording: Se requiere revisar el permiso.", "label": "acción_requerida"}
+{"text": "Training signal: The Greek label marks a test-only routing case.", "label": "Δοκιμή"}
+{"text": "Example for routing: Η εγγραφή είναι για δοκιμή συστήματος.", "label": "Δοκιμή"}
+{"text": "Observed user wording: This lab sample is a control test.", "label": "Δοκιμή"}

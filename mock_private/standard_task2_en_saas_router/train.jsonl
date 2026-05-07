@@ -1,0 +1,18 @@
+{"text": "Training signal: The login code expires before it arrives.", "label": "account_access"}
+{"text": "Example for routing: The workspace invite works for teammates but not me.", "label": "account_access"}
+{"text": "Observed user wording: I know my password but cannot enter.", "label": "account_access"}
+{"text": "Training signal: The invoice includes seats removed last month.", "label": "billing_dispute"}
+{"text": "Example for routing: We were charged twice for one renewal.", "label": "billing_dispute"}
+{"text": "Observed user wording: The receipt does not match the subscription quote.", "label": "billing_dispute"}
+{"text": "Training signal: The upload button freezes after file selection.", "label": "technical_bug"}
+{"text": "Example for routing: Saving a dashboard throws an error for one project.", "label": "technical_bug"}
+{"text": "Observed user wording: The export modal closes without a file.", "label": "technical_bug"}
+{"text": "Training signal: Please add bulk member import.", "label": "feature_request"}
+{"text": "Example for routing: We need custom roles for reviewers.", "label": "feature_request"}
+{"text": "Observed user wording: A keyboard shortcut for archive would help.", "label": "feature_request"}
+{"text": "Training signal: Someone logged in from a new country.", "label": "security_risk"}
+{"text": "Example for routing: An unknown API token was created overnight.", "label": "security_risk"}
+{"text": "Observed user wording: Audit logs show suspicious access.", "label": "security_risk"}
+{"text": "Training signal: Every user in our region gets a blank page.", "label": "service_outage"}
+{"text": "Example for routing: The whole service is unreachable.", "label": "service_outage"}
+{"text": "Observed user wording: Status checks fail across all projects.", "label": "service_outage"}

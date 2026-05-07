@@ -1,0 +1,18 @@
+{"text": "Training signal: Members may export reports for internal review.", "label": "permission"}
+{"text": "Example for routing: 员工可以在批准后远程访问系统。", "label": "permission"}
+{"text": "Observed user wording: The vendor can store logs for thirty days.", "label": "permission"}
+{"text": "Training signal: Users must not resell customer data.", "label": "prohibition"}
+{"text": "Example for routing: 未经授权不得共享密钥。", "label": "prohibition"}
+{"text": "Observed user wording: The device is prohibited in sterile rooms.", "label": "prohibition"}
+{"text": "Training signal: The supplier shall notify incidents within 24 hours.", "label": "obligation"}
+{"text": "Example for routing: 申请人必须保留原始记录。", "label": "obligation"}
+{"text": "Observed user wording: Teams are required to encrypt backups.", "label": "obligation"}
+{"text": "Training signal: This rule does not apply during emergency maintenance.", "label": "exception"}
+{"text": "Example for routing: 除非主管批准，否则不得延期。", "label": "exception"}
+{"text": "Observed user wording: The limit is waived for clinical samples.", "label": "exception"}
+{"text": "Training signal: Confidential Data means non-public business information.", "label": "definition"}
+{"text": "Example for routing: 有效用户指已完成注册的人。", "label": "definition"}
+{"text": "Observed user wording: A minor incident refers to local service loss.", "label": "definition"}
+{"text": "Training signal: Violations may result in suspension.", "label": "penalty"}
+{"text": "Example for routing: 逾期提交将产生罚款。", "label": "penalty"}
+{"text": "Observed user wording: Repeated misuse can lead to access removal.", "label": "penalty"}

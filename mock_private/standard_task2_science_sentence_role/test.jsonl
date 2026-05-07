@@ -1,0 +1,18 @@
+{"text": "Test message: The main request is this: Prior work links aerosol size to cloud brightness.", "label": "background"}
+{"text": "Not about 旧上下文; the main request is this: 已有研究表明高温会影响急诊访问量。", "label": "background"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Several catalysts degrade under humid conditions.", "label": "background"}
+{"text": "Test message: The main request is this: This study asks whether the coating remains stable in salt water.", "label": "objective"}
+{"text": "Not about 旧上下文; the main request is this: 我们的目标是比较两种传感器的灵敏度。", "label": "objective"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The project examines how light intensity changes growth.", "label": "objective"}
+{"text": "Test message: The main request is this: We measured fluorescence every ten minutes.", "label": "method"}
+{"text": "Not about 旧上下文; the main request is this: 研究使用随机分组和盲法评分。", "label": "method"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Samples were heated under nitrogen before imaging.", "label": "method"}
+{"text": "Test message: The main request is this: The treated cells produced 30 percent less signal.", "label": "result"}
+{"text": "Not about 旧上下文; the main request is this: 结果显示低温组误差更小。", "label": "result"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The alloy retained strength after repeated cycles.", "label": "result"}
+{"text": "Test message: The main request is this: The sample size was small for subgroup analysis.", "label": "limitation"}
+{"text": "Not about 旧上下文; the main request is this: 该实验未覆盖长期暴露情形。", "label": "limitation"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Field conditions may differ from the chamber.", "label": "limitation"}
+{"text": "Test message: The main request is this: A larger trial should test the protocol in clinics.", "label": "future_work"}
+{"text": "Not about 旧上下文; the main request is this: 后续需要验证不同土壤类型。", "label": "future_work"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Next, the method can be applied to older samples.", "label": "future_work"}

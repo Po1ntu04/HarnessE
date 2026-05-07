@@ -1,0 +1,18 @@
+{"text": "Test message: The main request is this: 我重置密码后还是无法登录工作台。", "label": "账号访问"}
+{"text": "Not about 旧上下文; the main request is this: 验证码过期太快，账户进不去。", "label": "账号访问"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: 不是账单问题，是账号被锁。", "label": "账号访问"}
+{"text": "Test message: The main request is this: 续费金额比合同报价高。", "label": "账单争议"}
+{"text": "Not about 旧上下文; the main request is this: 同一个团队被扣了两次。", "label": "账单争议"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: 发票包含已删除的席位。", "label": "账单争议"}
+{"text": "Test message: The main request is this: 上传文件后按钮卡死。", "label": "技术故障"}
+{"text": "Not about 旧上下文; the main request is this: 只有报表编辑器报错，其他页面正常。", "label": "技术故障"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: 导出弹窗提前关闭。", "label": "技术故障"}
+{"text": "Test message: The main request is this: 希望增加批量导入成员的能力。", "label": "功能需求"}
+{"text": "Not about 旧上下文; the main request is this: 能否支持暗色模式？", "label": "功能需求"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: 我们想要一个审批流功能。", "label": "功能需求"}
+{"text": "Test message: The main request is this: 有人从陌生国家登录了我的账户。", "label": "安全风险"}
+{"text": "Not about 旧上下文; the main request is this: 审计日志显示未知 API key。", "label": "安全风险"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: 怀疑 token 泄露。", "label": "安全风险"}
+{"text": "Test message: The main request is this: 整个服务都打不开，不只是某个按钮。", "label": "服务中断"}
+{"text": "Not about 旧上下文; the main request is this: 所有同事都无法访问仪表盘。", "label": "服务中断"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: 状态页显示区域性故障。", "label": "服务中断"}

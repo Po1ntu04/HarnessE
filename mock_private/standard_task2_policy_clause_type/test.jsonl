@@ -1,0 +1,18 @@
+{"text": "Test message: The main request is this: Members may export reports for internal review.", "label": "permission"}
+{"text": "Not about 旧上下文; the main request is this: 员工可以在批准后远程访问系统。", "label": "permission"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The vendor can store logs for thirty days.", "label": "permission"}
+{"text": "Test message: The main request is this: Users must not resell customer data.", "label": "prohibition"}
+{"text": "Not about 旧上下文; the main request is this: 未经授权不得共享密钥。", "label": "prohibition"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The device is prohibited in sterile rooms.", "label": "prohibition"}
+{"text": "Test message: The main request is this: The supplier shall notify incidents within 24 hours.", "label": "obligation"}
+{"text": "Not about 旧上下文; the main request is this: 申请人必须保留原始记录。", "label": "obligation"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Teams are required to encrypt backups.", "label": "obligation"}
+{"text": "Test message: The main request is this: This rule does not apply during emergency maintenance.", "label": "exception"}
+{"text": "Not about 旧上下文; the main request is this: 除非主管批准，否则不得延期。", "label": "exception"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The limit is waived for clinical samples.", "label": "exception"}
+{"text": "Test message: The main request is this: Confidential Data means non-public business information.", "label": "definition"}
+{"text": "Not about 旧上下文; the main request is this: 有效用户指已完成注册的人。", "label": "definition"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: A minor incident refers to local service loss.", "label": "definition"}
+{"text": "Test message: The main request is this: Violations may result in suspension.", "label": "penalty"}
+{"text": "Not about 旧上下文; the main request is this: 逾期提交将产生罚款。", "label": "penalty"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Repeated misuse can lead to access removal.", "label": "penalty"}

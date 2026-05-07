@@ -1,0 +1,18 @@
+{"text": "Test message: The main request is this: 外交官在峰会后讨论停火路线。", "label": "world_affairs"}
+{"text": "Not about 旧上下文; the main request is this: Le parlement débat d'un nouveau traité régional.", "label": "world_affairs"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Ministers met after a border dispute.", "label": "world_affairs"}
+{"text": "Test message: The main request is this: Chip stocks rose after a supply agreement.", "label": "business_markets"}
+{"text": "Not about 旧上下文; the main request is this: Las acciones bancarias cayeron tras el informe.", "label": "business_markets"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: A retail merger lifted market expectations.", "label": "business_markets"}
+{"text": "Test message: The main request is this: 研究人员发布了低功耗传感器。", "label": "science_technology"}
+{"text": "Not about 旧上下文; the main request is this: A lab demonstrated a new battery material.", "label": "science_technology"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: 新しいAIチップが発表された。", "label": "science_technology"}
+{"text": "Test message: The main request is this: Hospitals expanded vaccine clinics.", "label": "health_medicine"}
+{"text": "Not about 旧上下文; the main request is this: 医生报告了新的治疗试验结果。", "label": "health_medicine"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: La campaña de salud pública comenzó.", "label": "health_medicine"}
+{"text": "Test message: The main request is this: 太阳能项目获得新的储能合同。", "label": "climate_energy"}
+{"text": "Not about 旧上下文; the main request is this: Cities prepared for a heat wave.", "label": "climate_energy"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Wind output changed regional power prices.", "label": "climate_energy"}
+{"text": "Test message: The main request is this: The final was decided by a late goal.", "label": "sports_competition"}
+{"text": "Not about 旧上下文; the main request is this: 球队在加时赛后晋级。", "label": "sports_competition"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: El torneo anunció sus semifinalistas.", "label": "sports_competition"}

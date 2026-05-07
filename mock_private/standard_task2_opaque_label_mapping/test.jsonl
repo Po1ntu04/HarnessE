@@ -1,0 +1,20 @@
+{"text": "Test message: The main request is this: Payroll deducted the wrong leave balance.", "label": "alpha"}
+{"text": "Not about 旧上下文; the main request is this: An employee asks about parental leave.", "label": "alpha"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: A timesheet needs HR correction.", "label": "alpha"}
+{"text": "Even with the extra context, Payroll deducted the wrong leave balance. The side note is not the class target.", "label": "alpha"}
+{"text": "Test message: The main request is this: The office badge stopped opening the side door.", "label": "beta"}
+{"text": "Not about 旧上下文; the main request is this: A desk light in room 4 flickers.", "label": "beta"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The meeting room thermostat is broken.", "label": "beta"}
+{"text": "Even with the extra context, The office badge stopped opening the side door. The side note is not the class target.", "label": "beta"}
+{"text": "Test message: The main request is this: We need a purchase order for a vendor.", "label": "gamma"}
+{"text": "Not about 旧上下文; the main request is this: A supplier quote needs procurement review.", "label": "gamma"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The team requests new lab chairs.", "label": "gamma"}
+{"text": "Even with the extra context, We need a purchase order for a vendor. The side note is not the class target.", "label": "gamma"}
+{"text": "Test message: The main request is this: The dashboard total differs from the CSV.", "label": "delta"}
+{"text": "Not about 旧上下文; the main request is this: A quarterly report needs a metric definition.", "label": "delta"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Analytics should refresh the revenue chart.", "label": "delta"}
+{"text": "Even with the extra context, The dashboard total differs from the CSV. The side note is not the class target.", "label": "delta"}
+{"text": "Test message: The main request is this: The audit team asks for policy evidence.", "label": "epsilon"}
+{"text": "Not about 旧上下文; the main request is this: A compliance exception needs review.", "label": "epsilon"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The retention rule may violate policy.", "label": "epsilon"}
+{"text": "Even with the extra context, The audit team asks for policy evidence. The side note is not the class target.", "label": "epsilon"}

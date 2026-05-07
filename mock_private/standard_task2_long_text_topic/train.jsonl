@@ -1,0 +1,18 @@
+{"text": "Training signal: A school district piloted evening tutoring while also discussing buses, budgets, and software. The central issue is whether students can access instruction after normal hours.", "label": "education"}
+{"text": "Example for routing: The main request is this: A school district piloted evening tutoring while also discussing buses, budgets, and software. The central issue is whether students can access instruction after normal hours.", "label": "education"}
+{"text": "Observed user wording: Even with the extra context, A school district piloted evening tutoring while also discussing buses, budgets, and software. The central issue is whether students can access instruction after normal hours.", "label": "education"}
+{"text": "Training signal: 城市报告提到就业、旅游和交通，但重点是河流治理、雨水花园和污染监测如何改善生态系统。", "label": "environment"}
+{"text": "Example for routing: The main request is this: 城市报告提到就业、旅游和交通，但重点是河流治理、雨水花园和污染监测如何改善生态系统。", "label": "environment"}
+{"text": "Observed user wording: Even with the extra context, 城市报告提到就业、旅游和交通，但重点是河流治理、雨水花园和污染监测如何改善生态系统。", "label": "environment"}
+{"text": "Training signal: The article mentions hiring and energy contracts, yet the main focus is a new sensor platform that reduces latency in factory monitoring.", "label": "technology"}
+{"text": "Example for routing: The main request is this: The article mentions hiring and energy contracts, yet the main focus is a new sensor platform that reduces latency in factory monitoring.", "label": "technology"}
+{"text": "Observed user wording: Even with the extra context, The article mentions hiring and energy contracts, yet the main focus is a new sensor platform that reduces latency in factory monitoring.", "label": "technology"}
+{"text": "Training signal: El informe habla de presupuesto y escuelas, pero se centra en clínicas móviles, vacunas y prevención durante una ola de calor.", "label": "public_health"}
+{"text": "Example for routing: The main request is this: El informe habla de presupuesto y escuelas, pero se centra en clínicas móviles, vacunas y prevención durante una ola de calor.", "label": "public_health"}
+{"text": "Observed user wording: Even with the extra context, El informe habla de presupuesto y escuelas, pero se centra en clínicas móviles, vacunas y prevención durante una ola de calor.", "label": "public_health"}
+{"text": "Training signal: The briefing includes weather and logistics details, but its main subject is loan risk, bond yields, and household savings behavior.", "label": "finance"}
+{"text": "Example for routing: The main request is this: The briefing includes weather and logistics details, but its main subject is loan risk, bond yields, and household savings behavior.", "label": "finance"}
+{"text": "Observed user wording: Even with the extra context, The briefing includes weather and logistics details, but its main subject is loan risk, bond yields, and household savings behavior.", "label": "finance"}
+{"text": "Training signal: 该段落提到商业赞助和场馆安排，但核心是地方艺术家、博物馆路线和社区历史展示。", "label": "culture"}
+{"text": "Example for routing: The main request is this: 该段落提到商业赞助和场馆安排，但核心是地方艺术家、博物馆路线和社区历史展示。", "label": "culture"}
+{"text": "Observed user wording: Even with the extra context, 该段落提到商业赞助和场馆安排，但核心是地方艺术家、博物馆路线和社区历史展示。", "label": "culture"}

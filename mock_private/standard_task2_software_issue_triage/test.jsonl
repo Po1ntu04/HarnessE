@@ -1,0 +1,18 @@
+{"text": "Test message: The main request is this: Clicking save deletes the last row.", "label": "bug_report"}
+{"text": "Not about 旧上下文; the main request is this: The API returns 500 for valid input.", "label": "bug_report"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: A chart disappears after refresh.", "label": "bug_report"}
+{"text": "Test message: The main request is this: Please add webhook retries.", "label": "feature_request"}
+{"text": "Not about 旧上下文; the main request is this: A bulk rename command would help.", "label": "feature_request"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Can the app support nested projects?", "label": "feature_request"}
+{"text": "Test message: The main request is this: The setup guide omits the config path.", "label": "documentation"}
+{"text": "Not about 旧上下文; the main request is this: Docs say the flag is optional but it is required.", "label": "documentation"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The example uses a removed parameter.", "label": "documentation"}
+{"text": "Test message: The main request is this: The package fails to install on Python 3.12.", "label": "installation_help"}
+{"text": "Not about 旧上下文; the main request is this: Dependency resolution breaks in a clean environment.", "label": "installation_help"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Setup cannot find the compiler.", "label": "installation_help"}
+{"text": "Test message: The main request is this: The query now takes 12 seconds instead of one.", "label": "performance_regression"}
+{"text": "Not about 旧上下文; the main request is this: Export time doubled after the update.", "label": "performance_regression"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Scrolling is choppy with the same dataset.", "label": "performance_regression"}
+{"text": "Test message: The main request is this: The button label is confusing but it works.", "label": "usability_feedback"}
+{"text": "Not about 旧上下文; the main request is this: The menu is hard to discover.", "label": "usability_feedback"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Users expect the search box near the table.", "label": "usability_feedback"}

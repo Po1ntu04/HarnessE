@@ -1,0 +1,36 @@
+{"text": "Test message: The card is here; activation is the blocker.", "label": "activate_my_card"}
+{"text": "Not about identity verification; the main request is this: My card arrived and I need to activate it before paying.", "label": "activate_my_card"}
+{"text": "Earlier context mentioned delivery timing, but the actual issue is that the main request is this: I have the replacement card in hand but it still is not enabled.", "label": "activate_my_card"}
+{"text": "Test message: This is not about activation; the card never arrived.", "label": "card_arrival"}
+{"text": "Not about identity verification; the main request is this: The card was ordered but has not reached my address.", "label": "card_arrival"}
+{"text": "Earlier context mentioned delivery timing, but the actual issue is that the main request is this: The promised delivery date passed and the card is still missing.", "label": "card_arrival"}
+{"text": "Test message: I am planning travel and need a card shipping estimate.", "label": "card_delivery_estimate"}
+{"text": "Not about identity verification; the main request is this: How long does shipping usually take for a new card?", "label": "card_delivery_estimate"}
+{"text": "Earlier context mentioned delivery timing, but the actual issue is that the main request is this: Before ordering, I want the expected delivery window.", "label": "card_delivery_estimate"}
+{"text": "Test message: I submitted a transfer yesterday and it is still waiting.", "label": "pending_transfer"}
+{"text": "Not about identity verification; the main request is this: The transfer is still processing in the app.", "label": "pending_transfer"}
+{"text": "Earlier context mentioned delivery timing, but the actual issue is that the main request is this: The money I sent has no final status yet.", "label": "pending_transfer"}
+{"text": "Test message: I sent funds but the other person says nothing came in.", "label": "transfer_not_received_by_recipient"}
+{"text": "Not about identity verification; the main request is this: My side says sent but the recipient cannot see the money.", "label": "transfer_not_received_by_recipient"}
+{"text": "Earlier context mentioned delivery timing, but the actual issue is that the main request is this: The payee checked twice and the transfer never arrived.", "label": "transfer_not_received_by_recipient"}
+{"text": "Test message: I know why it is required; I need the steps to verify.", "label": "verify_my_identity"}
+{"text": "Not about identity verification; the main request is this: I need to upload documents to verify who I am.", "label": "verify_my_identity"}
+{"text": "Earlier context mentioned delivery timing, but the actual issue is that the main request is this: The app blocks me until I complete identity verification.", "label": "verify_my_identity"}
+{"text": "Test message: Explain why verification is required.", "label": "why_verify_identity"}
+{"text": "Not about identity verification; the main request is this: Why are you asking for identity documents now?", "label": "why_verify_identity"}
+{"text": "Earlier context mentioned delivery timing, but the actual issue is that the main request is this: What triggered this identity check on my account?", "label": "why_verify_identity"}
+{"text": "Test message: A refund confirmation arrived but no money is visible.", "label": "Refund_not_showing_up"}
+{"text": "Not about identity verification; the main request is this: The merchant says the refund was issued but I cannot see it.", "label": "Refund_not_showing_up"}
+{"text": "Earlier context mentioned delivery timing, but the actual issue is that the main request is this: I returned the item and the refund is missing from my balance.", "label": "Refund_not_showing_up"}
+{"text": "Test message: How can I open a refund request?", "label": "request_refund"}
+{"text": "Not about identity verification; the main request is this: I want to start a refund for this purchase.", "label": "request_refund"}
+{"text": "Earlier context mentioned delivery timing, but the actual issue is that the main request is this: Please help me get money back for an order.", "label": "request_refund"}
+{"text": "Test message: This is not just pending; the card purchase is unfamiliar.", "label": "card_payment_not_recognised"}
+{"text": "Not about identity verification; the main request is this: There is a card charge from a merchant I do not know.", "label": "card_payment_not_recognised"}
+{"text": "Earlier context mentioned delivery timing, but the actual issue is that the main request is this: A completed card payment appears that nobody here made.", "label": "card_payment_not_recognised"}
+{"text": "Test message: This is not a transfer; the card purchase was refused.", "label": "declined_card_payment"}
+{"text": "Not about identity verification; the main request is this: My card was rejected at checkout.", "label": "declined_card_payment"}
+{"text": "Earlier context mentioned delivery timing, but the actual issue is that the main request is this: The shop terminal declined the card purchase.", "label": "declined_card_payment"}
+{"text": "Test message: Someone may have my physical card.", "label": "lost_or_stolen_card"}
+{"text": "Not about identity verification; the main request is this: My wallet was stolen and the physical card must be frozen.", "label": "lost_or_stolen_card"}
+{"text": "Earlier context mentioned delivery timing, but the actual issue is that the main request is this: The card is missing after my bag was taken.", "label": "lost_or_stolen_card"}

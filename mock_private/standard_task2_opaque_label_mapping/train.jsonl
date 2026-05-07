@@ -1,0 +1,15 @@
+{"text": "Training signal: Payroll deducted the wrong leave balance.", "label": "alpha"}
+{"text": "Example for routing: An employee asks about parental leave.", "label": "alpha"}
+{"text": "Observed user wording: A timesheet needs HR correction.", "label": "alpha"}
+{"text": "Training signal: The office badge stopped opening the side door.", "label": "beta"}
+{"text": "Example for routing: A desk light in room 4 flickers.", "label": "beta"}
+{"text": "Observed user wording: The meeting room thermostat is broken.", "label": "beta"}
+{"text": "Training signal: We need a purchase order for a vendor.", "label": "gamma"}
+{"text": "Example for routing: A supplier quote needs procurement review.", "label": "gamma"}
+{"text": "Observed user wording: The team requests new lab chairs.", "label": "gamma"}
+{"text": "Training signal: The dashboard total differs from the CSV.", "label": "delta"}
+{"text": "Example for routing: A quarterly report needs a metric definition.", "label": "delta"}
+{"text": "Observed user wording: Analytics should refresh the revenue chart.", "label": "delta"}
+{"text": "Training signal: The audit team asks for policy evidence.", "label": "epsilon"}
+{"text": "Example for routing: A compliance exception needs review.", "label": "epsilon"}
+{"text": "Observed user wording: The retention rule may violate policy.", "label": "epsilon"}

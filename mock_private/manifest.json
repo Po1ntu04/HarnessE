@@ -1,68 +1,101 @@
 {
-  "version": "mock_private_v2",
-  "seed": 202601,
+  "version": "mock_private_v3",
+  "primary_metric": "standard_official_mock_score",
   "official_weights": {
     "task1_similar_label": 0.2,
     "task2_ood_classification": 0.6,
     "task3_mcq": 0.2
   },
-  "task1_internal_weights": {
-    "task1_banking77_clean_hard": 0.5,
-    "task1_banking77_confusable_pairs": 0.35,
-    "task1_banking77_injected_slice": 0.15
+  "task1_weighting": "equal_subtask_macro_within_mode",
+  "task2_weighting": "equal_subtask_macro_within_mode",
+  "task3_weighting": "equal_subtask_macro_within_mode",
+  "modes": {
+    "standard": "Official-proxy multilingual stress set. Primary score uses 20/60/20 over standard tasks.",
+    "stress": "Diagnostic adversarial extension. Report separately; do not fold into primary score unless explicitly requested."
   },
-  "task2_weighting": "equal_subtask_macro",
-  "task3_weighting": "equal_subtask_macro",
-  "primary_metric": "official_mock_score",
-  "auxiliary_metrics": [
-    "task_macro_average",
-    "record_micro_average"
-  ],
   "runtime_rule": "mock_private is local validation data. solution.py must not read or depend on it.",
   "tasks": [
     {
-      "task_id": "task1_banking77_clean_hard",
+      "task_id": "standard_task1_banking77_en",
+      "mode": "standard",
       "group": "task1_similar_label",
       "profile": "classification_like",
       "labels": [
         "activate_my_card",
         "card_arrival",
         "card_delivery_estimate",
-        "cash_withdrawal_card",
-        "cash_withdrawal_charge",
-        "cash_withdrawal_cardless",
-        "cash_withdrawal_pending",
-        "wrong_amount_of_cash_received",
-        "card_payment_not_recognised",
-        "pending_card_payment",
         "pending_transfer",
         "transfer_not_received_by_recipient",
-        "beneficiary_not_verified",
         "verify_my_identity",
         "why_verify_identity",
-        "cash_withdrawal_not_recognised",
-        "request_refund",
         "Refund_not_showing_up",
-        "reverted_card_payment?",
+        "request_refund",
+        "card_payment_not_recognised",
         "declined_card_payment",
-        "declined_bank_transfer",
-        "edit_personal_details",
-        "lost_or_stolen_card",
-        "lost_or_stolen_phone"
+        "lost_or_stolen_card"
       ],
-      "num_train": 72,
-      "num_test": 72,
+      "languages": [
+        "en"
+      ],
+      "scripts": [
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 12,
+      "avg_label_token_est": 3.17,
+      "all_labels_token_est": 38,
       "risk_tags": [
-        "paraphrase_without_label_keywords",
-        "multi_intent_but_primary_clear",
-        "negation",
-        "temporal_shift",
-        "case_sensitive_label"
+        "similar_label",
+        "banking77_like",
+        "paraphrase_without_label_keywords"
       ],
-      "description": "Banking77-style same-label classification with broader labels and harder paraphrases."
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "English Banking77-like same-label classification with hard paraphrases.",
+      "num_train": 36,
+      "num_test": 36
     },
     {
-      "task_id": "task1_banking77_confusable_pairs",
+      "task_id": "standard_task1_banking77_zh_mixed",
+      "mode": "standard",
+      "group": "task1_similar_label",
+      "profile": "classification_like",
+      "labels": [
+        "activate_my_card",
+        "card_arrival",
+        "pending_transfer",
+        "transfer_not_received_by_recipient",
+        "verify_my_identity",
+        "why_verify_identity",
+        "Refund_not_showing_up",
+        "request_refund"
+      ],
+      "languages": [
+        "zh",
+        "en",
+        "mixed-zh-en"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 8,
+      "avg_label_token_est": 3.0,
+      "all_labels_token_est": 24,
+      "risk_tags": [
+        "multilingual_text",
+        "cross_lingual_label",
+        "banking77_like",
+        "unicode_text"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Chinese and mixed Chinese-English Banking77-like texts with original English labels.",
+      "num_train": 24,
+      "num_test": 24
+    },
+    {
+      "task_id": "standard_task1_banking77_confusable_pairs",
+      "mode": "standard",
       "group": "task1_similar_label",
       "profile": "classification_like",
       "labels": [
@@ -70,58 +103,119 @@
         "card_delivery_estimate",
         "pending_transfer",
         "transfer_not_received_by_recipient",
-        "pending_card_payment",
-        "card_payment_not_recognised",
+        "verify_my_identity",
+        "why_verify_identity",
         "request_refund",
         "Refund_not_showing_up",
-        "reverted_card_payment?",
-        "cash_withdrawal_card",
-        "cash_withdrawal_charge",
-        "wrong_amount_of_cash_received",
-        "verify_my_identity",
-        "why_verify_identity"
+        "card_payment_not_recognised",
+        "declined_card_payment"
       ],
-      "num_train": 42,
-      "num_test": 56,
+      "languages": [
+        "en",
+        "zh",
+        "mixed-zh-en"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 10,
+      "avg_label_token_est": 3.1,
+      "all_labels_token_est": 31,
       "risk_tags": [
         "confusable_label_pair",
-        "not_x_but_y",
         "temporal_shift",
-        "multi_intent_but_primary_clear"
+        "not_x_but_y",
+        "multilingual_text"
       ],
-      "description": "Banking77-style slice built around high-confusion label pairs and clusters."
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Confusable Banking77-like pairs across English and Chinese phrasing.",
+      "num_train": 30,
+      "num_test": 30
     },
     {
-      "task_id": "task1_banking77_injected_slice",
+      "task_id": "standard_task1_banking77_multilingual_injection",
+      "mode": "standard",
       "group": "task1_similar_label",
       "profile": "classification_like_with_injection",
       "labels": [
         "card_arrival",
         "pending_transfer",
-        "declined_card_payment",
         "verify_my_identity",
-        "pending_top_up_by_bank_card",
-        "lost_or_stolen_card",
-        "Refund_not_showing_up",
         "request_refund",
-        "card_payment_not_recognised",
-        "cash_withdrawal_not_recognised"
+        "Refund_not_showing_up",
+        "declined_card_payment",
+        "lost_or_stolen_card",
+        "card_payment_not_recognised"
       ],
-      "num_train": 30,
-      "num_test": 30,
+      "languages": [
+        "en",
+        "zh",
+        "es",
+        "fr",
+        "ja",
+        "mixed"
+      ],
+      "scripts": [
+        "Han",
+        "Kana",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 8,
+      "avg_label_token_est": 3.0,
+      "all_labels_token_est": 24,
       "risk_tags": [
+        "multilingual_prompt_injection",
         "direct_override",
         "role_mimic",
-        "delimiter_escape",
-        "false_label_attack",
         "json_format_attack",
-        "choice_answer_attack",
         "benign_injection_keyword_control"
       ],
-      "description": "Small injected slice inside task1: injected text remains data and must still map to a banking label."
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Multilingual prompt injection inside Banking77-like classification data.",
+      "num_train": 24,
+      "num_test": 19
     },
     {
-      "task_id": "task2_ood_support_router_hard",
+      "task_id": "standard_task2_zh_customer_support",
+      "mode": "standard",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "账号访问",
+        "账单争议",
+        "技术故障",
+        "功能需求",
+        "安全风险",
+        "服务中断"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "zh",
+      "label_count": 6,
+      "avg_label_token_est": 4.0,
+      "all_labels_token_est": 24,
+      "risk_tags": [
+        "zh_support",
+        "non_banking",
+        "runtime_label_schema",
+        "ood_classification"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "中文非银行客服路由。",
+      "num_train": 18,
+      "num_test": 18
+    },
+    {
+      "task_id": "standard_task2_en_saas_router",
+      "mode": "standard",
       "group": "task2_ood_classification",
       "profile": "classification_like",
       "labels": [
@@ -130,21 +224,70 @@
         "technical_bug",
         "feature_request",
         "security_risk",
-        "cancellation",
-        "data_export",
         "service_outage"
       ],
-      "num_train": 24,
-      "num_test": 24,
-      "risk_tags": [
-        "runtime_label_schema",
-        "multi_intent_but_primary_clear",
-        "service_outage_vs_bug"
+      "languages": [
+        "en"
       ],
-      "description": "Non-banking SaaS and IT support routing with overlapping support language."
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 6,
+      "avg_label_token_est": 2.0,
+      "all_labels_token_est": 12,
+      "risk_tags": [
+        "en_saas",
+        "service_outage_vs_bug",
+        "ood_classification"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "English SaaS support routing.",
+      "num_train": 18,
+      "num_test": 18
     },
     {
-      "task_id": "task2_ood_news_topic_hard",
+      "task_id": "standard_task2_multilingual_assistant_intent",
+      "mode": "standard",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "translate",
+        "summarize",
+        "schedule",
+        "debug",
+        "compare"
+      ],
+      "languages": [
+        "en",
+        "zh",
+        "es",
+        "fr",
+        "ja"
+      ],
+      "scripts": [
+        "Han",
+        "Kana",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 5,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 5,
+      "risk_tags": [
+        "multilingual_text",
+        "assistant_intent",
+        "ood_classification"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Assistant intent across mainstream languages.",
+      "num_train": 15,
+      "num_test": 20
+    },
+    {
+      "task_id": "standard_task2_crosslingual_news_topic",
+      "mode": "standard",
       "group": "task2_ood_classification",
       "profile": "classification_like",
       "labels": [
@@ -155,17 +298,35 @@
         "climate_energy",
         "sports_competition"
       ],
-      "num_train": 18,
-      "num_test": 18,
-      "risk_tags": [
-        "short_labels",
-        "topic_overlap",
-        "non_support_domain"
+      "languages": [
+        "en",
+        "zh",
+        "es",
+        "fr",
+        "ja"
       ],
-      "description": "News summary topic classification with cross-topic distractors."
+      "scripts": [
+        "Han",
+        "Kana",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 6,
+      "avg_label_token_est": 2.0,
+      "all_labels_token_est": 12,
+      "risk_tags": [
+        "cross_lingual_news",
+        "topic_overlap",
+        "ood_classification"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Cross-lingual news topic classification.",
+      "num_train": 18,
+      "num_test": 18
     },
     {
-      "task_id": "task2_ood_research_sentence_role",
+      "task_id": "standard_task2_science_sentence_role",
+      "mode": "standard",
       "group": "task2_ood_classification",
       "profile": "classification_like",
       "labels": [
@@ -176,120 +337,100 @@
         "limitation",
         "future_work"
       ],
-      "num_train": 18,
-      "num_test": 18,
+      "languages": [
+        "en",
+        "zh"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 6,
+      "avg_label_token_est": 1.17,
+      "all_labels_token_est": 7,
       "risk_tags": [
+        "science_domain",
         "research_role",
         "method_result_confusion",
-        "longer_text"
+        "ood_classification"
       ],
-      "description": "Research sentence role classification with close method/result/background boundaries."
-    },
-    {
-      "task_id": "task2_ood_sentiment_nuanced",
-      "group": "task2_ood_classification",
-      "profile": "classification_like",
-      "labels": [
-        "positive",
-        "negative",
-        "mixed",
-        "neutral"
-      ],
-      "num_train": 12,
-      "num_test": 20,
-      "risk_tags": [
-        "sentiment_reversal",
-        "mixed_boundary",
-        "short_labels"
-      ],
-      "description": "Nuanced sentiment classification with mixed and neutral statements."
-    },
-    {
-      "task_id": "task2_ood_question_type",
-      "group": "task2_ood_classification",
-      "profile": "classification_like",
-      "labels": [
-        "definition",
-        "entity",
-        "location",
-        "number",
-        "procedure",
-        "comparison"
-      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Scientific sentence role classification.",
       "num_train": 18,
-      "num_test": 18,
-      "risk_tags": [
-        "question_type",
-        "multiple_entities",
-        "short_labels"
-      ],
-      "description": "Natural-language question type classification."
+      "num_test": 18
     },
     {
-      "task_id": "task2_ood_email_action",
+      "task_id": "standard_task2_citation_intent_style",
+      "mode": "standard",
       "group": "task2_ood_classification",
       "profile": "classification_like",
       "labels": [
-        "reply_with_info",
-        "schedule_meeting",
-        "request_approval",
-        "forward_to_legal",
-        "archive_no_action",
-        "escalate_manager"
+        "background_citation",
+        "method_reference",
+        "result_comparison",
+        "critique_or_gap",
+        "dataset_source"
       ],
-      "num_train": 18,
-      "num_test": 18,
+      "languages": [
+        "en"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 5,
+      "avg_label_token_est": 2.2,
+      "all_labels_token_est": 11,
       "risk_tags": [
-        "action_routing",
-        "legal_terms_without_label",
-        "archive_no_action"
+        "science_domain",
+        "citation_intent",
+        "ood_classification"
       ],
-      "description": "Work-email action routing from summaries and short messages."
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Citation intent and scholarly style.",
+      "num_train": 15,
+      "num_test": 20
     },
     {
-      "task_id": "task2_ood_software_issue_triage",
+      "task_id": "standard_task2_lab_safety",
+      "mode": "standard",
       "group": "task2_ood_classification",
       "profile": "classification_like",
       "labels": [
-        "bug_report",
-        "feature_request",
-        "documentation",
-        "installation_help",
-        "performance_regression",
-        "usability_feedback"
+        "ppe_required",
+        "chemical_spill",
+        "biohazard_exposure",
+        "equipment_lockout",
+        "waste_disposal"
       ],
-      "num_train": 18,
-      "num_test": 18,
+      "languages": [
+        "en",
+        "zh"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 5,
+      "avg_label_token_est": 2.0,
+      "all_labels_token_est": 10,
       "risk_tags": [
-        "bug_vs_usability",
-        "performance_regression",
-        "installation_help"
+        "science_domain",
+        "lab_safety",
+        "unicode_text",
+        "ood_classification"
       ],
-      "description": "Software issue triage for repository-style reports."
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Laboratory safety incident routing.",
+      "num_train": 15,
+      "num_test": 20
     },
     {
-      "task_id": "task2_ood_product_review_aspect",
-      "group": "task2_ood_classification",
-      "profile": "classification_like",
-      "labels": [
-        "shipping_delivery",
-        "product_quality",
-        "price_value",
-        "usability",
-        "customer_service",
-        "return_refund"
-      ],
-      "num_train": 18,
-      "num_test": 18,
-      "risk_tags": [
-        "mixed_reviews",
-        "aspect_focus",
-        "return_vs_service"
-      ],
-      "description": "Product review aspect classification."
-    },
-    {
-      "task_id": "task2_ood_policy_clause_type",
+      "task_id": "standard_task2_policy_clause_type",
+      "mode": "standard",
       "group": "task2_ood_classification",
       "profile": "classification_like",
       "labels": [
@@ -300,17 +441,340 @@
         "definition",
         "penalty"
       ],
-      "num_train": 18,
-      "num_test": 18,
-      "risk_tags": [
-        "legal_language",
-        "keyword_variation",
-        "clause_type"
+      "languages": [
+        "en",
+        "zh"
       ],
-      "description": "Policy and contract clause type classification."
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 6,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 6,
+      "risk_tags": [
+        "policy_clause",
+        "keyword_variation",
+        "ood_classification"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Policy and contract clause type.",
+      "num_train": 18,
+      "num_test": 18
     },
     {
-      "task_id": "task2_ood_long_text_topic",
+      "task_id": "standard_task2_software_issue_triage",
+      "mode": "standard",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "bug_report",
+        "feature_request",
+        "documentation",
+        "installation_help",
+        "performance_regression",
+        "usability_feedback"
+      ],
+      "languages": [
+        "en"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 6,
+      "avg_label_token_est": 1.83,
+      "all_labels_token_est": 11,
+      "risk_tags": [
+        "software_issue",
+        "bug_vs_usability",
+        "ood_classification"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Software issue triage.",
+      "num_train": 18,
+      "num_test": 18
+    },
+    {
+      "task_id": "standard_task2_email_action",
+      "mode": "standard",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "reply_with_info",
+        "schedule_meeting",
+        "request_approval",
+        "forward_to_legal",
+        "archive_no_action",
+        "escalate_manager"
+      ],
+      "languages": [
+        "en"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 6,
+      "avg_label_token_est": 2.5,
+      "all_labels_token_est": 15,
+      "risk_tags": [
+        "email_action",
+        "legal_terms_without_label",
+        "ood_classification"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Work email action routing.",
+      "num_train": 18,
+      "num_test": 18
+    },
+    {
+      "task_id": "standard_task2_product_review_aspect",
+      "mode": "standard",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "shipping_delivery",
+        "product_quality",
+        "price_value",
+        "usability",
+        "customer_service",
+        "return_refund"
+      ],
+      "languages": [
+        "en",
+        "zh"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 6,
+      "avg_label_token_est": 1.83,
+      "all_labels_token_est": 11,
+      "risk_tags": [
+        "product_aspect",
+        "mixed_reviews",
+        "ood_classification"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Product review aspect.",
+      "num_train": 18,
+      "num_test": 18
+    },
+    {
+      "task_id": "standard_task2_sentiment_nuanced",
+      "mode": "standard",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "positive",
+        "negative",
+        "mixed",
+        "neutral"
+      ],
+      "languages": [
+        "en",
+        "zh"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 4,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 4,
+      "risk_tags": [
+        "sentiment_reversal",
+        "short_labels",
+        "ood_classification"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Nuanced sentiment classification.",
+      "num_train": 12,
+      "num_test": 20
+    },
+    {
+      "task_id": "standard_task2_question_type",
+      "mode": "standard",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "definition",
+        "entity",
+        "location",
+        "number",
+        "procedure",
+        "comparison"
+      ],
+      "languages": [
+        "en",
+        "zh"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 6,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 6,
+      "risk_tags": [
+        "question_type",
+        "multiple_entities",
+        "ood_classification"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Question type classification.",
+      "num_train": 18,
+      "num_test": 18
+    },
+    {
+      "task_id": "standard_task2_arbitrary_abcd_non_mcq",
+      "mode": "standard",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "languages": [
+        "en"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "opaque",
+      "label_count": 4,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 4,
+      "risk_tags": [
+        "abcd_non_mcq_negative_control",
+        "router_false_positive",
+        "ood_classification"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "A/B/C/D are ordinary class IDs, not options.",
+      "num_train": 12,
+      "num_test": 20
+    },
+    {
+      "task_id": "standard_task2_opaque_label_mapping",
+      "mode": "standard",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "alpha",
+        "beta",
+        "gamma",
+        "delta",
+        "epsilon"
+      ],
+      "languages": [
+        "en"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "opaque",
+      "label_count": 5,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 5,
+      "risk_tags": [
+        "opaque_label_names",
+        "label_name_overlap_failure",
+        "ood_classification"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Opaque label mapping from examples only.",
+      "num_train": 15,
+      "num_test": 20
+    },
+    {
+      "task_id": "standard_task2_unicode_label_exact_match",
+      "mode": "standard",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "紧急",
+        "normalisé",
+        "要確認",
+        "acción_requerida",
+        "Δοκιμή"
+      ],
+      "languages": [
+        "en",
+        "zh",
+        "fr",
+        "ja",
+        "es"
+      ],
+      "scripts": [
+        "Greek",
+        "Han",
+        "Kana",
+        "Latin"
+      ],
+      "label_language": "mixed-unicode",
+      "label_count": 5,
+      "avg_label_token_est": 3.4,
+      "all_labels_token_est": 17,
+      "risk_tags": [
+        "unicode_label",
+        "unicode_exact_match",
+        "diacritics",
+        "ood_classification"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Unicode labels require exact-match preservation.",
+      "num_train": 15,
+      "num_test": 20
+    },
+    {
+      "task_id": "standard_task2_structured_text",
+      "mode": "standard",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "invoice_issue",
+        "access_change",
+        "data_quality",
+        "incident_report",
+        "procurement"
+      ],
+      "languages": [
+        "en"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 5,
+      "avg_label_token_est": 1.8,
+      "all_labels_token_est": 9,
+      "risk_tags": [
+        "structured_text",
+        "format_variation",
+        "ood_classification"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Structured key-value text classification.",
+      "num_train": 15,
+      "num_test": 20
+    },
+    {
+      "task_id": "standard_task2_long_text_topic",
+      "mode": "standard",
       "group": "task2_ood_classification",
       "profile": "classification_like",
       "labels": [
@@ -321,97 +785,32 @@
         "finance",
         "culture"
       ],
-      "num_train": 18,
-      "num_test": 18,
+      "languages": [
+        "en",
+        "zh",
+        "es"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 6,
+      "avg_label_token_est": 1.17,
+      "all_labels_token_est": 7,
       "risk_tags": [
         "long_text_with_distractors",
         "budget_pressure",
-        "topic_primary"
+        "ood_classification"
       ],
-      "description": "Long paragraph topic classification with distractors."
-    },
-    {
-      "task_id": "task2_ood_arbitrary_abcd_labels",
-      "group": "task2_ood_classification",
-      "profile": "classification_like",
-      "labels": [
-        "A",
-        "B",
-        "C",
-        "D"
-      ],
-      "num_train": 12,
-      "num_test": 20,
-      "risk_tags": [
-        "abcd_non_mcq_negative_control",
-        "opaque_label_names",
-        "router_false_positive"
-      ],
-      "description": "A/B/C/D are ordinary class IDs, not multiple-choice options."
-    },
-    {
-      "task_id": "task2_ood_opaque_label_mapping",
-      "group": "task2_ood_classification",
-      "profile": "classification_like",
-      "labels": [
-        "alpha",
-        "beta",
-        "gamma",
-        "delta",
-        "epsilon"
-      ],
-      "num_train": 20,
-      "num_test": 20,
-      "risk_tags": [
-        "opaque_label_names",
-        "label_name_overlap_failure",
-        "runtime_examples_required"
-      ],
-      "description": "Opaque label mapping where labels reveal no semantics."
-    },
-    {
-      "task_id": "task2_ood_event_intent",
-      "group": "task2_ood_classification",
-      "profile": "classification_like",
-      "labels": [
-        "registration",
-        "speaker_request",
-        "venue_logistics",
-        "sponsorship",
-        "agenda_change",
-        "attendee_support"
-      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Long multilingual topic classification.",
       "num_train": 18,
-      "num_test": 18,
-      "risk_tags": [
-        "event_domain",
-        "multi_intent",
-        "label_semantics"
-      ],
-      "description": "Event and conference request intent classification."
+      "num_test": 18
     },
     {
-      "task_id": "task2_ood_customer_review_stance",
-      "group": "task2_ood_classification",
-      "profile": "classification_like",
-      "labels": [
-        "supportive",
-        "opposed",
-        "uncertain",
-        "request_more_info",
-        "off_topic"
-      ],
-      "num_train": 15,
-      "num_test": 20,
-      "risk_tags": [
-        "stance_not_sentiment",
-        "off_topic",
-        "request_more_info"
-      ],
-      "description": "Stance classification toward a product or policy."
-    },
-    {
-      "task_id": "task3_mcq_science_fact",
+      "task_id": "standard_task3_mcq_science_en",
+      "mode": "standard",
       "group": "task3_mcq",
       "profile": "mcq_like",
       "labels": [
@@ -420,17 +819,30 @@
         "C",
         "D"
       ],
-      "num_train": 12,
-      "num_test": 20,
+      "languages": [
+        "en"
+      ],
+      "scripts": [
+        "Latin"
+      ],
+      "label_language": "option-label",
+      "label_count": 4,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 4,
       "risk_tags": [
+        "science_domain",
         "option_format_variation",
-        "plausible_distractors",
+        "mcq",
         "answer_distribution_balanced"
       ],
-      "description": "Science fact MCQ with plausible distractors."
+      "expected_solver": "mcq_reasoning_verifier",
+      "description": "English science fact MCQ.",
+      "num_train": 12,
+      "num_test": 16
     },
     {
-      "task_id": "task3_mcq_commonsense_reasoning",
+      "task_id": "standard_task3_mcq_science_zh",
+      "mode": "standard",
       "group": "task3_mcq",
       "profile": "mcq_like",
       "labels": [
@@ -439,17 +851,31 @@
         "C",
         "D"
       ],
-      "num_train": 12,
-      "num_test": 20,
+      "languages": [
+        "zh"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "option-label",
+      "label_count": 4,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 4,
       "risk_tags": [
-        "multi_step_reasoning",
-        "plausible_distractors",
+        "science_domain",
+        "chinese_text",
+        "mcq",
         "answer_distribution_balanced"
       ],
-      "description": "Commonsense reasoning MCQ where scenes must be interpreted."
+      "expected_solver": "mcq_reasoning_verifier",
+      "description": "中文科学选择题。",
+      "num_train": 12,
+      "num_test": 16
     },
     {
-      "task_id": "task3_mcq_math_word_problem",
+      "task_id": "standard_task3_mcq_bilingual_science_terms",
+      "mode": "standard",
       "group": "task3_mcq",
       "profile": "mcq_like",
       "labels": [
@@ -458,17 +884,103 @@
         "C",
         "D"
       ],
-      "num_train": 12,
-      "num_test": 20,
+      "languages": [
+        "en",
+        "zh",
+        "mixed-zh-en"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "option-label",
+      "label_count": 4,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 4,
       "risk_tags": [
-        "multi_step_reasoning",
+        "science_domain",
+        "cross_lingual_terms",
+        "mcq",
+        "answer_distribution_balanced"
+      ],
+      "expected_solver": "mcq_reasoning_verifier",
+      "description": "Bilingual science terms MCQ.",
+      "num_train": 12,
+      "num_test": 16
+    },
+    {
+      "task_id": "standard_task3_mcq_multilingual_commonsense",
+      "mode": "standard",
+      "group": "task3_mcq",
+      "profile": "mcq_like",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "languages": [
+        "en",
+        "zh",
+        "es",
+        "fr"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "option-label",
+      "label_count": 4,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 4,
+      "risk_tags": [
+        "multilingual_text",
+        "commonsense_reasoning",
+        "mcq",
+        "answer_distribution_balanced"
+      ],
+      "expected_solver": "mcq_reasoning_verifier",
+      "description": "Commonsense MCQ in several languages.",
+      "num_train": 12,
+      "num_test": 16
+    },
+    {
+      "task_id": "standard_task3_mcq_math_zh_en",
+      "mode": "standard",
+      "group": "task3_mcq",
+      "profile": "mcq_like",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "languages": [
+        "en",
+        "zh"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "option-label",
+      "label_count": 4,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 4,
+      "risk_tags": [
         "math_word_problem",
+        "multilingual_text",
+        "mcq",
         "answer_distribution_balanced"
       ],
-      "description": "Arithmetic word-problem MCQ with units and distractors."
+      "expected_solver": "mcq_reasoning_verifier",
+      "description": "Chinese and English math word problems.",
+      "num_train": 12,
+      "num_test": 16
     },
     {
-      "task_id": "task3_mcq_reading_comprehension",
+      "task_id": "standard_task3_mcq_multilingual_reading",
+      "mode": "standard",
       "group": "task3_mcq",
       "profile": "mcq_like",
       "labels": [
@@ -477,17 +989,34 @@
         "C",
         "D"
       ],
-      "num_train": 12,
-      "num_test": 20,
+      "languages": [
+        "en",
+        "zh",
+        "es"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "option-label",
+      "label_count": 4,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 4,
       "risk_tags": [
         "passage_based",
+        "multilingual_text",
         "budget_pressure",
-        "plausible_distractors"
+        "mcq",
+        "answer_distribution_balanced"
       ],
-      "description": "Passage-based MCQ with longer contexts."
+      "expected_solver": "mcq_reasoning_verifier",
+      "description": "Multilingual reading comprehension.",
+      "num_train": 12,
+      "num_test": 16
     },
     {
-      "task_id": "task3_mcq_logic_constraints",
+      "task_id": "standard_task3_mcq_logic_constraints",
+      "mode": "standard",
       "group": "task3_mcq",
       "profile": "mcq_like",
       "labels": [
@@ -496,17 +1025,32 @@
         "C",
         "D"
       ],
-      "num_train": 12,
-      "num_test": 20,
+      "languages": [
+        "en",
+        "zh"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "option-label",
+      "label_count": 4,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 4,
       "risk_tags": [
         "logic_constraints",
         "multi_step_reasoning",
+        "mcq",
         "answer_distribution_balanced"
       ],
-      "description": "Logic and ordering MCQ."
+      "expected_solver": "mcq_reasoning_verifier",
+      "description": "Logic and ordering MCQ.",
+      "num_train": 12,
+      "num_test": 16
     },
     {
-      "task_id": "task3_mcq_injection_and_decoy",
+      "task_id": "standard_task3_mcq_injection_fake_key",
+      "mode": "standard",
       "group": "task3_mcq",
       "profile": "mcq_like",
       "labels": [
@@ -515,14 +1059,755 @@
         "C",
         "D"
       ],
-      "num_train": 12,
-      "num_test": 20,
+      "languages": [
+        "en",
+        "zh",
+        "es",
+        "ja"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "option-label",
+      "label_count": 4,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 4,
       "risk_tags": [
         "misleading_instruction_inside_text",
-        "option_format_variation",
+        "multilingual_prompt_injection",
+        "mcq",
         "answer_distribution_balanced"
       ],
-      "description": "MCQ with misleading instructions inside the question text."
+      "expected_solver": "mcq_reasoning_verifier",
+      "description": "MCQ with fake answer keys and multilingual injection.",
+      "num_train": 12,
+      "num_test": 16
+    },
+    {
+      "task_id": "stress_task2_high_cardinality_long_labels",
+      "mode": "stress",
+      "group": "task2_ood_classification",
+      "profile": "classification_like_high_cardinality",
+      "labels": [
+        "specialized_science_domain_long_label_0001_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0002_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0003_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0004_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0005_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0006_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0007_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0008_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0009_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0010_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0011_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0012_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0013_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0014_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0015_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0016_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0017_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0018_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0019_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0020_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0021_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0022_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0023_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0024_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0025_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0026_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0027_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0028_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0029_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0030_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0031_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0032_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0033_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0034_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0035_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0036_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0037_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0038_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0039_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0040_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0041_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0042_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0043_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0044_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0045_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0046_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0047_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0048_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0049_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0050_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0051_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0052_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0053_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0054_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0055_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0056_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0057_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0058_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0059_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0060_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0061_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0062_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0063_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0064_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0065_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0066_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0067_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0068_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0069_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0070_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0071_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0072_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0073_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0074_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0075_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0076_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0077_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0078_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0079_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0080_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0081_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0082_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0083_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0084_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0085_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0086_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0087_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0088_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0089_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0090_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0091_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0092_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0093_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0094_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0095_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0096_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0097_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0098_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0099_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0100_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0101_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0102_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0103_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0104_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0105_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0106_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0107_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0108_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0109_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0110_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0111_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0112_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0113_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0114_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0115_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0116_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0117_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0118_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0119_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category",
+        "specialized_science_domain_long_label_0120_cross_lingual_lab_policy_research_sentence_role_environmental_measurement_clinical_safety_signal_category"
+      ],
+      "languages": [
+        "en"
+      ],
+      "scripts": [
+        "Latin"
+      ],
+      "label_language": "en-long",
+      "label_count": 120,
+      "avg_label_token_est": 19.0,
+      "all_labels_token_est": 2280,
+      "risk_tags": [
+        "high_cardinality",
+        "all_labels_token_pressure",
+        "science_domain"
+      ],
+      "expected_solver": "retrieval_required_no_all_label_prompt",
+      "description": "High-cardinality long labels; all-label prompt is intentionally too large.",
+      "num_train": 120,
+      "num_test": 48
+    },
+    {
+      "task_id": "stress_task2_opaque_ids_300",
+      "mode": "stress",
+      "group": "task2_ood_classification",
+      "profile": "classification_like_high_cardinality",
+      "labels": [
+        "L0001",
+        "L0002",
+        "L0003",
+        "L0004",
+        "L0005",
+        "L0006",
+        "L0007",
+        "L0008",
+        "L0009",
+        "L0010",
+        "L0011",
+        "L0012",
+        "L0013",
+        "L0014",
+        "L0015",
+        "L0016",
+        "L0017",
+        "L0018",
+        "L0019",
+        "L0020",
+        "L0021",
+        "L0022",
+        "L0023",
+        "L0024",
+        "L0025",
+        "L0026",
+        "L0027",
+        "L0028",
+        "L0029",
+        "L0030",
+        "L0031",
+        "L0032",
+        "L0033",
+        "L0034",
+        "L0035",
+        "L0036",
+        "L0037",
+        "L0038",
+        "L0039",
+        "L0040",
+        "L0041",
+        "L0042",
+        "L0043",
+        "L0044",
+        "L0045",
+        "L0046",
+        "L0047",
+        "L0048",
+        "L0049",
+        "L0050",
+        "L0051",
+        "L0052",
+        "L0053",
+        "L0054",
+        "L0055",
+        "L0056",
+        "L0057",
+        "L0058",
+        "L0059",
+        "L0060",
+        "L0061",
+        "L0062",
+        "L0063",
+        "L0064",
+        "L0065",
+        "L0066",
+        "L0067",
+        "L0068",
+        "L0069",
+        "L0070",
+        "L0071",
+        "L0072",
+        "L0073",
+        "L0074",
+        "L0075",
+        "L0076",
+        "L0077",
+        "L0078",
+        "L0079",
+        "L0080",
+        "L0081",
+        "L0082",
+        "L0083",
+        "L0084",
+        "L0085",
+        "L0086",
+        "L0087",
+        "L0088",
+        "L0089",
+        "L0090",
+        "L0091",
+        "L0092",
+        "L0093",
+        "L0094",
+        "L0095",
+        "L0096",
+        "L0097",
+        "L0098",
+        "L0099",
+        "L0100",
+        "L0101",
+        "L0102",
+        "L0103",
+        "L0104",
+        "L0105",
+        "L0106",
+        "L0107",
+        "L0108",
+        "L0109",
+        "L0110",
+        "L0111",
+        "L0112",
+        "L0113",
+        "L0114",
+        "L0115",
+        "L0116",
+        "L0117",
+        "L0118",
+        "L0119",
+        "L0120",
+        "L0121",
+        "L0122",
+        "L0123",
+        "L0124",
+        "L0125",
+        "L0126",
+        "L0127",
+        "L0128",
+        "L0129",
+        "L0130",
+        "L0131",
+        "L0132",
+        "L0133",
+        "L0134",
+        "L0135",
+        "L0136",
+        "L0137",
+        "L0138",
+        "L0139",
+        "L0140",
+        "L0141",
+        "L0142",
+        "L0143",
+        "L0144",
+        "L0145",
+        "L0146",
+        "L0147",
+        "L0148",
+        "L0149",
+        "L0150",
+        "L0151",
+        "L0152",
+        "L0153",
+        "L0154",
+        "L0155",
+        "L0156",
+        "L0157",
+        "L0158",
+        "L0159",
+        "L0160",
+        "L0161",
+        "L0162",
+        "L0163",
+        "L0164",
+        "L0165",
+        "L0166",
+        "L0167",
+        "L0168",
+        "L0169",
+        "L0170",
+        "L0171",
+        "L0172",
+        "L0173",
+        "L0174",
+        "L0175",
+        "L0176",
+        "L0177",
+        "L0178",
+        "L0179",
+        "L0180",
+        "L0181",
+        "L0182",
+        "L0183",
+        "L0184",
+        "L0185",
+        "L0186",
+        "L0187",
+        "L0188",
+        "L0189",
+        "L0190",
+        "L0191",
+        "L0192",
+        "L0193",
+        "L0194",
+        "L0195",
+        "L0196",
+        "L0197",
+        "L0198",
+        "L0199",
+        "L0200",
+        "L0201",
+        "L0202",
+        "L0203",
+        "L0204",
+        "L0205",
+        "L0206",
+        "L0207",
+        "L0208",
+        "L0209",
+        "L0210",
+        "L0211",
+        "L0212",
+        "L0213",
+        "L0214",
+        "L0215",
+        "L0216",
+        "L0217",
+        "L0218",
+        "L0219",
+        "L0220",
+        "L0221",
+        "L0222",
+        "L0223",
+        "L0224",
+        "L0225",
+        "L0226",
+        "L0227",
+        "L0228",
+        "L0229",
+        "L0230",
+        "L0231",
+        "L0232",
+        "L0233",
+        "L0234",
+        "L0235",
+        "L0236",
+        "L0237",
+        "L0238",
+        "L0239",
+        "L0240",
+        "L0241",
+        "L0242",
+        "L0243",
+        "L0244",
+        "L0245",
+        "L0246",
+        "L0247",
+        "L0248",
+        "L0249",
+        "L0250",
+        "L0251",
+        "L0252",
+        "L0253",
+        "L0254",
+        "L0255",
+        "L0256",
+        "L0257",
+        "L0258",
+        "L0259",
+        "L0260",
+        "L0261",
+        "L0262",
+        "L0263",
+        "L0264",
+        "L0265",
+        "L0266",
+        "L0267",
+        "L0268",
+        "L0269",
+        "L0270",
+        "L0271",
+        "L0272",
+        "L0273",
+        "L0274",
+        "L0275",
+        "L0276",
+        "L0277",
+        "L0278",
+        "L0279",
+        "L0280",
+        "L0281",
+        "L0282",
+        "L0283",
+        "L0284",
+        "L0285",
+        "L0286",
+        "L0287",
+        "L0288",
+        "L0289",
+        "L0290",
+        "L0291",
+        "L0292",
+        "L0293",
+        "L0294",
+        "L0295",
+        "L0296",
+        "L0297",
+        "L0298",
+        "L0299",
+        "L0300"
+      ],
+      "languages": [
+        "en"
+      ],
+      "scripts": [
+        "Latin"
+      ],
+      "label_language": "opaque-id",
+      "label_count": 300,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 300,
+      "risk_tags": [
+        "opaque_label_names",
+        "high_cardinality",
+        "label_name_overlap_failure"
+      ],
+      "expected_solver": "retrieval_required_no_label_semantics",
+      "description": "300 opaque IDs L0001...L0300.",
+      "num_train": 300,
+      "num_test": 60
+    },
+    {
+      "task_id": "stress_task2_multilingual_small_language",
+      "mode": "stress",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "billing",
+        "access",
+        "bug",
+        "safety"
+      ],
+      "languages": [
+        "sw",
+        "ka",
+        "he",
+        "hi",
+        "th",
+        "el",
+        "am",
+        "ar"
+      ],
+      "scripts": [
+        "Devanagari",
+        "Ethiopic",
+        "Georgian",
+        "Greek",
+        "Hebrew",
+        "Latin",
+        "Thai"
+      ],
+      "label_language": "en",
+      "label_count": 4,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 4,
+      "risk_tags": [
+        "low_resource_language",
+        "non_latin_scripts",
+        "multilingual_text"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Small-language and non-Latin script classification.",
+      "num_train": 12,
+      "num_test": 12
+    },
+    {
+      "task_id": "stress_task2_label_language_mismatch",
+      "mode": "stress",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "账单",
+        "seguridad",
+        "技術障害",
+        "إلغاء"
+      ],
+      "languages": [
+        "en",
+        "zh",
+        "fr",
+        "ar",
+        "es",
+        "ja"
+      ],
+      "scripts": [
+        "Arabic",
+        "Han",
+        "Latin"
+      ],
+      "label_language": "mismatched-unicode",
+      "label_count": 4,
+      "avg_label_token_est": 3.0,
+      "all_labels_token_est": 12,
+      "risk_tags": [
+        "label_language_mismatch",
+        "unicode_label",
+        "cross_lingual_label"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Text language and label language intentionally differ.",
+      "num_train": 12,
+      "num_test": 12
+    },
+    {
+      "task_id": "stress_task2_hierarchical_prefix_collision",
+      "mode": "stress",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "science.physics.energy",
+        "science.physics.energy_policy",
+        "science.physics.energy_storage",
+        "science.biology.energy_metabolism",
+        "science.climate.energy_transition"
+      ],
+      "languages": [
+        "en"
+      ],
+      "scripts": [
+        "Latin"
+      ],
+      "label_language": "en-hierarchical",
+      "label_count": 5,
+      "avg_label_token_est": 3.8,
+      "all_labels_token_est": 19,
+      "risk_tags": [
+        "hierarchical_prefix_collision",
+        "science_domain",
+        "label_name_overlap_trap"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Hierarchical labels share long prefixes but differ semantically.",
+      "num_train": 15,
+      "num_test": 20
+    },
+    {
+      "task_id": "stress_task1_multilingual_injection_flood",
+      "mode": "stress",
+      "group": "task1_similar_label",
+      "profile": "classification_like_with_injection",
+      "labels": [
+        "card_arrival",
+        "pending_transfer",
+        "verify_my_identity",
+        "request_refund"
+      ],
+      "languages": [
+        "en",
+        "zh",
+        "es",
+        "fr",
+        "ja",
+        "ar"
+      ],
+      "scripts": [
+        "Arabic",
+        "Han",
+        "Kana",
+        "Latin"
+      ],
+      "label_language": "en",
+      "label_count": 4,
+      "avg_label_token_est": 2.25,
+      "all_labels_token_est": 9,
+      "risk_tags": [
+        "multilingual_prompt_injection",
+        "injection_flood",
+        "direct_override"
+      ],
+      "expected_solver": "classification_retrieval_llm_verifier",
+      "description": "Dense multilingual prompt-injection flood.",
+      "num_train": 12,
+      "num_test": 16
+    },
+    {
+      "task_id": "stress_task3_fullwidth_option_labels",
+      "mode": "stress",
+      "group": "task3_mcq",
+      "profile": "mcq_like",
+      "labels": [
+        "Ａ",
+        "Ｂ",
+        "Ｃ",
+        "Ｄ"
+      ],
+      "languages": [
+        "zh",
+        "en"
+      ],
+      "scripts": [
+        "Fullwidth",
+        "Han",
+        "Latin"
+      ],
+      "label_language": "fullwidth-option",
+      "label_count": 4,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 4,
+      "risk_tags": [
+        "full_width_option_labels",
+        "unicode_label",
+        "mcq"
+      ],
+      "expected_solver": "mcq_reasoning_verifier",
+      "description": "Full-width Ａ/Ｂ/Ｃ/Ｄ option labels.",
+      "num_train": 12,
+      "num_test": 16
+    },
+    {
+      "task_id": "stress_task3_chinese_option_labels",
+      "mode": "stress",
+      "group": "task3_mcq",
+      "profile": "mcq_like",
+      "labels": [
+        "甲",
+        "乙",
+        "丙",
+        "丁"
+      ],
+      "languages": [
+        "zh",
+        "en"
+      ],
+      "scripts": [
+        "Han",
+        "Latin"
+      ],
+      "label_language": "zh-option",
+      "label_count": 4,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 4,
+      "risk_tags": [
+        "chinese_option_labels",
+        "unicode_label",
+        "mcq"
+      ],
+      "expected_solver": "mcq_reasoning_verifier",
+      "description": "Chinese 甲/乙/丙/丁 option labels.",
+      "num_train": 12,
+      "num_test": 16
+    },
+    {
+      "task_id": "stress_task3_long_science_passage_fake_instruction",
+      "mode": "stress",
+      "group": "task3_mcq",
+      "profile": "mcq_like_long_science",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "languages": [
+        "en"
+      ],
+      "scripts": [
+        "Latin"
+      ],
+      "label_language": "option-label",
+      "label_count": 4,
+      "avg_label_token_est": 1.0,
+      "all_labels_token_est": 4,
+      "risk_tags": [
+        "science_domain",
+        "long_science_passage",
+        "misleading_instruction_inside_text"
+      ],
+      "expected_solver": "mcq_reasoning_verifier",
+      "description": "Long science passage MCQ with fake instructions.",
+      "num_train": 12,
+      "num_test": 16
     }
   ]
 }

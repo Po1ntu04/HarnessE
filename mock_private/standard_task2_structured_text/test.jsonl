@@ -1,0 +1,20 @@
+{"text": "Test message: The main request is this: subject=renewal; amount=unexpected; note=charged twice.", "label": "invoice_issue"}
+{"text": "Not about 旧上下文; the main request is this: ticket: invoice mismatch; seats removed; refund requested.", "label": "invoice_issue"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: field amount shows a billing discrepancy.", "label": "invoice_issue"}
+{"text": "Even with the extra context, subject=renewal; amount=unexpected; note=charged twice. The side note is not the class target.", "label": "invoice_issue"}
+{"text": "Test message: The main request is this: user=contractor; request=add workspace access; expires=Friday.", "label": "access_change"}
+{"text": "Not about 旧上下文; the main request is this: role update needed for the analytics project.", "label": "access_change"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: grant viewer access to the new teammate.", "label": "access_change"}
+{"text": "Even with the extra context, user=contractor; request=add workspace access; expires=Friday. The side note is not the class target.", "label": "access_change"}
+{"text": "Test message: The main request is this: column total mismatches source rows.", "label": "data_quality"}
+{"text": "Not about 旧上下文; the main request is this: CSV import changed date formats.", "label": "data_quality"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: dashboard has duplicate customer IDs.", "label": "data_quality"}
+{"text": "Even with the extra context, column total mismatches source rows. The side note is not the class target.", "label": "data_quality"}
+{"text": "Test message: The main request is this: severity=major; region=eu; symptom=blank page.", "label": "incident_report"}
+{"text": "Not about 旧上下文; the main request is this: service degraded after deploy.", "label": "incident_report"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: multiple users report outage symptoms.", "label": "incident_report"}
+{"text": "Even with the extra context, severity=major; region=eu; symptom=blank page. The side note is not the class target.", "label": "incident_report"}
+{"text": "Test message: The main request is this: vendor quote attached; need PO.", "label": "procurement"}
+{"text": "Not about 旧上下文; the main request is this: purchase request for monitors.", "label": "procurement"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: supplier onboarding form is ready.", "label": "procurement"}
+{"text": "Even with the extra context, vendor quote attached; need PO. The side note is not the class target.", "label": "procurement"}

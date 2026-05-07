@@ -1,0 +1,15 @@
+{"text": "Training signal: 请把这段话翻译成英文。", "label": "translate"}
+{"text": "Example for routing: Traduce este correo al francés.", "label": "translate"}
+{"text": "Observed user wording: この文を中国語にしてください。", "label": "translate"}
+{"text": "Training signal: Summarize the meeting notes in three bullets.", "label": "summarize"}
+{"text": "Example for routing: 请概括这份报告的结论。", "label": "summarize"}
+{"text": "Observed user wording: Résume le passage sans ajouter d'opinion.", "label": "summarize"}
+{"text": "Training signal: Find a time for the design review.", "label": "schedule"}
+{"text": "Example for routing: 帮我安排下周和供应商的会议。", "label": "schedule"}
+{"text": "Observed user wording: Planifica una llamada de seguimiento.", "label": "schedule"}
+{"text": "Training signal: This Python script fails with a key error.", "label": "debug"}
+{"text": "Example for routing: 帮我看这个 SQL 为什么返回空结果。", "label": "debug"}
+{"text": "Observed user wording: Le test JavaScript échoue seulement en CI.", "label": "debug"}
+{"text": "Training signal: Compare these two pricing plans.", "label": "compare"}
+{"text": "Example for routing: 请比较方案 A 和方案 B 的风险。", "label": "compare"}
+{"text": "Observed user wording: Compare la vitesse et le coût.", "label": "compare"}

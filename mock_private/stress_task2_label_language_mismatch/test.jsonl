@@ -1,0 +1,12 @@
+{"text": "Test message: The main request is this: The renewal charge is higher than expected.", "label": "账单"}
+{"text": "Not about language mismatch; the main request is this: Invoice seats do not match the contract.", "label": "账单"}
+{"text": "Earlier context mentioned language mismatch, but the actual issue is that the main request is this: A subscription payment was duplicated.", "label": "账单"}
+{"text": "Test message: The main request is this: 陌生国家登录了我的账户。", "label": "seguridad"}
+{"text": "Not about language mismatch; the main request is this: API key 可能泄露。", "label": "seguridad"}
+{"text": "Earlier context mentioned language mismatch, but the actual issue is that the main request is this: 审计日志显示可疑访问。", "label": "seguridad"}
+{"text": "Test message: The main request is this: Le bouton d'importation se bloque.", "label": "技術障害"}
+{"text": "Not about language mismatch; the main request is this: La page renvoie une erreur valide.", "label": "技術障害"}
+{"text": "Earlier context mentioned language mismatch, but the actual issue is that the main request is this: Le graphique disparaît après actualisation.", "label": "技術障害"}
+{"text": "Test message: The main request is this: The user asks to cancel the service.", "label": "إلغاء"}
+{"text": "Not about language mismatch; the main request is this: They want the subscription stopped.", "label": "إلغاء"}
+{"text": "Earlier context mentioned language mismatch, but the actual issue is that the main request is this: A renewal should not continue.", "label": "إلغاء"}

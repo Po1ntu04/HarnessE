@@ -1,0 +1,20 @@
+{"text": "Test message: The main request is this: Please review whether this vendor clause allows data resale.", "label": "A"}
+{"text": "Not about 旧上下文; the main request is this: The contract mentions liability for downstream sharing.", "label": "A"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: A privacy review is needed before approval.", "label": "A"}
+{"text": "Even with the extra context, Please review whether this vendor clause allows data resale. The side note is not the class target.", "label": "A"}
+{"text": "A short, under-specified note says: even with the extra context, The contract mentions liability for downstream sharing.", "label": "A"}
+{"text": "Test message: The main request is this: The replacement package has not reached the warehouse.", "label": "B"}
+{"text": "Not about 旧上下文; the main request is this: Tracking stopped after the parcel left the depot.", "label": "B"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: A shipment needs address correction.", "label": "B"}
+{"text": "Even with the extra context, The replacement package has not reached the warehouse. The side note is not the class target.", "label": "B"}
+{"text": "A short, under-specified note says: even with the extra context, Tracking stopped after the parcel left the depot.", "label": "B"}
+{"text": "Test message: The main request is this: The upload page crashes after choosing a file.", "label": "C"}
+{"text": "Not about 旧上下文; the main request is this: The dashboard fails only after refresh.", "label": "C"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The printer driver exits during setup.", "label": "C"}
+{"text": "Even with the extra context, The upload page crashes after choosing a file. The side note is not the class target.", "label": "C"}
+{"text": "A short, under-specified note says: even with the extra context, The dashboard fails only after refresh.", "label": "C"}
+{"text": "Test message: The main request is this: The renewal charge was higher than the quote.", "label": "D"}
+{"text": "Not about 旧上下文; the main request is this: A subscription payment posted twice.", "label": "D"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The invoice includes cancelled seats.", "label": "D"}
+{"text": "Even with the extra context, The renewal charge was higher than the quote. The side note is not the class target.", "label": "D"}
+{"text": "A short, under-specified note says: even with the extra context, A subscription payment posted twice.", "label": "D"}

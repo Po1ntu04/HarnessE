@@ -1,0 +1,30 @@
+{"text": "I first asked the delivery estimate, but now the promised date passed and the card is absent.", "label": "card_arrival"}
+{"text": "不是问多久会到，是已经寄出的卡没收到。", "label": "card_arrival"}
+{"text": "The app says shipped; the card is still missing.", "label": "card_arrival"}
+{"text": "I have not ordered yet; I only need the usual card delivery window.", "label": "card_delivery_estimate"}
+{"text": "Before requesting the spare card, how many days should shipping take?", "label": "card_delivery_estimate"}
+{"text": "不是丢卡，我只是问预计送达时间。", "label": "card_delivery_estimate"}
+{"text": "The transfer is stuck in my app; the recipient has not checked yet.", "label": "pending_transfer"}
+{"text": "Not a missing-recipient complaint; my own transfer status still says processing.", "label": "pending_transfer"}
+{"text": "我看到 transfer pending，但还没确认收款方。", "label": "pending_transfer"}
+{"text": "My side says sent, but the receiver insists no money arrived.", "label": "transfer_not_received_by_recipient"}
+{"text": "This is beyond pending; the payee checked and sees nothing.", "label": "transfer_not_received_by_recipient"}
+{"text": "收款人说没到账，即使我这里显示完成。", "label": "transfer_not_received_by_recipient"}
+{"text": "I understand the reason; now I need the steps to finish verification.", "label": "verify_my_identity"}
+{"text": "How do I upload documents to prove who I am?", "label": "verify_my_identity"}
+{"text": "不是问为什么，是问如何完成身份验证。", "label": "verify_my_identity"}
+{"text": "I am not asking where to upload files; why do you need this check?", "label": "why_verify_identity"}
+{"text": "What triggered identity verification on my account?", "label": "why_verify_identity"}
+{"text": "为什么现在要求我提供证件？", "label": "why_verify_identity"}
+{"text": "I need to begin a refund request for the order.", "label": "request_refund"}
+{"text": "Not a missing refund; I have not asked for one yet.", "label": "request_refund"}
+{"text": "请帮我把这笔 purchase 申请退款。", "label": "request_refund"}
+{"text": "The merchant already issued the refund, yet no credit is visible.", "label": "Refund_not_showing_up"}
+{"text": "不是要新申请，退款确认后还没显示。", "label": "Refund_not_showing_up"}
+{"text": "I returned the item and still cannot see the refund.", "label": "Refund_not_showing_up"}
+{"text": "A completed card purchase appeared that I cannot identify.", "label": "card_payment_not_recognised"}
+{"text": "Not just declined or pending; a merchant charged my card and I do not know them.", "label": "card_payment_not_recognised"}
+{"text": "我看到一笔陌生 card payment。", "label": "card_payment_not_recognised"}
+{"text": "The merchant says the card purchase failed at checkout.", "label": "declined_card_payment"}
+{"text": "不是陌生扣款，是付款当场被拒。", "label": "declined_card_payment"}
+{"text": "The card terminal rejected the payment.", "label": "declined_card_payment"}

@@ -1,0 +1,12 @@
+{"text": "Training signal: The renewal charge is higher than expected.", "label": "账单"}
+{"text": "Example for routing: Invoice seats do not match the contract.", "label": "账单"}
+{"text": "Observed user wording: A subscription payment was duplicated.", "label": "账单"}
+{"text": "Training signal: 陌生国家登录了我的账户。", "label": "seguridad"}
+{"text": "Example for routing: API key 可能泄露。", "label": "seguridad"}
+{"text": "Observed user wording: 审计日志显示可疑访问。", "label": "seguridad"}
+{"text": "Training signal: Le bouton d'importation se bloque.", "label": "技術障害"}
+{"text": "Example for routing: La page renvoie une erreur valide.", "label": "技術障害"}
+{"text": "Observed user wording: Le graphique disparaît après actualisation.", "label": "技術障害"}
+{"text": "Training signal: The user asks to cancel the service.", "label": "إلغاء"}
+{"text": "Example for routing: They want the subscription stopped.", "label": "إلغاء"}
+{"text": "Observed user wording: A renewal should not continue.", "label": "إلغاء"}

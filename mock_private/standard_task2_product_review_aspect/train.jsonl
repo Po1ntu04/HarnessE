@@ -1,0 +1,18 @@
+{"text": "Training signal: The package arrived late and tracking froze.", "label": "shipping_delivery"}
+{"text": "Example for routing: 外包装破损但商品还好。", "label": "shipping_delivery"}
+{"text": "Observed user wording: Delivery missed the promised window.", "label": "shipping_delivery"}
+{"text": "Training signal: The seam tore after one use.", "label": "product_quality"}
+{"text": "Example for routing: 屏幕边缘有明显瑕疵。", "label": "product_quality"}
+{"text": "Observed user wording: The material feels durable after a week.", "label": "product_quality"}
+{"text": "Training signal: It costs more than similar items with fewer parts.", "label": "price_value"}
+{"text": "Example for routing: 这个价位下配件太少。", "label": "price_value"}
+{"text": "Observed user wording: The discount made it worth keeping.", "label": "price_value"}
+{"text": "Training signal: Setup took five steps that were not obvious.", "label": "usability"}
+{"text": "Example for routing: 按钮位置很别扭但功能正常。", "label": "usability"}
+{"text": "Observed user wording: The handle is hard to grip.", "label": "usability"}
+{"text": "Training signal: Support replied politely but solved nothing.", "label": "customer_service"}
+{"text": "Example for routing: 客服改了地址但没有解释。", "label": "customer_service"}
+{"text": "Observed user wording: The agent stayed on chat until it worked.", "label": "customer_service"}
+{"text": "Training signal: The return label never arrived.", "label": "return_refund"}
+{"text": "Example for routing: 退款流程很慢。", "label": "return_refund"}
+{"text": "Observed user wording: They accepted the return but the credit is pending.", "label": "return_refund"}

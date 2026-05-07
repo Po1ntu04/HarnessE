@@ -1,0 +1,20 @@
+{"text": "Test message: The main request is this: 服务器下线，客户无法访问。", "label": "紧急"}
+{"text": "Not about 旧上下文; the main request is this: 患者监测警报持续触发。", "label": "紧急"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: 生产环境密钥疑似泄露。", "label": "紧急"}
+{"text": "Even with the extra context, 服务器下线，客户无法访问。 The side note is not the class target.", "label": "紧急"}
+{"text": "Test message: The main request is this: Le document doit être mis au format standard.", "label": "normalisé"}
+{"text": "Not about 旧上下文; the main request is this: Normalize the address fields before export.", "label": "normalisé"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: La donnée doit suivre le schéma commun.", "label": "normalisé"}
+{"text": "Even with the extra context, Le document doit être mis au format standard. The side note is not the class target.", "label": "normalisé"}
+{"text": "Test message: The main request is this: この請求書は担当者の確認が必要です。", "label": "要確認"}
+{"text": "Not about 旧上下文; the main request is this: 仕様変更は承認前に確認してください。", "label": "要確認"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: The Japanese vendor note needs confirmation.", "label": "要確認"}
+{"text": "Even with the extra context, この請求書は担当者の確認が必要です。 The side note is not the class target.", "label": "要確認"}
+{"text": "Test message: The main request is this: El cliente necesita una respuesta antes del viernes.", "label": "acción_requerida"}
+{"text": "Not about 旧上下文; the main request is this: A form must be signed to continue.", "label": "acción_requerida"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: Se requiere revisar el permiso.", "label": "acción_requerida"}
+{"text": "Even with the extra context, El cliente necesita una respuesta antes del viernes. The side note is not the class target.", "label": "acción_requerida"}
+{"text": "Test message: The main request is this: The Greek label marks a test-only routing case.", "label": "Δοκιμή"}
+{"text": "Not about 旧上下文; the main request is this: Η εγγραφή είναι για δοκιμή συστήματος.", "label": "Δοκιμή"}
+{"text": "Earlier context mentioned secondary issue, but the actual issue is that the main request is this: This lab sample is a control test.", "label": "Δοκιμή"}
+{"text": "Even with the extra context, The Greek label marks a test-only routing case. The side note is not the class target.", "label": "Δοκιμή"}

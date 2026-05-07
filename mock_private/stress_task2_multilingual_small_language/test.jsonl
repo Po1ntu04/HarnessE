@@ -1,0 +1,12 @@
+{"text": "Test message: The main request is this: Swahili: Malipo yamekatwa mara mbili.", "label": "billing"}
+{"text": "Not about old ticket; the main request is this: ქართული: ინვოისში ზედმეტი თანხაა.", "label": "billing"}
+{"text": "Earlier context mentioned script noise, but the actual issue is that the main request is this: עברית: החיוב גבוה מהצעת המחיר.", "label": "billing"}
+{"text": "Test message: The main request is this: हिन्दी: पासवर्ड बदलने के बाद भी लॉगिन नहीं हो रहा।", "label": "access"}
+{"text": "Not about old ticket; the main request is this: ไทย: เข้าระบบไม่ได้หลังจากรีเซ็ตรหัสผ่าน", "label": "access"}
+{"text": "Earlier context mentioned script noise, but the actual issue is that the main request is this: Ελληνικά: ο λογαριασμός παραμένει κλειδωμένος.", "label": "access"}
+{"text": "Test message: The main request is this: አማርኛ: ፋይል ሲሰቀል ገጹ ይቆማል።", "label": "bug"}
+{"text": "Not about old ticket; the main request is this: ქართული: ღილაკი დაჭერის შემდეგ იყინება.", "label": "bug"}
+{"text": "Earlier context mentioned script noise, but the actual issue is that the main request is this: ไทย: หน้าอัปโหลดค้างหลังเลือกไฟล์", "label": "bug"}
+{"text": "Test message: The main request is this: हिन्दी: लैब में रसायन गिर गया।", "label": "safety"}
+{"text": "Not about old ticket; the main request is this: עברית: נשפך חומר ליד המנדף.", "label": "safety"}
+{"text": "Earlier context mentioned script noise, but the actual issue is that the main request is this: አማርኛ: የላብራቶሪ መከላከያ መሣሪያ ያስፈልጋል።", "label": "safety"}

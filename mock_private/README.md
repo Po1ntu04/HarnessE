@@ -1,77 +1,85 @@
-# mock_private v2
+# mock_private v3
 
-This is a local HarnessE private-test simulation stress suite. It preserves the official interface:
+v3 is a dual-mode HarnessE private-test simulation suite.
+
+- `standard_*` tasks are the official-proxy multilingual set and use the 20/60/20 primary score.
+- `stress_*` tasks are adversarial diagnostics for high-cardinality, low-resource languages, Unicode labels, non-ASCII MCQ options, and multilingual prompt injection.
+
+Every task still uses only `train.jsonl` and `test.jsonl`. Every record is exactly:
 
 ```json
 {"text": "...", "label": "..."}
 ```
 
-Each top-level task directory contains `train.jsonl`, `test.jsonl`, and `analysis.md`.
-The final submitted `solution.py` must not read or depend on this directory.
+Do not make `solution.py` read or depend on `mock_private`.
 
-## Official mock weighting
+## Core v3 assumptions
 
-task1_score = 0.50 * task1_banking77_clean_hard
-            + 0.35 * task1_banking77_confusable_pairs
-            + 0.15 * task1_banking77_injected_slice
+1. Text is not guaranteed to be English.
+2. Labels are not guaranteed to be English.
+3. All-label prompts do not scale to high-cardinality or long-label tasks.
+4. Prompt injection is not guaranteed to be English.
+5. MCQ option labels are not guaranteed to be ASCII A/B/C/D.
+6. Science OOD may be text classification, not only MCQ.
+7. The verifier must preserve original Unicode labels for exact match.
+8. Task 2 OOD is 60%, so multilingual/OOD generalization is the main design goal.
 
-task2_score = mean(all task2_ood_* subtask accuracies)
+## Scoring
 
-task3_score = mean(all task3_mcq_* subtask accuracies)
+```text
+standard_official_mock_score = 0.20 * task1_score + 0.60 * task2_score + 0.20 * task3_score
+```
 
-official_mock_score = 0.20 * task1_score
-                    + 0.60 * task2_score
-                    + 0.20 * task3_score
-
-Prompt injection is a slice inside task 1, not an independent main family.
-Task 2 is the main pressure source: 14 OOD subtasks, equal-weighted.
-Task 3 contains 6 MCQ subtasks, equal-weighted.
-
-## Task groups
-
-- Task 1 similar-label Banking-style tasks: 3 subtasks.
-- Task 2 OOD closed-set classification: 14 subtasks.
-- Task 3 MCQ natural-language choice tasks: 6 subtasks.
+Task scores are equal-subtask macro averages within standard mode. Stress mode is reported separately.
 
 ## Run
 
 ```powershell
-python scripts/generate_mock_private_v2.py
+python scripts/generate_mock_private_v3.py
 python scripts/audit_mock_private.py mock_private
 python scripts/score_mock_results.py mock_private predictions.jsonl
 ```
 
-## Expected failure modes
+Standard tasks: 30. Stress tasks: 9. Total tasks: 39.
 
-- Banking77 hardcoding fails on task2 and task3.
-- Label-name-only methods fail on opaque label tasks.
-- Routers that treat every A/B/C/D label set as MCQ fail on `task2_ood_arbitrary_abcd_labels`.
-- Missing prompt-injection boundaries fail on `task1_banking77_injected_slice` and `task3_mcq_injection_and_decoy`.
-- Traditional classifiers without reasoning fail on MCQ.
-- Weak budget handling fails on long text and reading-comprehension tasks.
+## Task list
 
-## Tasks
-
-- `task1_banking77_clean_hard`: task1_similar_label, 24 labels, 72 train / 72 test.
-- `task1_banking77_confusable_pairs`: task1_similar_label, 14 labels, 42 train / 56 test.
-- `task1_banking77_injected_slice`: task1_similar_label, 10 labels, 30 train / 30 test.
-- `task2_ood_support_router_hard`: task2_ood_classification, 8 labels, 24 train / 24 test.
-- `task2_ood_news_topic_hard`: task2_ood_classification, 6 labels, 18 train / 18 test.
-- `task2_ood_research_sentence_role`: task2_ood_classification, 6 labels, 18 train / 18 test.
-- `task2_ood_sentiment_nuanced`: task2_ood_classification, 4 labels, 12 train / 20 test.
-- `task2_ood_question_type`: task2_ood_classification, 6 labels, 18 train / 18 test.
-- `task2_ood_email_action`: task2_ood_classification, 6 labels, 18 train / 18 test.
-- `task2_ood_software_issue_triage`: task2_ood_classification, 6 labels, 18 train / 18 test.
-- `task2_ood_product_review_aspect`: task2_ood_classification, 6 labels, 18 train / 18 test.
-- `task2_ood_policy_clause_type`: task2_ood_classification, 6 labels, 18 train / 18 test.
-- `task2_ood_long_text_topic`: task2_ood_classification, 6 labels, 18 train / 18 test.
-- `task2_ood_arbitrary_abcd_labels`: task2_ood_classification, 4 labels, 12 train / 20 test.
-- `task2_ood_opaque_label_mapping`: task2_ood_classification, 5 labels, 20 train / 20 test.
-- `task2_ood_event_intent`: task2_ood_classification, 6 labels, 18 train / 18 test.
-- `task2_ood_customer_review_stance`: task2_ood_classification, 5 labels, 15 train / 20 test.
-- `task3_mcq_science_fact`: task3_mcq, 4 labels, 12 train / 20 test.
-- `task3_mcq_commonsense_reasoning`: task3_mcq, 4 labels, 12 train / 20 test.
-- `task3_mcq_math_word_problem`: task3_mcq, 4 labels, 12 train / 20 test.
-- `task3_mcq_reading_comprehension`: task3_mcq, 4 labels, 12 train / 20 test.
-- `task3_mcq_logic_constraints`: task3_mcq, 4 labels, 12 train / 20 test.
-- `task3_mcq_injection_and_decoy`: task3_mcq, 4 labels, 12 train / 20 test.
+- `standard_task1_banking77_en`: standard / task1_similar_label, 12 labels, 36 train / 36 test.
+- `standard_task1_banking77_zh_mixed`: standard / task1_similar_label, 8 labels, 24 train / 24 test.
+- `standard_task1_banking77_confusable_pairs`: standard / task1_similar_label, 10 labels, 30 train / 30 test.
+- `standard_task1_banking77_multilingual_injection`: standard / task1_similar_label, 8 labels, 24 train / 19 test.
+- `standard_task2_zh_customer_support`: standard / task2_ood_classification, 6 labels, 18 train / 18 test.
+- `standard_task2_en_saas_router`: standard / task2_ood_classification, 6 labels, 18 train / 18 test.
+- `standard_task2_multilingual_assistant_intent`: standard / task2_ood_classification, 5 labels, 15 train / 20 test.
+- `standard_task2_crosslingual_news_topic`: standard / task2_ood_classification, 6 labels, 18 train / 18 test.
+- `standard_task2_science_sentence_role`: standard / task2_ood_classification, 6 labels, 18 train / 18 test.
+- `standard_task2_citation_intent_style`: standard / task2_ood_classification, 5 labels, 15 train / 20 test.
+- `standard_task2_lab_safety`: standard / task2_ood_classification, 5 labels, 15 train / 20 test.
+- `standard_task2_policy_clause_type`: standard / task2_ood_classification, 6 labels, 18 train / 18 test.
+- `standard_task2_software_issue_triage`: standard / task2_ood_classification, 6 labels, 18 train / 18 test.
+- `standard_task2_email_action`: standard / task2_ood_classification, 6 labels, 18 train / 18 test.
+- `standard_task2_product_review_aspect`: standard / task2_ood_classification, 6 labels, 18 train / 18 test.
+- `standard_task2_sentiment_nuanced`: standard / task2_ood_classification, 4 labels, 12 train / 20 test.
+- `standard_task2_question_type`: standard / task2_ood_classification, 6 labels, 18 train / 18 test.
+- `standard_task2_arbitrary_abcd_non_mcq`: standard / task2_ood_classification, 4 labels, 12 train / 20 test.
+- `standard_task2_opaque_label_mapping`: standard / task2_ood_classification, 5 labels, 15 train / 20 test.
+- `standard_task2_unicode_label_exact_match`: standard / task2_ood_classification, 5 labels, 15 train / 20 test.
+- `standard_task2_structured_text`: standard / task2_ood_classification, 5 labels, 15 train / 20 test.
+- `standard_task2_long_text_topic`: standard / task2_ood_classification, 6 labels, 18 train / 18 test.
+- `standard_task3_mcq_science_en`: standard / task3_mcq, 4 labels, 12 train / 16 test.
+- `standard_task3_mcq_science_zh`: standard / task3_mcq, 4 labels, 12 train / 16 test.
+- `standard_task3_mcq_bilingual_science_terms`: standard / task3_mcq, 4 labels, 12 train / 16 test.
+- `standard_task3_mcq_multilingual_commonsense`: standard / task3_mcq, 4 labels, 12 train / 16 test.
+- `standard_task3_mcq_math_zh_en`: standard / task3_mcq, 4 labels, 12 train / 16 test.
+- `standard_task3_mcq_multilingual_reading`: standard / task3_mcq, 4 labels, 12 train / 16 test.
+- `standard_task3_mcq_logic_constraints`: standard / task3_mcq, 4 labels, 12 train / 16 test.
+- `standard_task3_mcq_injection_fake_key`: standard / task3_mcq, 4 labels, 12 train / 16 test.
+- `stress_task2_high_cardinality_long_labels`: stress / task2_ood_classification, 120 labels, 120 train / 48 test.
+- `stress_task2_opaque_ids_300`: stress / task2_ood_classification, 300 labels, 300 train / 60 test.
+- `stress_task2_multilingual_small_language`: stress / task2_ood_classification, 4 labels, 12 train / 12 test.
+- `stress_task2_label_language_mismatch`: stress / task2_ood_classification, 4 labels, 12 train / 12 test.
+- `stress_task2_hierarchical_prefix_collision`: stress / task2_ood_classification, 5 labels, 15 train / 20 test.
+- `stress_task1_multilingual_injection_flood`: stress / task1_similar_label, 4 labels, 12 train / 16 test.
+- `stress_task3_fullwidth_option_labels`: stress / task3_mcq, 4 labels, 12 train / 16 test.
+- `stress_task3_chinese_option_labels`: stress / task3_mcq, 4 labels, 12 train / 16 test.
+- `stress_task3_long_science_passage_fake_instruction`: stress / task3_mcq, 4 labels, 12 train / 16 test.
