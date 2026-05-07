@@ -1,0 +1,12 @@
+{"text": "I know my password is right but the service will not let me in.", "label": "login_problem"}
+{"text": "The login code expires before I receive it.", "label": "login_problem"}
+{"text": "Why did the annual plan bill me two separate times?", "label": "billing_question"}
+{"text": "I need help understanding a strange charge on my invoice.", "label": "billing_question"}
+{"text": "My order has been stuck at the same depot for days.", "label": "shipping_status"}
+{"text": "Can you tell me whether the parcel shipped yet?", "label": "shipping_status"}
+{"text": "The shoes arrived damaged and I need to send them back.", "label": "product_return"}
+{"text": "I bought the wrong size and need return instructions.", "label": "product_return"}
+{"text": "The desktop app closes as soon as I upload a file.", "label": "technical_bug"}
+{"text": "Search results fail with a server error.", "label": "technical_bug"}
+{"text": "Please create an option to export all projects at once.", "label": "feature_request"}
+{"text": "A shared team calendar integration would help us.", "label": "feature_request"}

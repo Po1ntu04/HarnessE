@@ -1,0 +1,213 @@
+{
+  "name": "mock_private",
+  "purpose": "Local stress suite for HarnessE meta-classification design.",
+  "format": {
+    "train": "jsonl records with text,label",
+    "test": "jsonl records with text,label for local scoring only"
+  },
+  "primary_metric": "family_macro_average",
+  "secondary_metric": "task_macro_average",
+  "families": {
+    "banking_same": 1,
+    "mcq": 2,
+    "ood_classification": 4,
+    "prompt_injection": 1
+  },
+  "family_macro_formula": "Average accuracy within each family, then average families equally.",
+  "task_macro_formula": "Average accuracy across all tasks equally.",
+  "runtime_rule": "These files are local development assets. Final solution.py must not read them.",
+  "tasks": [
+    {
+      "id": "banking77_same_labels",
+      "family": "banking_same",
+      "expected_profile": "classification_like",
+      "labels": [
+        "Refund_not_showing_up",
+        "card_arrival",
+        "card_delivery_estimate",
+        "declined_cash_withdrawal",
+        "declined_transfer",
+        "pending_card_payment",
+        "pending_transfer",
+        "request_refund"
+      ],
+      "label_count": 8,
+      "train_records": 24,
+      "test_records": 18,
+      "stress": [
+        "near-label ambiguity",
+        "short customer utterances",
+        "case-sensitive and punctuation-sensitive labels",
+        "retrieval candidate recall"
+      ],
+      "task_macro_weight": 0.125,
+      "family_macro_weight": 0.25,
+      "within_family_weight": 1.0
+    },
+    {
+      "id": "banking77_injected",
+      "family": "prompt_injection",
+      "expected_profile": "classification_like_with_injection",
+      "labels": [
+        "card_arrival",
+        "declined_card_payment",
+        "lost_or_stolen_card",
+        "pending_transfer",
+        "top_up_failed",
+        "verify_my_identity"
+      ],
+      "label_count": 6,
+      "train_records": 12,
+      "test_records": 12,
+      "stress": [
+        "quoted-data boundary",
+        "label mention attack",
+        "instruction-like user text",
+        "whitelist verifier"
+      ],
+      "task_macro_weight": 0.125,
+      "family_macro_weight": 0.25,
+      "within_family_weight": 1.0
+    },
+    {
+      "id": "ood_support_router",
+      "family": "ood_classification",
+      "expected_profile": "classification_like",
+      "labels": [
+        "billing_question",
+        "feature_request",
+        "login_problem",
+        "product_return",
+        "shipping_status",
+        "technical_bug"
+      ],
+      "label_count": 6,
+      "train_records": 18,
+      "test_records": 12,
+      "stress": [
+        "OOD label inventory",
+        "support-domain overlap",
+        "label name semantics",
+        "few-shot adaptation"
+      ],
+      "task_macro_weight": 0.125,
+      "family_macro_weight": 0.25,
+      "within_family_weight": 0.25
+    },
+    {
+      "id": "news_topic_ood",
+      "family": "ood_classification",
+      "expected_profile": "classification_like",
+      "labels": [
+        "business",
+        "sports",
+        "technology",
+        "world"
+      ],
+      "label_count": 4,
+      "train_records": 12,
+      "test_records": 8,
+      "stress": [
+        "short labels",
+        "topic classification",
+        "non-support domain",
+        "lexical overlap across economy and technology"
+      ],
+      "task_macro_weight": 0.125,
+      "family_macro_weight": 0.25,
+      "within_family_weight": 0.25
+    },
+    {
+      "id": "research_intent_ood",
+      "family": "ood_classification",
+      "expected_profile": "classification_like",
+      "labels": [
+        "definition_request",
+        "future_work",
+        "limitation_critique",
+        "method_question",
+        "result_interpretation"
+      ],
+      "label_count": 5,
+      "train_records": 15,
+      "test_records": 10,
+      "stress": [
+        "longer abstract-like text",
+        "labels are semantic but not customer support intents",
+        "method vs result vs limitation confusion"
+      ],
+      "task_macro_weight": 0.125,
+      "family_macro_weight": 0.25,
+      "within_family_weight": 0.25
+    },
+    {
+      "id": "short_label_sentiment",
+      "family": "ood_classification",
+      "expected_profile": "classification_like",
+      "labels": [
+        "mixed",
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "label_count": 4,
+      "train_records": 12,
+      "test_records": 8,
+      "stress": [
+        "short labels",
+        "label-name reliance",
+        "ambiguous sentiment",
+        "mixed class handling"
+      ],
+      "task_macro_weight": 0.125,
+      "family_macro_weight": 0.25,
+      "within_family_weight": 0.25
+    },
+    {
+      "id": "mcq_science",
+      "family": "mcq",
+      "expected_profile": "mcq_like",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "label_count": 4,
+      "train_records": 8,
+      "test_records": 8,
+      "stress": [
+        "A/B/C/D short labels",
+        "option reasoning",
+        "independent letter parsing",
+        "avoid label-name semantic assumptions"
+      ],
+      "task_macro_weight": 0.125,
+      "family_macro_weight": 0.25,
+      "within_family_weight": 0.5
+    },
+    {
+      "id": "mcq_reasoning_injected",
+      "family": "mcq",
+      "expected_profile": "mcq_like_with_injection",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "label_count": 4,
+      "train_records": 8,
+      "test_records": 8,
+      "stress": [
+        "MCQ routing under instruction-like text",
+        "answer cue parsing",
+        "multi-sentence reasoning",
+        "prompt injection inside question body"
+      ],
+      "task_macro_weight": 0.125,
+      "family_macro_weight": 0.25,
+      "within_family_weight": 0.5
+    }
+  ]
+}

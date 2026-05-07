@@ -1,0 +1,15 @@
+{"text": "What does contrastive learning mean in this paper?", "label": "definition_request"}
+{"text": "Can you define retrieval-augmented generation in simple terms?", "label": "definition_request"}
+{"text": "What is meant by calibration error here?", "label": "definition_request"}
+{"text": "How does this method differ from standard fine-tuning?", "label": "method_question"}
+{"text": "Why did the authors use a bi-encoder instead of a cross-encoder?", "label": "method_question"}
+{"text": "What training objective is used for the reranker?", "label": "method_question"}
+{"text": "The table shows lower accuracy on the noisy split; what does that imply?", "label": "result_interpretation"}
+{"text": "How should I interpret the ablation where memory is removed?", "label": "result_interpretation"}
+{"text": "Why does performance improve only on the long-context subset?", "label": "result_interpretation"}
+{"text": "The approach assumes labels are known ahead of time. Is that a weakness?", "label": "limitation_critique"}
+{"text": "What are the main limitations of evaluating only on English data?", "label": "limitation_critique"}
+{"text": "Does the small sample size threaten the conclusion?", "label": "limitation_critique"}
+{"text": "What experiment should be run next to extend this work?", "label": "future_work"}
+{"text": "How could this method be applied to multilingual classification?", "label": "future_work"}
+{"text": "What follow-up study would test robustness to prompt injection?", "label": "future_work"}

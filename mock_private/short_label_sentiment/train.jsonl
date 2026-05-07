@@ -1,0 +1,12 @@
+{"text": "The update fixed every issue and the app feels faster.", "label": "positive"}
+{"text": "Support answered quickly and solved my problem.", "label": "positive"}
+{"text": "The new dashboard is clean and useful.", "label": "positive"}
+{"text": "The release broke login and wasted my afternoon.", "label": "negative"}
+{"text": "Customer service never responded to my ticket.", "label": "negative"}
+{"text": "The product feels slower and less reliable now.", "label": "negative"}
+{"text": "The package arrived on Tuesday as scheduled.", "label": "neutral"}
+{"text": "This message confirms the account was created.", "label": "neutral"}
+{"text": "The report contains the requested data for April.", "label": "neutral"}
+{"text": "The interface looks better, but export still fails.", "label": "mixed"}
+{"text": "Shipping was fast, although the box was damaged.", "label": "mixed"}
+{"text": "The features are useful but the price is too high.", "label": "mixed"}

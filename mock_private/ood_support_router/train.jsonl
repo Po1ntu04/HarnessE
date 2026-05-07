@@ -1,0 +1,18 @@
+{"text": "I cannot sign in even after resetting my password.", "label": "login_problem"}
+{"text": "The app says my account is locked when I try to log in.", "label": "login_problem"}
+{"text": "Two-factor code never arrives, so I cannot access my account.", "label": "login_problem"}
+{"text": "I was charged twice for the monthly subscription.", "label": "billing_question"}
+{"text": "Can you explain the invoice total for this month?", "label": "billing_question"}
+{"text": "My renewal price looks higher than expected.", "label": "billing_question"}
+{"text": "Where is my package and when will it arrive?", "label": "shipping_status"}
+{"text": "The tracking page has not updated for my order.", "label": "shipping_status"}
+{"text": "My parcel seems delayed in transit.", "label": "shipping_status"}
+{"text": "I want to return the headphones I bought last week.", "label": "product_return"}
+{"text": "How do I send back a damaged item?", "label": "product_return"}
+{"text": "The jacket does not fit and I need a return label.", "label": "product_return"}
+{"text": "The screen freezes whenever I open settings.", "label": "technical_bug"}
+{"text": "Your website crashes after I click save.", "label": "technical_bug"}
+{"text": "There is an error message when exporting the report.", "label": "technical_bug"}
+{"text": "Please add dark mode to the dashboard.", "label": "feature_request"}
+{"text": "It would be useful to bulk edit multiple projects.", "label": "feature_request"}
+{"text": "Can you support calendar sync in the next release?", "label": "feature_request"}
