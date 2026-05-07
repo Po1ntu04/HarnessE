@@ -1,0 +1,18 @@
+{"text": "Existing studies show that user prompts can contain adversarial instructions.", "label": "background"}
+{"text": "Not asking about an unrelated deadline; few evaluations examine how memory changes classification behavior.", "label": "background"}
+{"text": "I first thought this was about a previous message, but actually recent agent systems rely on tool boundaries and external state.", "label": "background"}
+{"text": "Our experiment measures whether prompt boundaries reduce injection failures.", "label": "objective"}
+{"text": "Not asking about an unrelated deadline; we investigate how candidate selection affects small-context classifiers.", "label": "objective"}
+{"text": "I first thought this was about a previous message, but actually the project seeks to identify failure modes in runtime label routing.", "label": "objective"}
+{"text": "We split tasks by profile before choosing a solver prompt.", "label": "method"}
+{"text": "Not asking about an unrelated deadline; a fixed seed is used to generate synthetic stress data.", "label": "method"}
+{"text": "I first thought this was about a previous message, but actually the prompt includes examples only for labels selected by retrieval.", "label": "method"}
+{"text": "Long passages increased token usage but did not exceed the budget after trimming.", "label": "result"}
+{"text": "Not asking about an unrelated deadline; opaque label tasks exposed failures in label-name heuristics.", "label": "result"}
+{"text": "I first thought this was about a previous message, but actually the injected slice showed fewer mistakes after quoted-data boundaries were added.", "label": "result"}
+{"text": "The retriever can still miss labels when paraphrases are very distant.", "label": "limitation"}
+{"text": "Not asking about an unrelated deadline; the evaluation uses English examples and may not cover multilingual inputs.", "label": "limitation"}
+{"text": "I first thought this was about a previous message, but actually the prompt budget limits how many candidate examples can be shown.", "label": "limitation"}
+{"text": "Future work may add calibrated confidence without changing closed-set output.", "label": "future_work"}
+{"text": "Not asking about an unrelated deadline; a follow-up study should examine longer documents and multi-label ambiguity.", "label": "future_work"}
+{"text": "I first thought this was about a previous message, but actually the framework could be extended with offline prompt revision based on failures.", "label": "future_work"}

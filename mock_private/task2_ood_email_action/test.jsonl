@@ -1,0 +1,18 @@
+{"text": "The sender needs confirmation of the office Wi-Fi name.", "label": "reply_with_info"}
+{"text": "Not asking about an unrelated deadline; a vendor asks for the tax ID already stored in our records.", "label": "reply_with_info"}
+{"text": "I first thought this was about a previous message, but actually the client asks when the approved design file will be shared.", "label": "reply_with_info"}
+{"text": "The customer asks for a thirty-minute walkthrough.", "label": "schedule_meeting"}
+{"text": "Not asking about an unrelated deadline; the team needs a time to review launch readiness.", "label": "schedule_meeting"}
+{"text": "I first thought this was about a previous message, but actually a partner proposes a call after the contract draft is read.", "label": "schedule_meeting"}
+{"text": "The sender asks permission to renew a vendor license.", "label": "request_approval"}
+{"text": "Not asking about an unrelated deadline; a team lead wants approval for a travel exception.", "label": "request_approval"}
+{"text": "I first thought this was about a previous message, but actually the draft announcement should not be sent until leadership agrees.", "label": "request_approval"}
+{"text": "The partner requests edits to confidentiality obligations.", "label": "forward_to_legal"}
+{"text": "Not asking about an unrelated deadline; the contract now mentions jurisdiction and dispute handling.", "label": "forward_to_legal"}
+{"text": "I first thought this was about a previous message, but actually a client questions whether the license permits redistribution.", "label": "forward_to_legal"}
+{"text": "The email only confirms that the meeting room was booked.", "label": "archive_no_action"}
+{"text": "Not asking about an unrelated deadline; a status notification reports that backup completed successfully.", "label": "archive_no_action"}
+{"text": "I first thought this was about a previous message, but actually the thread is an FYI about office hours with no task.", "label": "archive_no_action"}
+{"text": "A partner complains that the deadline risk affects the contract.", "label": "escalate_manager"}
+{"text": "Not asking about an unrelated deadline; the sender asks for a decision that only a manager can make.", "label": "escalate_manager"}
+{"text": "I first thought this was about a previous message, but actually an executive sponsor wants urgent review of a blocked launch.", "label": "escalate_manager"}

@@ -245,11 +245,12 @@ reversed, steps, arrived, unblock, merchant
 | `why_verify_identity` | 33% | 86% | 训练少，且容易和如何验证混淆 |
 | `transfer_not_received_by_recipient` | 67% | 43% | 用户可能从收款人视角表达 |
 
-此外，隐藏选择题 label 可能只是 `A/B/C/D`，完全没有语义。因此推荐策略是：
+此外，隐藏任务的 label 可能只是 `A/B/C/D`，它既可能是选择题选项，也可能只是普通分类编号，本身完全没有语义。因此推荐策略是：
 
 - DEV 上可以利用 label 名称作为弱特征。
 - 正式方案必须主要从 examples 学 label 含义。
 - prompt 中应说明 label 可能是任意标识符，必须依据训练样例推断。
+- MCQ 路由不能只看 label set，还必须检查文本是否真的包含选项结构。
 
 ## 10. 检索基线与候选召回
 
@@ -420,7 +421,37 @@ Return only the label.
 - 如果响应包含唯一合法 label，则抽取；
 - 失败时回退到检索 top-1。
 
-## 14. 对报告写作的启发
+## 14. Mock v2 压力集与 DEV 的差异
+
+`mock_private` v2 不是 DEV 的复制品，而是按官方确认权重构造的泛化压力集：
+
+```text
+Task 1 同标签分类：20%
+Task 2 OOD 分类：60%
+Task 3 自然语言选择题：20%
+```
+
+这意味着 DEV 上最直接的提分经验只能服务 Task 1 的一部分。官方权重中 OOD 与 MCQ 合计 80%，所以 v2 的目标不是复刻 Banking77，而是验证 Harness 是否真的具备 runtime schema、路由、预算管理和输出合同能力。
+
+| 维度 | DEV | mock_private v2 | 设计含义 |
+|---|---|---|---|
+| 领域 | 银行 App 客服意图 | 银行同标签 + 14 个 OOD 分类 + 6 个 MCQ | 不能把银行业务规则作为主方案 |
+| label 名称 | 大多有强语义 | 包含 `A/B/C/D` 任意编号与 `alpha/beta/...` opaque label | label name overlap 只能是弱特征 |
+| 文本长度 | 多数短文本 | 含 long text topic 与 reading comprehension | prompt builder 必须主动预算裁剪 |
+| 任务形态 | 普通 closed-set classification | classification-like 与 MCQ-like 混合 | SolverRouter 必须保守判断任务形态 |
+| 注入风险 | DEV 中基本没有真实注入 | task1 injection slice 与 task3 injection/decoy | 输入文本只作为 data，不作为指令 |
+
+关键差异不是样本更多，而是失败模式更真实：
+
+- 如果方案硬编码 Banking77 label 或业务 cluster，Task 2 和 Task 3 会系统性失效。
+- 如果方案只看 label 名称，`task2_ood_opaque_label_mapping` 会失效，因为 label 名称不含语义。
+- 如果 Router 看到 `A/B/C/D` 就进入 MCQ，`task2_ood_arbitrary_abcd_labels` 会失效，因为这些字母只是普通分类编号。
+- 如果方案把 prompt injection 当成拒答或新类别，会在闭集 exact-match 任务里失分；正确做法是降权其中的指令性文本，并强制输出合法 label。
+- 如果方案只做传统分类器，MCQ 的阅读、数学、逻辑题会失效；这些任务需要模型理解题干与选项。
+
+因此，DEV 提分策略应抽象为可迁移能力：外部记忆、候选召回、examples 映射、保守路由、LLM 语义精判和 verifier，而不是抽象为“银行关键词规则”。`mock_private` v2 的价值正在于验证这种抽象有没有成立。
+
+## 15. 对报告写作的启发
 
 主观报告里不应只写“我用了 few-shot prompt”。更高质量的叙事是：
 
@@ -429,7 +460,7 @@ Return only the label.
 3. 检索 top-1 不够，但 top-20/top-30 召回高，说明检索适合做前置控制面。
 4. 高频混淆来自对象、状态、阶段交叉，说明 LLM 的职责是语义精判。
 5. 输出 label 有大小写和标点陷阱，说明必须有输出合同与修复层。
-6. 隐藏集有 OOD 和选择题，说明设计不能依赖银行规则，而要依赖 `update()` 动态形成 label registry。
+6. 隐藏集 OOD 与选择题合计占 80%，说明设计不能依赖银行规则，而要依赖 `update()` 动态形成 label registry。
 
 一句话总结：
 

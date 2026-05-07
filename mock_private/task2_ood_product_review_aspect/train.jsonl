@@ -1,0 +1,18 @@
+{"text": "The item is fine, but tracking stopped updating for five days.", "label": "shipping_delivery"}
+{"text": "I need help because packaging was crushed when the parcel arrived.", "label": "shipping_delivery"}
+{"text": "Could you route this: delivery missed the promised date twice.", "label": "shipping_delivery"}
+{"text": "The handle cracked after a week of normal use.", "label": "product_quality"}
+{"text": "I need help because the fabric feels thin and the stitching is loose.", "label": "product_quality"}
+{"text": "Could you route this: one speaker rattles whenever the volume is above half.", "label": "product_quality"}
+{"text": "It works, but not well enough for the amount charged.", "label": "price_value"}
+{"text": "I need help because a cheaper competitor includes the same accessories.", "label": "price_value"}
+{"text": "Could you route this: the bundle feels overpriced for the materials.", "label": "price_value"}
+{"text": "The controls are confusing even though the device functions.", "label": "usability"}
+{"text": "I need help because setup requires too many steps for a simple product.", "label": "usability"}
+{"text": "Could you route this: the manual is clear, but daily operation is awkward.", "label": "usability"}
+{"text": "The product failed and support kept sending canned replies.", "label": "customer_service"}
+{"text": "I need help because the agent was polite but never followed up.", "label": "customer_service"}
+{"text": "Could you route this: customer service transferred me three times without a solution.", "label": "customer_service"}
+{"text": "I sent the item back and still have no refund.", "label": "return_refund"}
+{"text": "I need help because the return label link expired before I could print it.", "label": "return_refund"}
+{"text": "Could you route this: i need to return the order because it does not fit.", "label": "return_refund"}

@@ -1,0 +1,24 @@
+{"text": "I know my password but the workspace refuses access.", "label": "account_access"}
+{"text": "Not asking about an unrelated deadline; the invite link works for teammates but not for my account.", "label": "account_access"}
+{"text": "I first thought this was about a previous message, but actually this is not a billing question; I simply cannot get into the product.", "label": "account_access"}
+{"text": "I need help disputing a payment that should have been credited.", "label": "billing_dispute"}
+{"text": "Not asking about an unrelated deadline; this is about the amount charged, not a login issue.", "label": "billing_dispute"}
+{"text": "I first thought this was about a previous message, but actually the receipt does not match the quoted subscription plan.", "label": "billing_dispute"}
+{"text": "Only the report editor is broken; the rest of the service works.", "label": "technical_bug"}
+{"text": "Not asking about an unrelated deadline; a field disappears when I switch tabs in the form.", "label": "technical_bug"}
+{"text": "I first thought this was about a previous message, but actually the mobile app crashes after opening notification settings.", "label": "technical_bug"}
+{"text": "Could you support CSV import for all archived records?", "label": "feature_request"}
+{"text": "Not asking about an unrelated deadline; this is not a bug; I want a new capability.", "label": "feature_request"}
+{"text": "I first thought this was about a previous message, but actually it would be useful to save reusable dashboard templates.", "label": "feature_request"}
+{"text": "Please review a suspicious session on our admin account.", "label": "security_risk"}
+{"text": "Not asking about an unrelated deadline; this may be unauthorized access rather than a password typo.", "label": "security_risk"}
+{"text": "I first thought this was about a previous message, but actually a vendor account shows activity after offboarding.", "label": "security_risk"}
+{"text": "This is not a refund dispute; we are leaving the service.", "label": "cancellation"}
+{"text": "Not asking about an unrelated deadline; stop renewal for the team account at the end of the month.", "label": "cancellation"}
+{"text": "I first thought this was about a previous message, but actually can you confirm the cancellation steps for an enterprise plan?", "label": "cancellation"}
+{"text": "This is about extracting our records, not deleting the workspace.", "label": "data_export"}
+{"text": "Not asking about an unrelated deadline; the compliance team needs an export of user activity.", "label": "data_export"}
+{"text": "I first thought this was about a previous message, but actually i need a copy of invoices, users, and settings for archive.", "label": "data_export"}
+{"text": "This is not a single button bug; the whole platform is unavailable.", "label": "service_outage"}
+{"text": "Not asking about an unrelated deadline; multiple workspaces report the same downtime.", "label": "service_outage"}
+{"text": "I first thought this was about a previous message, but actually the API and UI both stopped responding at once.", "label": "service_outage"}

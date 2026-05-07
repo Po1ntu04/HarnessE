@@ -1,0 +1,18 @@
+{"text": "The save button throws an exception when the title contains an emoji.", "label": "bug_report"}
+{"text": "I need help because exported CSV files drop the final column.", "label": "bug_report"}
+{"text": "Could you route this: the API returns 500 for a valid project identifier.", "label": "bug_report"}
+{"text": "Please add a way to clone an existing workspace.", "label": "feature_request"}
+{"text": "I need help because it would help to schedule reports for every Monday.", "label": "feature_request"}
+{"text": "Could you route this: can the app support multiple owners for one project?", "label": "feature_request"}
+{"text": "The setup guide says to use a flag that no longer exists.", "label": "documentation"}
+{"text": "I need help because the API docs do not show an authentication example.", "label": "documentation"}
+{"text": "Could you route this: the migration page omits how to handle nested folders.", "label": "documentation"}
+{"text": "The package fails to install because a dependency cannot be resolved.", "label": "installation_help"}
+{"text": "I need help because i cannot build the project on Windows after cloning it.", "label": "installation_help"}
+{"text": "Could you route this: the setup command says Python headers are missing.", "label": "installation_help"}
+{"text": "The same import now takes twelve seconds instead of two.", "label": "performance_regression"}
+{"text": "I need help because scrolling a large table became sluggish after the update.", "label": "performance_regression"}
+{"text": "Could you route this: the dashboard loads much slower with the latest release.", "label": "performance_regression"}
+{"text": "The button works, but its label makes the action unclear.", "label": "usability_feedback"}
+{"text": "I need help because the date picker is hard to use on a small screen.", "label": "usability_feedback"}
+{"text": "Could you route this: users keep missing the filter because it is hidden under a menu.", "label": "usability_feedback"}

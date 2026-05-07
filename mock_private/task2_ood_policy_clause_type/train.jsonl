@@ -1,0 +1,18 @@
+{"text": "Employees may use approved devices for remote work.", "label": "permission"}
+{"text": "I need help because the vendor can share aggregated metrics with written consent.", "label": "permission"}
+{"text": "Could you route this: visitors are allowed to enter after signing the log.", "label": "permission"}
+{"text": "Users must not disclose credentials to third parties.", "label": "prohibition"}
+{"text": "I need help because the contractor is prohibited from reselling customer data.", "label": "prohibition"}
+{"text": "Could you route this: personal devices cannot connect to the secure lab network.", "label": "prohibition"}
+{"text": "The supplier shall notify the company within two business days.", "label": "obligation"}
+{"text": "I need help because employees are required to complete training annually.", "label": "obligation"}
+{"text": "Could you route this: the tenant must maintain insurance during the lease term.", "label": "obligation"}
+{"text": "The rule does not apply to emergency maintenance.", "label": "exception"}
+{"text": "I need help because except for archived logs, records must be deleted after closure.", "label": "exception"}
+{"text": "Could you route this: unless the client requests otherwise, reports are anonymized.", "label": "exception"}
+{"text": "Confidential information means non-public business data.", "label": "definition"}
+{"text": "I need help because a minor refers to any person under eighteen years old.", "label": "definition"}
+{"text": "Could you route this: system administrator means an employee assigned elevated access.", "label": "definition"}
+{"text": "Violations may result in suspension of account access.", "label": "penalty"}
+{"text": "I need help because late payment will incur a monthly service charge.", "label": "penalty"}
+{"text": "Could you route this: failure to comply can lead to termination of the agreement.", "label": "penalty"}

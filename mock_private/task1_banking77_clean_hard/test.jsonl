@@ -1,0 +1,72 @@
+{"text": "The card arrived today, but the main issue is enabling it before I use it.", "label": "activate_my_card"}
+{"text": "Not asking about a card fee; i am not asking about delivery; I need the steps to start using the card.", "label": "activate_my_card"}
+{"text": "I first thought this was about identity verification, but actually the replacement card is in my hand and still needs to be switched on.", "label": "activate_my_card"}
+{"text": "It is not about estimated delivery; the promised date passed and the card never came.", "label": "card_arrival"}
+{"text": "Not asking about a card fee; my card may be lost in the post because it has not arrived.", "label": "card_arrival"}
+{"text": "I first thought this was about identity verification, but actually i ordered the card earlier and need to know what happened to that shipment.", "label": "card_arrival"}
+{"text": "I have not ordered yet; I only want the expected card delivery time.", "label": "card_delivery_estimate"}
+{"text": "Not asking about a card fee; what date range do you give for card delivery after ordering?", "label": "card_delivery_estimate"}
+{"text": "I first thought this was about identity verification, but actually how long does card shipping usually take for my region?", "label": "card_delivery_estimate"}
+{"text": "The issue is the card used for cash withdrawal, not the fee.", "label": "cash_withdrawal_card"}
+{"text": "Not asking about a card fee; i need to confirm whether this physical card can be used at a cash machine.", "label": "cash_withdrawal_card"}
+{"text": "I first thought this was about identity verification, but actually my question is about using the card to withdraw money, not a failed payment.", "label": "cash_withdrawal_card"}
+{"text": "It is not that cash failed; I received money and then saw a charge.", "label": "cash_withdrawal_charge"}
+{"text": "Not asking about a card fee; please explain the cost attached to my ATM withdrawal.", "label": "cash_withdrawal_charge"}
+{"text": "I first thought this was about identity verification, but actually the cash came out, but the statement shows an extra withdrawal fee.", "label": "cash_withdrawal_charge"}
+{"text": "I am asking about taking out cash without the plastic card.", "label": "cash_withdrawal_cardless"}
+{"text": "Not asking about a card fee; is there a way to withdraw money using only the phone app?", "label": "cash_withdrawal_cardless"}
+{"text": "I first thought this was about identity verification, but actually the card is not with me, but I need a cash withdrawal option.", "label": "cash_withdrawal_cardless"}
+{"text": "This is not a card payment; the cash machine withdrawal is pending.", "label": "cash_withdrawal_pending"}
+{"text": "Not asking about a card fee; the ATM entry is waiting on my balance after the withdrawal attempt.", "label": "cash_withdrawal_pending"}
+{"text": "I first thought this was about identity verification, but actually i did not get a final status for yesterday's cash withdrawal.", "label": "cash_withdrawal_pending"}
+{"text": "It is not a fee problem; the actual bills from the ATM were short.", "label": "wrong_amount_of_cash_received"}
+{"text": "Not asking about a card fee; my balance dropped by more money than the ATM handed to me.", "label": "wrong_amount_of_cash_received"}
+{"text": "I first thought this was about identity verification, but actually the withdrawal amount in the app does not match the cash I received.", "label": "wrong_amount_of_cash_received"}
+{"text": "The card payment cleared, but I have no idea what it is.", "label": "card_payment_not_recognised"}
+{"text": "Not asking about a card fee; this is not just a fee; the whole card purchase looks unknown.", "label": "card_payment_not_recognised"}
+{"text": "I first thought this was about identity verification, but actually a card transaction appeared that nobody in my family made.", "label": "card_payment_not_recognised"}
+{"text": "The merchant accepted the card, but the payment still says pending.", "label": "pending_card_payment"}
+{"text": "Not asking about a card fee; it is not an unknown charge yet; the card transaction is just stuck.", "label": "pending_card_payment"}
+{"text": "I first thought this was about identity verification, but actually my card payment has been processing since yesterday.", "label": "pending_card_payment"}
+{"text": "This is about a transfer still waiting, not a card payment.", "label": "pending_transfer"}
+{"text": "Not asking about a card fee; the transfer left my account but the app still shows pending.", "label": "pending_transfer"}
+{"text": "I first thought this was about identity verification, but actually i sent funds yesterday and the transfer status has not settled.", "label": "pending_transfer"}
+{"text": "The transfer shows sent on my side, but the recipient is still missing the money.", "label": "transfer_not_received_by_recipient"}
+{"text": "Not asking about a card fee; this is not just pending in my app; the payee says nothing arrived.", "label": "transfer_not_received_by_recipient"}
+{"text": "I first thought this was about identity verification, but actually the receiver checked their account and the transfer is absent.", "label": "transfer_not_received_by_recipient"}
+{"text": "It is not my identity check; the beneficiary itself is unverified.", "label": "beneficiary_not_verified"}
+{"text": "Not asking about a card fee; the saved recipient shows a warning that they are not verified.", "label": "beneficiary_not_verified"}
+{"text": "I first thought this was about identity verification, but actually i cannot pay this person because the beneficiary status is not confirmed.", "label": "beneficiary_not_verified"}
+{"text": "I know why checks exist; I need the actual steps to verify myself.", "label": "verify_my_identity"}
+{"text": "Not asking about a card fee; please tell me how to finish the identity check.", "label": "verify_my_identity"}
+{"text": "I first thought this was about identity verification, but actually my account is blocked until I provide identity documents.", "label": "verify_my_identity"}
+{"text": "I am not asking how to upload documents; I want to know why this check is needed.", "label": "why_verify_identity"}
+{"text": "Not asking about a card fee; why does the app suddenly require identity verification?", "label": "why_verify_identity"}
+{"text": "I first thought this was about identity verification, but actually explain the purpose of the identity verification request.", "label": "why_verify_identity"}
+{"text": "The statement shows a cash machine transaction that was not mine.", "label": "cash_withdrawal_not_recognised"}
+{"text": "Not asking about a card fee; it is not a wrong amount; I did not do that withdrawal at all.", "label": "cash_withdrawal_not_recognised"}
+{"text": "I first thought this was about identity verification, but actually someone appears to have taken cash from my account.", "label": "cash_withdrawal_not_recognised"}
+{"text": "I am trying to cancel a purchase and request the refund now.", "label": "request_refund"}
+{"text": "Not asking about a card fee; this is not about a missing refund; I need to initiate one.", "label": "request_refund"}
+{"text": "I first thought this was about identity verification, but actually how can I open a refund request for an order I returned?", "label": "request_refund"}
+{"text": "This is not a new refund request; the refund should already be showing.", "label": "Refund_not_showing_up"}
+{"text": "Not asking about a card fee; i got confirmation of a refund but my balance has not changed.", "label": "Refund_not_showing_up"}
+{"text": "I first thought this was about identity verification, but actually the shop processed the return and the refund is still missing.", "label": "Refund_not_showing_up"}
+{"text": "The merchant payment seems to have been reverted after authorization.", "label": "reverted_card_payment?"}
+{"text": "Not asking about a card fee; it is not a refund request; the card payment itself bounced back.", "label": "reverted_card_payment?"}
+{"text": "I first thought this was about identity verification, but actually my card transaction disappeared and the money returned.", "label": "reverted_card_payment?"}
+{"text": "The merchant says the card was refused, not merely pending.", "label": "declined_card_payment"}
+{"text": "Not asking about a card fee; this is a failed card purchase, not a transfer problem.", "label": "declined_card_payment"}
+{"text": "I first thought this was about identity verification, but actually every attempt to pay with the card is rejected.", "label": "declined_card_payment"}
+{"text": "This is not a card decline; the bank transfer itself was rejected.", "label": "declined_bank_transfer"}
+{"text": "Not asking about a card fee; the transfer did not go through because it was refused.", "label": "declined_bank_transfer"}
+{"text": "I first thought this was about identity verification, but actually sending money to the account was blocked by the transfer system.", "label": "declined_bank_transfer"}
+{"text": "I moved recently and need my profile details edited.", "label": "edit_personal_details"}
+{"text": "Not asking about a card fee; this is not identity verification; I simply need to update personal details.", "label": "edit_personal_details"}
+{"text": "I first thought this was about identity verification, but actually how do I correct my phone number and mailing address?", "label": "edit_personal_details"}
+{"text": "The card is missing, not just delayed in the post.", "label": "lost_or_stolen_card"}
+{"text": "Not asking about a card fee; please freeze the card because I cannot find it.", "label": "lost_or_stolen_card"}
+{"text": "I first thought this was about identity verification, but actually my card disappeared after a night out and may be stolen.", "label": "lost_or_stolen_card"}
+{"text": "It is not the card that is gone; my phone was lost.", "label": "lost_or_stolen_phone"}
+{"text": "Not asking about a card fee; someone took my mobile, so I need help securing the account.", "label": "lost_or_stolen_phone"}
+{"text": "I first thought this was about identity verification, but actually my phone disappeared and I worry about app access.", "label": "lost_or_stolen_phone"}

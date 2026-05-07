@@ -1,0 +1,42 @@
+{"text": "The card I ordered has not shown up at my address.", "label": "card_arrival"}
+{"text": "I need help because i am still waiting for the card that was already sent.", "label": "card_arrival"}
+{"text": "Could you route this: can you check where my mailed card is?", "label": "card_arrival"}
+{"text": "How many days does a new card normally take to arrive?", "label": "card_delivery_estimate"}
+{"text": "I need help because before I order, what delivery window should I expect?", "label": "card_delivery_estimate"}
+{"text": "Could you route this: what is the usual shipping time for a physical card?", "label": "card_delivery_estimate"}
+{"text": "My bank transfer is still pending.", "label": "pending_transfer"}
+{"text": "I need help because the money I sent has not completed yet.", "label": "pending_transfer"}
+{"text": "Could you route this: a transfer is processing longer than expected.", "label": "pending_transfer"}
+{"text": "The recipient says they never got the transfer.", "label": "transfer_not_received_by_recipient"}
+{"text": "I need help because i sent money but the other person cannot see it.", "label": "transfer_not_received_by_recipient"}
+{"text": "Could you route this: my friend has not received the bank transfer.", "label": "transfer_not_received_by_recipient"}
+{"text": "My card purchase is still pending.", "label": "pending_card_payment"}
+{"text": "I need help because the shop payment has not finished processing.", "label": "pending_card_payment"}
+{"text": "Could you route this: a debit card transaction is waiting instead of completed.", "label": "pending_card_payment"}
+{"text": "There is a card purchase I do not recognize.", "label": "card_payment_not_recognised"}
+{"text": "I need help because a merchant charged my card and I did not make that transaction.", "label": "card_payment_not_recognised"}
+{"text": "Could you route this: i see an unfamiliar card payment on my statement.", "label": "card_payment_not_recognised"}
+{"text": "I want to request a refund for a purchase.", "label": "request_refund"}
+{"text": "I need help because how do I ask for my money back from a merchant?", "label": "request_refund"}
+{"text": "Could you route this: please help me start a refund.", "label": "request_refund"}
+{"text": "The refund was issued but is not visible in my account.", "label": "Refund_not_showing_up"}
+{"text": "I need help because a merchant says they refunded me but I do not see the money.", "label": "Refund_not_showing_up"}
+{"text": "Could you route this: my returned purchase credit has not appeared.", "label": "Refund_not_showing_up"}
+{"text": "A card payment was reversed back to my account.", "label": "reverted_card_payment?"}
+{"text": "I need help because why did funds from my card purchase come back?", "label": "reverted_card_payment?"}
+{"text": "Could you route this: the payment looked cancelled and returned to my balance.", "label": "reverted_card_payment?"}
+{"text": "I want to know which card I should use for a cash withdrawal.", "label": "cash_withdrawal_card"}
+{"text": "I need help because can my bank card be used to take out money at an ATM?", "label": "cash_withdrawal_card"}
+{"text": "Could you route this: which card works when I withdraw cash abroad?", "label": "cash_withdrawal_card"}
+{"text": "A fee appeared after I used an ATM.", "label": "cash_withdrawal_charge"}
+{"text": "I need help because why was I charged for taking cash out?", "label": "cash_withdrawal_charge"}
+{"text": "Could you route this: the withdrawal worked, but there is an unexpected cash machine fee.", "label": "cash_withdrawal_charge"}
+{"text": "The ATM gave me less cash than the amount deducted.", "label": "wrong_amount_of_cash_received"}
+{"text": "I need help because i requested one amount but received a different amount of money.", "label": "wrong_amount_of_cash_received"}
+{"text": "Could you route this: the cash machine paid the wrong amount.", "label": "wrong_amount_of_cash_received"}
+{"text": "I need to complete identity verification.", "label": "verify_my_identity"}
+{"text": "I need help because where do I upload documents to prove who I am?", "label": "verify_my_identity"}
+{"text": "Could you route this: the app asks me to verify my identity.", "label": "verify_my_identity"}
+{"text": "Why are you asking me to verify my identity?", "label": "why_verify_identity"}
+{"text": "I need help because what is the reason for the identity check?", "label": "why_verify_identity"}
+{"text": "Could you route this: why do I have to send documents when I already have an account?", "label": "why_verify_identity"}

@@ -1,0 +1,18 @@
+{"text": "Someone wants to add a colleague to the participant list.", "label": "registration"}
+{"text": "Not asking about an unrelated deadline; the early registration code is not accepted.", "label": "registration"}
+{"text": "I first thought this was about a previous message, but actually a student asks whether late registration is allowed.", "label": "registration"}
+{"text": "A presenter asks about microphone setup for the session.", "label": "speaker_request"}
+{"text": "Not asking about an unrelated deadline; a researcher wants to submit a talk abstract.", "label": "speaker_request"}
+{"text": "I first thought this was about a previous message, but actually the invited speaker asks where to upload the bio.", "label": "speaker_request"}
+{"text": "The room is too small for the workshop group.", "label": "venue_logistics"}
+{"text": "Not asking about an unrelated deadline; the badge printer near the entrance has no paper.", "label": "venue_logistics"}
+{"text": "I first thought this was about a previous message, but actually the lunch area needs more chairs before noon.", "label": "venue_logistics"}
+{"text": "A brand requests visibility during the opening session.", "label": "sponsorship"}
+{"text": "Not asking about an unrelated deadline; the sponsor needs attendee count estimates before committing.", "label": "sponsorship"}
+{"text": "I first thought this was about a previous message, but actually a company asks whether banners are included in the package.", "label": "sponsorship"}
+{"text": "The organizer wants to swap two sessions on the schedule.", "label": "agenda_change"}
+{"text": "Not asking about an unrelated deadline; the keynote time conflicts with a sponsor briefing.", "label": "agenda_change"}
+{"text": "I first thought this was about a previous message, but actually a session title changed after the printed agenda was prepared.", "label": "agenda_change"}
+{"text": "A guest lost the Wi-Fi instructions during the event.", "label": "attendee_support"}
+{"text": "Not asking about an unrelated deadline; an attendee needs help finding the quiet room.", "label": "attendee_support"}
+{"text": "I first thought this was about a previous message, but actually a visitor asks where to store luggage during the workshop.", "label": "attendee_support"}

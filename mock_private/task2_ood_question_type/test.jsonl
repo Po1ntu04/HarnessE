@@ -1,0 +1,18 @@
+{"text": "What does the phrase zero-shot mean here?", "label": "definition"}
+{"text": "Not asking about an unrelated deadline; can you explain what constitutional AI refers to?", "label": "definition"}
+{"text": "I first thought this was about a previous message, but actually what is meant by a rolling average?", "label": "definition"}
+{"text": "Who is responsible for approving the budget?", "label": "entity"}
+{"text": "Not asking about an unrelated deadline; which organization issued the safety warning?", "label": "entity"}
+{"text": "I first thought this was about a previous message, but actually what tool generated the audit report?", "label": "entity"}
+{"text": "What region is affected by the outage?", "label": "location"}
+{"text": "Not asking about an unrelated deadline; where should employees collect badges?", "label": "location"}
+{"text": "I first thought this was about a previous message, but actually which campus contains the robotics lab?", "label": "location"}
+{"text": "What percentage of users completed onboarding?", "label": "number"}
+{"text": "Not asking about an unrelated deadline; how long does the migration take?", "label": "number"}
+{"text": "I first thought this was about a previous message, but actually how many seats are included in the plan?", "label": "number"}
+{"text": "What is the process for joining the beta?", "label": "procedure"}
+{"text": "Not asking about an unrelated deadline; how should a new member request access?", "label": "procedure"}
+{"text": "I first thought this was about a previous message, but actually how do I transfer ownership of a workspace?", "label": "procedure"}
+{"text": "Which is faster, batch import or streaming import?", "label": "comparison"}
+{"text": "Not asking about an unrelated deadline; how do the two vaccine schedules differ?", "label": "comparison"}
+{"text": "I first thought this was about a previous message, but actually what distinguishes a warning from an error?", "label": "comparison"}

@@ -1,0 +1,30 @@
+{"text": "The card I ordered has not shown up at my address.", "label": "card_arrival"}
+{"text": "I need help because i am still waiting for the card that was already sent.", "label": "card_arrival"}
+{"text": "Could you route this: can you check where my mailed card is?", "label": "card_arrival"}
+{"text": "My bank transfer is still pending.", "label": "pending_transfer"}
+{"text": "I need help because the money I sent has not completed yet.", "label": "pending_transfer"}
+{"text": "Could you route this: a transfer is processing longer than expected.", "label": "pending_transfer"}
+{"text": "My card payment was declined at checkout.", "label": "declined_card_payment"}
+{"text": "I need help because the store rejected my card purchase.", "label": "declined_card_payment"}
+{"text": "Could you route this: i could not pay because the card transaction failed.", "label": "declined_card_payment"}
+{"text": "I need to complete identity verification.", "label": "verify_my_identity"}
+{"text": "I need help because where do I upload documents to prove who I am?", "label": "verify_my_identity"}
+{"text": "Could you route this: the app asks me to verify my identity.", "label": "verify_my_identity"}
+{"text": "My card top up is still pending.", "label": "pending_top_up_by_bank_card"}
+{"text": "I need help because adding money by bank card has not completed.", "label": "pending_top_up_by_bank_card"}
+{"text": "Could you route this: the top up from my debit card is stuck processing.", "label": "pending_top_up_by_bank_card"}
+{"text": "My card was stolen and needs to be blocked.", "label": "lost_or_stolen_card"}
+{"text": "I need help because i lost the physical card today.", "label": "lost_or_stolen_card"}
+{"text": "Could you route this: someone took my wallet with the bank card inside.", "label": "lost_or_stolen_card"}
+{"text": "The refund was issued but is not visible in my account.", "label": "Refund_not_showing_up"}
+{"text": "I need help because a merchant says they refunded me but I do not see the money.", "label": "Refund_not_showing_up"}
+{"text": "Could you route this: my returned purchase credit has not appeared.", "label": "Refund_not_showing_up"}
+{"text": "I want to request a refund for a purchase.", "label": "request_refund"}
+{"text": "I need help because how do I ask for my money back from a merchant?", "label": "request_refund"}
+{"text": "Could you route this: please help me start a refund.", "label": "request_refund"}
+{"text": "There is a card purchase I do not recognize.", "label": "card_payment_not_recognised"}
+{"text": "I need help because a merchant charged my card and I did not make that transaction.", "label": "card_payment_not_recognised"}
+{"text": "Could you route this: i see an unfamiliar card payment on my statement.", "label": "card_payment_not_recognised"}
+{"text": "There is an ATM withdrawal I did not make.", "label": "cash_withdrawal_not_recognised"}
+{"text": "I need help because cash was taken from my account at a machine I never used.", "label": "cash_withdrawal_not_recognised"}
+{"text": "Could you route this: i do not recognize this cash withdrawal.", "label": "cash_withdrawal_not_recognised"}

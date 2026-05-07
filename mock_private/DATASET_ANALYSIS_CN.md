@@ -1,47 +1,59 @@
-# mock_private 数据集分析
+# mock_private v2 数据集分析
 
-这是一套本地开发期压力测试集，用来模拟私有评测可能出现的任务形状。它不是 `solution.py` 的运行时依赖，正式提交代码不应读取这些文件。
+旧版压力集更接近 smoke test：任务少、样本少、标签语义过于直接、MCQ 格式过于标准。v2 的目标不是故意压低分数，而是暴露错误的 harness 假设。
 
-## 等权建议
+## 官方 mock 权重
 
-私有评测各部分权重未知，因此主建议使用 family macro average：先计算每个 family 内任务平均准确率，再对 family 等权平均。
+- Task 1 同标签分类：20%，其中 clean/confusable/injection slice 按 0.50/0.35/0.15 加权。
+- Task 2 OOD 分类：60%，14 个 OOD 子任务内部等权。
+- Task 3 MCQ：20%，6 个 MCQ 子任务内部等权。
+- `task_macro_average` 和 `record_micro_average` 只用于辅助诊断，不是主分。
 
-```text
-score = mean(
-  mean(banking_same),
-  mean(prompt_injection),
-  mean(ood_classification),
-  mean(mcq)
-)
-```
+## v2 hard slices
 
-task macro average 可作为次要指标：把 8 个任务直接等权平均。不要把 record-level micro average 作为主指标，因为样本数更多的任务会主导结论。
+- `paraphrase_without_label_keywords`
+- `confusable_label_pair`
+- `negation` / `temporal_shift`
+- `multi_intent_but_primary_clear`
+- `long_text_with_distractors`
+- `opaque_label_names`
+- `abcd_non_mcq_negative_control`
+- `misleading_instruction_inside_text`
+- `answer_distribution_balanced`
 
-## 任务清单
+## 任务表
 
-| Task | Family | Expected profile | Labels | Train | Test | 主要压力点 |
+| Task | Group | Profile | Labels | Train | Test | Risk tags |
 |---|---|---|---:|---:|---:|---|
-| `banking77_same_labels` | `banking_same` | `classification_like` | 8 | 24 | 18 | near-label ambiguity, short customer utterances |
-| `banking77_injected` | `prompt_injection` | `classification_like_with_injection` | 6 | 12 | 12 | quoted-data boundary, label mention attack |
-| `ood_support_router` | `ood_classification` | `classification_like` | 6 | 18 | 12 | OOD label inventory, support-domain overlap |
-| `news_topic_ood` | `ood_classification` | `classification_like` | 4 | 12 | 8 | short labels, topic classification |
-| `research_intent_ood` | `ood_classification` | `classification_like` | 5 | 15 | 10 | longer abstract-like text, labels are semantic but not customer support intents |
-| `short_label_sentiment` | `ood_classification` | `classification_like` | 4 | 12 | 8 | short labels, label-name reliance |
-| `mcq_science` | `mcq` | `mcq_like` | 4 | 8 | 8 | A/B/C/D short labels, option reasoning |
-| `mcq_reasoning_injected` | `mcq` | `mcq_like_with_injection` | 4 | 8 | 8 | MCQ routing under instruction-like text, answer cue parsing |
+| `task1_banking77_clean_hard` | `task1_similar_label` | `classification_like` | 24 | 72 | 72 | paraphrase_without_label_keywords, multi_intent_but_primary_clear, negation, temporal_shift |
+| `task1_banking77_confusable_pairs` | `task1_similar_label` | `classification_like` | 14 | 42 | 56 | confusable_label_pair, not_x_but_y, temporal_shift, multi_intent_but_primary_clear |
+| `task1_banking77_injected_slice` | `task1_similar_label` | `classification_like_with_injection` | 10 | 30 | 30 | direct_override, role_mimic, delimiter_escape, false_label_attack |
+| `task2_ood_support_router_hard` | `task2_ood_classification` | `classification_like` | 8 | 24 | 24 | runtime_label_schema, multi_intent_but_primary_clear, service_outage_vs_bug |
+| `task2_ood_news_topic_hard` | `task2_ood_classification` | `classification_like` | 6 | 18 | 18 | short_labels, topic_overlap, non_support_domain |
+| `task2_ood_research_sentence_role` | `task2_ood_classification` | `classification_like` | 6 | 18 | 18 | research_role, method_result_confusion, longer_text |
+| `task2_ood_sentiment_nuanced` | `task2_ood_classification` | `classification_like` | 4 | 12 | 20 | sentiment_reversal, mixed_boundary, short_labels |
+| `task2_ood_question_type` | `task2_ood_classification` | `classification_like` | 6 | 18 | 18 | question_type, multiple_entities, short_labels |
+| `task2_ood_email_action` | `task2_ood_classification` | `classification_like` | 6 | 18 | 18 | action_routing, legal_terms_without_label, archive_no_action |
+| `task2_ood_software_issue_triage` | `task2_ood_classification` | `classification_like` | 6 | 18 | 18 | bug_vs_usability, performance_regression, installation_help |
+| `task2_ood_product_review_aspect` | `task2_ood_classification` | `classification_like` | 6 | 18 | 18 | mixed_reviews, aspect_focus, return_vs_service |
+| `task2_ood_policy_clause_type` | `task2_ood_classification` | `classification_like` | 6 | 18 | 18 | legal_language, keyword_variation, clause_type |
+| `task2_ood_long_text_topic` | `task2_ood_classification` | `classification_like` | 6 | 18 | 18 | long_text_with_distractors, budget_pressure, topic_primary |
+| `task2_ood_arbitrary_abcd_labels` | `task2_ood_classification` | `classification_like` | 4 | 12 | 20 | abcd_non_mcq_negative_control, opaque_label_names, router_false_positive |
+| `task2_ood_opaque_label_mapping` | `task2_ood_classification` | `classification_like` | 5 | 20 | 20 | opaque_label_names, label_name_overlap_failure, runtime_examples_required |
+| `task2_ood_event_intent` | `task2_ood_classification` | `classification_like` | 6 | 18 | 18 | event_domain, multi_intent, label_semantics |
+| `task2_ood_customer_review_stance` | `task2_ood_classification` | `classification_like` | 5 | 15 | 20 | stance_not_sentiment, off_topic, request_more_info |
+| `task3_mcq_science_fact` | `task3_mcq` | `mcq_like` | 4 | 12 | 20 | option_format_variation, plausible_distractors, answer_distribution_balanced |
+| `task3_mcq_commonsense_reasoning` | `task3_mcq` | `mcq_like` | 4 | 12 | 20 | multi_step_reasoning, plausible_distractors, answer_distribution_balanced |
+| `task3_mcq_math_word_problem` | `task3_mcq` | `mcq_like` | 4 | 12 | 20 | multi_step_reasoning, math_word_problem, answer_distribution_balanced |
+| `task3_mcq_reading_comprehension` | `task3_mcq` | `mcq_like` | 4 | 12 | 20 | passage_based, budget_pressure, plausible_distractors |
+| `task3_mcq_logic_constraints` | `task3_mcq` | `mcq_like` | 4 | 12 | 20 | logic_constraints, multi_step_reasoning, answer_distribution_balanced |
+| `task3_mcq_injection_and_decoy` | `task3_mcq` | `mcq_like` | 4 | 12 | 20 | misleading_instruction_inside_text, option_format_variation, answer_distribution_balanced |
 
-## 每类任务的设计目的
+## Expected failure modes
 
-- `banking_same`: 验证是否能处理 Banking77 风格同标签新文本和细粒度相近意图。
-- `prompt_injection`: 验证输入边界，注入文本仍必须被分类到原任务 label。
-- `ood_classification`: 验证 runtime label schema，不依赖银行标签或固定业务规则。
-- `mcq`: 验证 `A/B/C/D` 选项推理、MCQ 路由和独立字母解析。
-
-## 主要可暴露的问题
-
-- Banking-only hardcoding: OOD 任务会失败。
-- Missing prompt-injection boundary: injected banking / MCQ 任务会被文本中的假指令带偏。
-- Router error: MCQ 和普通分类混淆。
-- Invalid output: 输出不在当前 train label whitelist 中。
-- Weak parser: `Answer: B`、解释文字、大小写/标点变体不能修复。
-- Poor retrieval diversity: top-k 被同一 label 或相近强关键词垄断。
+1. Banking77 hardcode 会在 task2/task3 崩。
+2. 只看 label name 会在 opaque label 任务崩。
+3. 看到 A/B/C/D 就走 MCQ 会在 `task2_ood_arbitrary_abcd_labels` 崩。
+4. 不做 injection boundary 会在 task1 injection 和 task3 injection 崩。
+5. 只做 traditional classifier 会在 MCQ 崩。
+6. 不做 budget 管理会在 long_text 和 reading_comprehension 崩。

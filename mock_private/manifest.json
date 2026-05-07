@@ -1,213 +1,528 @@
 {
-  "name": "mock_private",
-  "purpose": "Local stress suite for HarnessE meta-classification design.",
-  "format": {
-    "train": "jsonl records with text,label",
-    "test": "jsonl records with text,label for local scoring only"
+  "version": "mock_private_v2",
+  "seed": 202601,
+  "official_weights": {
+    "task1_similar_label": 0.2,
+    "task2_ood_classification": 0.6,
+    "task3_mcq": 0.2
   },
-  "primary_metric": "family_macro_average",
-  "secondary_metric": "task_macro_average",
-  "families": {
-    "banking_same": 1,
-    "mcq": 2,
-    "ood_classification": 4,
-    "prompt_injection": 1
+  "task1_internal_weights": {
+    "task1_banking77_clean_hard": 0.5,
+    "task1_banking77_confusable_pairs": 0.35,
+    "task1_banking77_injected_slice": 0.15
   },
-  "family_macro_formula": "Average accuracy within each family, then average families equally.",
-  "task_macro_formula": "Average accuracy across all tasks equally.",
-  "runtime_rule": "These files are local development assets. Final solution.py must not read them.",
+  "task2_weighting": "equal_subtask_macro",
+  "task3_weighting": "equal_subtask_macro",
+  "primary_metric": "official_mock_score",
+  "auxiliary_metrics": [
+    "task_macro_average",
+    "record_micro_average"
+  ],
+  "runtime_rule": "mock_private is local validation data. solution.py must not read or depend on it.",
   "tasks": [
     {
-      "id": "banking77_same_labels",
-      "family": "banking_same",
-      "expected_profile": "classification_like",
+      "task_id": "task1_banking77_clean_hard",
+      "group": "task1_similar_label",
+      "profile": "classification_like",
       "labels": [
-        "Refund_not_showing_up",
+        "activate_my_card",
         "card_arrival",
         "card_delivery_estimate",
-        "declined_cash_withdrawal",
-        "declined_transfer",
+        "cash_withdrawal_card",
+        "cash_withdrawal_charge",
+        "cash_withdrawal_cardless",
+        "cash_withdrawal_pending",
+        "wrong_amount_of_cash_received",
+        "card_payment_not_recognised",
         "pending_card_payment",
         "pending_transfer",
-        "request_refund"
+        "transfer_not_received_by_recipient",
+        "beneficiary_not_verified",
+        "verify_my_identity",
+        "why_verify_identity",
+        "cash_withdrawal_not_recognised",
+        "request_refund",
+        "Refund_not_showing_up",
+        "reverted_card_payment?",
+        "declined_card_payment",
+        "declined_bank_transfer",
+        "edit_personal_details",
+        "lost_or_stolen_card",
+        "lost_or_stolen_phone"
       ],
-      "label_count": 8,
-      "train_records": 24,
-      "test_records": 18,
-      "stress": [
-        "near-label ambiguity",
-        "short customer utterances",
-        "case-sensitive and punctuation-sensitive labels",
-        "retrieval candidate recall"
+      "num_train": 72,
+      "num_test": 72,
+      "risk_tags": [
+        "paraphrase_without_label_keywords",
+        "multi_intent_but_primary_clear",
+        "negation",
+        "temporal_shift",
+        "case_sensitive_label"
       ],
-      "task_macro_weight": 0.125,
-      "family_macro_weight": 0.25,
-      "within_family_weight": 1.0
+      "description": "Banking77-style same-label classification with broader labels and harder paraphrases."
     },
     {
-      "id": "banking77_injected",
-      "family": "prompt_injection",
-      "expected_profile": "classification_like_with_injection",
+      "task_id": "task1_banking77_confusable_pairs",
+      "group": "task1_similar_label",
+      "profile": "classification_like",
       "labels": [
         "card_arrival",
-        "declined_card_payment",
-        "lost_or_stolen_card",
+        "card_delivery_estimate",
         "pending_transfer",
-        "top_up_failed",
-        "verify_my_identity"
+        "transfer_not_received_by_recipient",
+        "pending_card_payment",
+        "card_payment_not_recognised",
+        "request_refund",
+        "Refund_not_showing_up",
+        "reverted_card_payment?",
+        "cash_withdrawal_card",
+        "cash_withdrawal_charge",
+        "wrong_amount_of_cash_received",
+        "verify_my_identity",
+        "why_verify_identity"
       ],
-      "label_count": 6,
-      "train_records": 12,
-      "test_records": 12,
-      "stress": [
-        "quoted-data boundary",
-        "label mention attack",
-        "instruction-like user text",
-        "whitelist verifier"
+      "num_train": 42,
+      "num_test": 56,
+      "risk_tags": [
+        "confusable_label_pair",
+        "not_x_but_y",
+        "temporal_shift",
+        "multi_intent_but_primary_clear"
       ],
-      "task_macro_weight": 0.125,
-      "family_macro_weight": 0.25,
-      "within_family_weight": 1.0
+      "description": "Banking77-style slice built around high-confusion label pairs and clusters."
     },
     {
-      "id": "ood_support_router",
-      "family": "ood_classification",
-      "expected_profile": "classification_like",
+      "task_id": "task1_banking77_injected_slice",
+      "group": "task1_similar_label",
+      "profile": "classification_like_with_injection",
       "labels": [
-        "billing_question",
+        "card_arrival",
+        "pending_transfer",
+        "declined_card_payment",
+        "verify_my_identity",
+        "pending_top_up_by_bank_card",
+        "lost_or_stolen_card",
+        "Refund_not_showing_up",
+        "request_refund",
+        "card_payment_not_recognised",
+        "cash_withdrawal_not_recognised"
+      ],
+      "num_train": 30,
+      "num_test": 30,
+      "risk_tags": [
+        "direct_override",
+        "role_mimic",
+        "delimiter_escape",
+        "false_label_attack",
+        "json_format_attack",
+        "choice_answer_attack",
+        "benign_injection_keyword_control"
+      ],
+      "description": "Small injected slice inside task1: injected text remains data and must still map to a banking label."
+    },
+    {
+      "task_id": "task2_ood_support_router_hard",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "account_access",
+        "billing_dispute",
+        "technical_bug",
         "feature_request",
-        "login_problem",
-        "product_return",
-        "shipping_status",
-        "technical_bug"
+        "security_risk",
+        "cancellation",
+        "data_export",
+        "service_outage"
       ],
-      "label_count": 6,
-      "train_records": 18,
-      "test_records": 12,
-      "stress": [
-        "OOD label inventory",
-        "support-domain overlap",
-        "label name semantics",
-        "few-shot adaptation"
+      "num_train": 24,
+      "num_test": 24,
+      "risk_tags": [
+        "runtime_label_schema",
+        "multi_intent_but_primary_clear",
+        "service_outage_vs_bug"
       ],
-      "task_macro_weight": 0.125,
-      "family_macro_weight": 0.25,
-      "within_family_weight": 0.25
+      "description": "Non-banking SaaS and IT support routing with overlapping support language."
     },
     {
-      "id": "news_topic_ood",
-      "family": "ood_classification",
-      "expected_profile": "classification_like",
+      "task_id": "task2_ood_news_topic_hard",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
       "labels": [
-        "business",
-        "sports",
-        "technology",
-        "world"
+        "world_affairs",
+        "business_markets",
+        "science_technology",
+        "health_medicine",
+        "climate_energy",
+        "sports_competition"
       ],
-      "label_count": 4,
-      "train_records": 12,
-      "test_records": 8,
-      "stress": [
-        "short labels",
-        "topic classification",
-        "non-support domain",
-        "lexical overlap across economy and technology"
+      "num_train": 18,
+      "num_test": 18,
+      "risk_tags": [
+        "short_labels",
+        "topic_overlap",
+        "non_support_domain"
       ],
-      "task_macro_weight": 0.125,
-      "family_macro_weight": 0.25,
-      "within_family_weight": 0.25
+      "description": "News summary topic classification with cross-topic distractors."
     },
     {
-      "id": "research_intent_ood",
-      "family": "ood_classification",
-      "expected_profile": "classification_like",
+      "task_id": "task2_ood_research_sentence_role",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
       "labels": [
-        "definition_request",
-        "future_work",
-        "limitation_critique",
-        "method_question",
-        "result_interpretation"
+        "background",
+        "objective",
+        "method",
+        "result",
+        "limitation",
+        "future_work"
       ],
-      "label_count": 5,
-      "train_records": 15,
-      "test_records": 10,
-      "stress": [
-        "longer abstract-like text",
-        "labels are semantic but not customer support intents",
-        "method vs result vs limitation confusion"
+      "num_train": 18,
+      "num_test": 18,
+      "risk_tags": [
+        "research_role",
+        "method_result_confusion",
+        "longer_text"
       ],
-      "task_macro_weight": 0.125,
-      "family_macro_weight": 0.25,
-      "within_family_weight": 0.25
+      "description": "Research sentence role classification with close method/result/background boundaries."
     },
     {
-      "id": "short_label_sentiment",
-      "family": "ood_classification",
-      "expected_profile": "classification_like",
+      "task_id": "task2_ood_sentiment_nuanced",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
       "labels": [
-        "mixed",
+        "positive",
         "negative",
-        "neutral",
-        "positive"
+        "mixed",
+        "neutral"
       ],
-      "label_count": 4,
-      "train_records": 12,
-      "test_records": 8,
-      "stress": [
-        "short labels",
-        "label-name reliance",
-        "ambiguous sentiment",
-        "mixed class handling"
+      "num_train": 12,
+      "num_test": 20,
+      "risk_tags": [
+        "sentiment_reversal",
+        "mixed_boundary",
+        "short_labels"
       ],
-      "task_macro_weight": 0.125,
-      "family_macro_weight": 0.25,
-      "within_family_weight": 0.25
+      "description": "Nuanced sentiment classification with mixed and neutral statements."
     },
     {
-      "id": "mcq_science",
-      "family": "mcq",
-      "expected_profile": "mcq_like",
+      "task_id": "task2_ood_question_type",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "definition",
+        "entity",
+        "location",
+        "number",
+        "procedure",
+        "comparison"
+      ],
+      "num_train": 18,
+      "num_test": 18,
+      "risk_tags": [
+        "question_type",
+        "multiple_entities",
+        "short_labels"
+      ],
+      "description": "Natural-language question type classification."
+    },
+    {
+      "task_id": "task2_ood_email_action",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "reply_with_info",
+        "schedule_meeting",
+        "request_approval",
+        "forward_to_legal",
+        "archive_no_action",
+        "escalate_manager"
+      ],
+      "num_train": 18,
+      "num_test": 18,
+      "risk_tags": [
+        "action_routing",
+        "legal_terms_without_label",
+        "archive_no_action"
+      ],
+      "description": "Work-email action routing from summaries and short messages."
+    },
+    {
+      "task_id": "task2_ood_software_issue_triage",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "bug_report",
+        "feature_request",
+        "documentation",
+        "installation_help",
+        "performance_regression",
+        "usability_feedback"
+      ],
+      "num_train": 18,
+      "num_test": 18,
+      "risk_tags": [
+        "bug_vs_usability",
+        "performance_regression",
+        "installation_help"
+      ],
+      "description": "Software issue triage for repository-style reports."
+    },
+    {
+      "task_id": "task2_ood_product_review_aspect",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "shipping_delivery",
+        "product_quality",
+        "price_value",
+        "usability",
+        "customer_service",
+        "return_refund"
+      ],
+      "num_train": 18,
+      "num_test": 18,
+      "risk_tags": [
+        "mixed_reviews",
+        "aspect_focus",
+        "return_vs_service"
+      ],
+      "description": "Product review aspect classification."
+    },
+    {
+      "task_id": "task2_ood_policy_clause_type",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "permission",
+        "prohibition",
+        "obligation",
+        "exception",
+        "definition",
+        "penalty"
+      ],
+      "num_train": 18,
+      "num_test": 18,
+      "risk_tags": [
+        "legal_language",
+        "keyword_variation",
+        "clause_type"
+      ],
+      "description": "Policy and contract clause type classification."
+    },
+    {
+      "task_id": "task2_ood_long_text_topic",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "education",
+        "environment",
+        "technology",
+        "public_health",
+        "finance",
+        "culture"
+      ],
+      "num_train": 18,
+      "num_test": 18,
+      "risk_tags": [
+        "long_text_with_distractors",
+        "budget_pressure",
+        "topic_primary"
+      ],
+      "description": "Long paragraph topic classification with distractors."
+    },
+    {
+      "task_id": "task2_ood_arbitrary_abcd_labels",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
       "labels": [
         "A",
         "B",
         "C",
         "D"
       ],
-      "label_count": 4,
-      "train_records": 8,
-      "test_records": 8,
-      "stress": [
-        "A/B/C/D short labels",
-        "option reasoning",
-        "independent letter parsing",
-        "avoid label-name semantic assumptions"
+      "num_train": 12,
+      "num_test": 20,
+      "risk_tags": [
+        "abcd_non_mcq_negative_control",
+        "opaque_label_names",
+        "router_false_positive"
       ],
-      "task_macro_weight": 0.125,
-      "family_macro_weight": 0.25,
-      "within_family_weight": 0.5
+      "description": "A/B/C/D are ordinary class IDs, not multiple-choice options."
     },
     {
-      "id": "mcq_reasoning_injected",
-      "family": "mcq",
-      "expected_profile": "mcq_like_with_injection",
+      "task_id": "task2_ood_opaque_label_mapping",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "alpha",
+        "beta",
+        "gamma",
+        "delta",
+        "epsilon"
+      ],
+      "num_train": 20,
+      "num_test": 20,
+      "risk_tags": [
+        "opaque_label_names",
+        "label_name_overlap_failure",
+        "runtime_examples_required"
+      ],
+      "description": "Opaque label mapping where labels reveal no semantics."
+    },
+    {
+      "task_id": "task2_ood_event_intent",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "registration",
+        "speaker_request",
+        "venue_logistics",
+        "sponsorship",
+        "agenda_change",
+        "attendee_support"
+      ],
+      "num_train": 18,
+      "num_test": 18,
+      "risk_tags": [
+        "event_domain",
+        "multi_intent",
+        "label_semantics"
+      ],
+      "description": "Event and conference request intent classification."
+    },
+    {
+      "task_id": "task2_ood_customer_review_stance",
+      "group": "task2_ood_classification",
+      "profile": "classification_like",
+      "labels": [
+        "supportive",
+        "opposed",
+        "uncertain",
+        "request_more_info",
+        "off_topic"
+      ],
+      "num_train": 15,
+      "num_test": 20,
+      "risk_tags": [
+        "stance_not_sentiment",
+        "off_topic",
+        "request_more_info"
+      ],
+      "description": "Stance classification toward a product or policy."
+    },
+    {
+      "task_id": "task3_mcq_science_fact",
+      "group": "task3_mcq",
+      "profile": "mcq_like",
       "labels": [
         "A",
         "B",
         "C",
         "D"
       ],
-      "label_count": 4,
-      "train_records": 8,
-      "test_records": 8,
-      "stress": [
-        "MCQ routing under instruction-like text",
-        "answer cue parsing",
-        "multi-sentence reasoning",
-        "prompt injection inside question body"
+      "num_train": 12,
+      "num_test": 20,
+      "risk_tags": [
+        "option_format_variation",
+        "plausible_distractors",
+        "answer_distribution_balanced"
       ],
-      "task_macro_weight": 0.125,
-      "family_macro_weight": 0.25,
-      "within_family_weight": 0.5
+      "description": "Science fact MCQ with plausible distractors."
+    },
+    {
+      "task_id": "task3_mcq_commonsense_reasoning",
+      "group": "task3_mcq",
+      "profile": "mcq_like",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "num_train": 12,
+      "num_test": 20,
+      "risk_tags": [
+        "multi_step_reasoning",
+        "plausible_distractors",
+        "answer_distribution_balanced"
+      ],
+      "description": "Commonsense reasoning MCQ where scenes must be interpreted."
+    },
+    {
+      "task_id": "task3_mcq_math_word_problem",
+      "group": "task3_mcq",
+      "profile": "mcq_like",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "num_train": 12,
+      "num_test": 20,
+      "risk_tags": [
+        "multi_step_reasoning",
+        "math_word_problem",
+        "answer_distribution_balanced"
+      ],
+      "description": "Arithmetic word-problem MCQ with units and distractors."
+    },
+    {
+      "task_id": "task3_mcq_reading_comprehension",
+      "group": "task3_mcq",
+      "profile": "mcq_like",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "num_train": 12,
+      "num_test": 20,
+      "risk_tags": [
+        "passage_based",
+        "budget_pressure",
+        "plausible_distractors"
+      ],
+      "description": "Passage-based MCQ with longer contexts."
+    },
+    {
+      "task_id": "task3_mcq_logic_constraints",
+      "group": "task3_mcq",
+      "profile": "mcq_like",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "num_train": 12,
+      "num_test": 20,
+      "risk_tags": [
+        "logic_constraints",
+        "multi_step_reasoning",
+        "answer_distribution_balanced"
+      ],
+      "description": "Logic and ordering MCQ."
+    },
+    {
+      "task_id": "task3_mcq_injection_and_decoy",
+      "group": "task3_mcq",
+      "profile": "mcq_like",
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "num_train": 12,
+      "num_test": 20,
+      "risk_tags": [
+        "misleading_instruction_inside_text",
+        "option_format_variation",
+        "answer_distribution_balanced"
+      ],
+      "description": "MCQ with misleading instructions inside the question text."
     }
   ]
 }

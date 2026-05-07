@@ -1,0 +1,18 @@
+{"text": "Prior work has explored retrieval methods for short questions.", "label": "background"}
+{"text": "I need help because many benchmarks focus on accuracy while ignoring deployment cost.", "label": "background"}
+{"text": "Could you route this: small models often struggle when labels are abstract.", "label": "background"}
+{"text": "This study asks whether a lightweight harness can generalize across tasks.", "label": "objective"}
+{"text": "I need help because we aim to evaluate robustness under unseen label schemas.", "label": "objective"}
+{"text": "Could you route this: the goal is to compare retrieval-only and LLM-assisted classification.", "label": "objective"}
+{"text": "We construct an index over training examples using character and word features.", "label": "method"}
+{"text": "I need help because the system retrieves candidate labels before building a compact prompt.", "label": "method"}
+{"text": "Could you route this: each prediction is parsed through a whitelist verifier.", "label": "method"}
+{"text": "The candidate retriever placed the correct label in the top twenty for most samples.", "label": "result"}
+{"text": "I need help because adding a verifier reduced invalid label outputs in the evaluation.", "label": "result"}
+{"text": "Could you route this: the MCQ router improved option-label tasks without hurting normal classification.", "label": "result"}
+{"text": "The synthetic data does not represent every private test distribution.", "label": "limitation"}
+{"text": "I need help because the approach assumes all test labels appear in the training stream.", "label": "limitation"}
+{"text": "Could you route this: the router may misclassify unusual A/B/C/D tasks without option markers.", "label": "limitation"}
+{"text": "A future experiment should test multilingual tasks with opaque labels.", "label": "future_work"}
+{"text": "I need help because the next step is to compare different candidate counts under the same budget.", "label": "future_work"}
+{"text": "Could you route this: additional stress tests could vary the amount of prompt injection.", "label": "future_work"}

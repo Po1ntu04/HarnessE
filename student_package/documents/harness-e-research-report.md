@@ -270,7 +270,7 @@ label 名称在 DEV 上有较强语义，平均约 80% 样本会出现 label tok
 | B | SentenceTransformer / SetFit / DistilBERT / LoRA | 这些可能是强 baseline，但违反当前依赖和提交边界 | 只作为报告中的外部参照；不进入正式方案 |
 | B | NLI zero-shot classifier | 思路可用，但本题没有 NLI 模型；可由 LLM prompt 近似 | 不单独实现 NLI，只在 prompt 中让 LLM 基于 examples/labels 判断 |
 | C | 二次询问修复非法输出 | 可能提高单例格式，但增加成本和超时风险 | 默认不用二次 LLM；本地 parser 和 retrieval fallback 优先 |
-| A | `mock_private` 多数据集压力测试 | 它本来就是开发期验证资产，不应成为 `solution.py` 的运行时依赖 | 已构造在 `mock_private/`；用于 family-macro / task-macro 压力评估 |
+| A | `mock_private` 多数据集压力测试 | 它本来就是开发期验证资产，不应成为 `solution.py` 的运行时依赖 | 已构造 v2；用于 20/60/20 官方权重、task macro、record micro 的分层诊断 |
 
 经过筛选后，当前最稳妥的方案是：
 
@@ -565,37 +565,45 @@ mcq_parse_error: A/B/C/D 输出解析不唯一或被解释文本干扰
 
 `mock_private/` 是开发期验证资产，不是运行时依赖。它的作用是模拟私有集形状，逼迫方案验证三件事：runtime label schema、input-as-data 边界、classification/MCQ 路由。
 
-私有评测各部分权重未知，因此不建议用 record-level micro average。主建议采用 **family macro average**：
+官方后续说明已经确认三类任务权重，因此 `mock_private` v2 不再使用旧版 family 平均作为主分。主评分应与正式任务结构对齐：
 
 ```text
-score = mean(
-  mean(banking_same),
-  mean(prompt_injection),
-  mean(ood_classification),
-  mean(mcq)
-)
+task1_score = 0.50 * task1_banking77_clean_hard
+            + 0.35 * task1_banking77_confusable_pairs
+            + 0.15 * task1_banking77_injected_slice
+
+task2_score = mean(all task2_ood_* subtask accuracies)
+task3_score = mean(all task3_mcq_* subtask accuracies)
+
+official_mock_score = 0.20 * task1_score
+                    + 0.60 * task2_score
+                    + 0.20 * task3_score
 ```
 
-同时记录 task macro average 作为辅助诊断。当前任务清单：
+这改变了方案优先级：Task 1 的 Banking77-like 能力只占 20%，其中 prompt injection 是少量 slice；Task 2 的 OOD 分类占 60%，是主要压力来源；Task 3 的 MCQ 占 20%。因此 SolverRouter 不能以 Banking77 为中心，而应把每次 `update()` 得到的 label set、训练样例、文本形态当作运行时 schema。
 
-| Task | Family | Expected profile | Labels | Train | Test | 主要考察点 |
-|---|---|---|---:|---:|---:|---|
-| `banking77_same_labels` | `banking_same` | `classification_like` | 8 | 24 | 18 | 细粒度银行意图、近邻混淆、大小写 label |
-| `banking77_injected` | `prompt_injection` | `classification_like_with_injection` | 6 | 12 | 12 | 注入文本、假 label 指令、quoted-data 边界 |
-| `ood_support_router` | `ood_classification` | `classification_like` | 6 | 18 | 12 | 非银行客服路由、runtime label inventory |
-| `news_topic_ood` | `ood_classification` | `classification_like` | 4 | 12 | 8 | 新闻主题、短 label、非客服域 |
-| `research_intent_ood` | `ood_classification` | `classification_like` | 5 | 15 | 10 | 学术意图、较长文本、方法/结果/限制混淆 |
-| `short_label_sentiment` | `ood_classification` | `classification_like` | 4 | 12 | 8 | 短标签、情感混合类、label 名称语义依赖 |
-| `mcq_science` | `mcq` | `mcq_like` | 4 | 8 | 8 | A/B/C/D 选项推理、独立字母解析 |
-| `mcq_reasoning_injected` | `mcq` | `mcq_like_with_injection` | 4 | 8 | 8 | MCQ 内部注入、解释文本干扰、router 稳定性 |
+当前 v2 任务设计：
+
+| 组别 | 子任务数 | 典型任务 | 主要风险 |
+|---|---:|---|---|
+| Task 1 同标签分类 | 3 | `task1_banking77_clean_hard`, `task1_banking77_confusable_pairs`, `task1_banking77_injected_slice` | Banking77 相近标签、大小写/问号 label、少量 prompt injection |
+| Task 2 OOD 分类 | 14 | support router, news topic, research role, sentiment, question type, email action, software issue, product aspect, policy clause, long text topic, arbitrary A/B/C/D, opaque label mapping, event intent, stance | 领域迁移、短 label、opaque label、长文本、Router 误判 |
+| Task 3 MCQ | 6 | science fact, commonsense, math word problem, reading comprehension, logic constraints, injection/decoy | 题干理解、选项格式变化、注入式干扰、A/B/C/D 输出解析 |
+
+两个负控任务尤其重要：
+
+- `task2_ood_arbitrary_abcd_labels`：label 是 `A/B/C/D`，但它们只是普通类别编号，文本没有选项结构。它专门捕捉“只要 label set 是 A/B/C/D 就走 MCQSolver”的 Router false positive。
+- `task2_ood_opaque_label_mapping`：label 是 `alpha/beta/gamma/delta/epsilon`，名称不泄露语义，只能从 train examples 学映射。它限制了 label-name overlap bonus，证明 label 名称只能是弱特征，不能成为唯一依据。
 
 配套文件：
 
-- `mock_private/manifest.json`：任务、family、label 数、样本数、建议权重。
-- `mock_private/DATASET_ANALYSIS_CN.md`：中文任务分析和等权说明。
+- `mock_private/manifest.json`：任务、group、label 数、样本数、风险标签和官方 mock 权重。
+- `mock_private/SCORING.md`：20/60/20 主评分公式，task macro 与 record micro 仅作辅助诊断。
+- `mock_private/DATASET_ANALYSIS_CN.md`：中文任务分析、v2 hard slices、失败模式。
 - 每个任务目录下有 `train.jsonl`、`test.jsonl`、`analysis.md`。
-- `scripts/generate_mock_private.py`：可重复生成该压力集。
-- `scripts/audit_mock_private.py`：检查闭集一致性、样本数、label 计数和 family 分组。
+- `scripts/generate_mock_private_v2.py`：标准库、固定种子、可重复生成该压力集。
+- `scripts/audit_mock_private.py`：检查闭集一致性、样本数、label 计数、MCQ 结构和 A/B/C/D 非 MCQ 负控。
+- `scripts/score_mock_results.py`：按官方 mock 权重计算分数。
 
 使用原则：
 
